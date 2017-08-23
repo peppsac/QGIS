@@ -31,6 +31,7 @@ import json
 from qgis.PyQt import uic
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QTableWidgetItem, QComboBox, QLineEdit, QHeaderView, QFileDialog, QMessageBox
+from qgis.PyQt.QtCore import QSettings
 
 from qgis.core import QgsApplication
 
@@ -178,9 +179,15 @@ class BatchPanel(BASE, WIDGET):
 
         return item
 
+    def getLastFolder():
+        settings = QSettings()
+        if settings.contains('/Processing/LastBatchInputPath'):
+            return settings.value('/Processing/LastBatchInputPath')
+        
     def load(self):
         filename = unicode(QFileDialog.getOpenFileName(self,
-                                                       self.tr('Open batch'), None,
+                                                       self.tr('Open batch'),
+                                                       self.getLastFolder(),
                                                        self.tr('JSON files (*.json)')))
         if filename:
             with open(filename) as f:
@@ -287,7 +294,7 @@ class BatchPanel(BASE, WIDGET):
 
         filename = unicode(QFileDialog.getSaveFileName(self,
                                                        self.tr('Save batch'),
-                                                       None,
+                                                       self.getLastFolder(),
                                                        self.tr('JSON files (*.json)')))
         if filename:
             if not filename.endswith('.json'):
