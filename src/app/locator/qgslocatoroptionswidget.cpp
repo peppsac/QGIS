@@ -23,6 +23,7 @@
 #include "qgslocatoroptionswidget.h"
 
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgslocatorwidget.h"
 #include "qgssettings.h"
 
@@ -111,7 +112,7 @@ QWidget *QgsLocatorFiltersModel::configButton( const QModelIndex &index, QWidget
     connect( bt, &QToolButton::clicked, this, [ = ]() {filter->openConfigWidget( bt );} );
     bt->setMaximumSize( mIconSize, mIconSize );
     bt->setSizePolicy( QSizePolicy::Preferred, QSizePolicy::Preferred );
-    bt->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/propertyicons/settings.svg" ) ) );
+    bt->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/propertyicons/settings.svg" ) ) );
     return w;
   }
   else

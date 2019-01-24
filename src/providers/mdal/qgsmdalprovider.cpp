@@ -21,7 +21,7 @@
 #include "qgstriangularmesh.h"
 #include "qgslogger.h"
 #include "qgsmeshmemorydataprovider.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 #ifdef HAVE_GUI
 #include "qgssourceselectprovider.h"
@@ -570,7 +570,7 @@ class QgsMdalMeshSourceSelectProvider : public QgsSourceSelectProvider
     QString providerKey() const override { return QStringLiteral( "mdal" ); }
     QString text() const override { return QObject::tr( "Mesh" ); }
     int ordering() const override { return QgsSourceSelectProvider::OrderLocalProvider + 22; }
-    QIcon icon() const override { return QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddMeshLayer.svg" ) ); }
+    QIcon icon() const override { return QgsResources::getThemeIcon( QStringLiteral( "/mActionAddMeshLayer.svg" ) ); }
     QgsAbstractDataSourceWidget *createDataSourceWidget( QWidget *parent = nullptr, Qt::WindowFlags fl = Qt::Widget, QgsProviderRegistry::WidgetMode widgetMode = QgsProviderRegistry::WidgetMode::Embedded ) const override
     {
       return new QgsMdalSourceSelect( parent, fl, widgetMode );

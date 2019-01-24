@@ -17,7 +17,7 @@
 #include "qgssourcefieldsproperties.h"
 #include "qgsvectorlayer.h"
 #include "qgsproject.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 QgsSourceFieldsProperties::QgsSourceFieldsProperties( QgsVectorLayer *layer, QWidget *parent )
   : QWidget( parent )
@@ -31,10 +31,10 @@ QgsSourceFieldsProperties::QgsSourceFieldsProperties( QgsVectorLayer *layer, QWi
   layout()->setMargin( 0 );
 
   //button appearance
-  mAddAttributeButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionNewAttribute.svg" ) ) );
-  mDeleteAttributeButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionDeleteAttribute.svg" ) ) );
-  mToggleEditingButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionToggleEditing.svg" ) ) );
-  mCalculateFieldButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionCalculateField.svg" ) ) );
+  mAddAttributeButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionNewAttribute.svg" ) ) );
+  mDeleteAttributeButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionDeleteAttribute.svg" ) ) );
+  mToggleEditingButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionToggleEditing.svg" ) ) );
+  mCalculateFieldButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionCalculateField.svg" ) ) );
 
   //button signals
   connect( mToggleEditingButton, &QAbstractButton::clicked, this, &QgsSourceFieldsProperties::toggleEditing );
@@ -191,11 +191,11 @@ void QgsSourceFieldsProperties::setRow( int row, int idx, const QgsField &field 
   switch ( mLayer->fields().fieldOrigin( idx ) )
   {
     case QgsFields::OriginExpression:
-      dataItem->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconExpression.svg" ) ) );
+      dataItem->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconExpression.svg" ) ) );
       break;
 
     case QgsFields::OriginJoin:
-      dataItem->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/propertyicons/join.svg" ) ) );
+      dataItem->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/propertyicons/join.svg" ) ) );
       break;
 
     default:
@@ -218,7 +218,7 @@ void QgsSourceFieldsProperties::setRow( int row, int idx, const QgsField &field 
     expressionWidget->setLayout( new QHBoxLayout );
     QToolButton *editExpressionButton = new QToolButton;
     editExpressionButton->setProperty( "Index", idx );
-    editExpressionButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconExpression.svg" ) ) );
+    editExpressionButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconExpression.svg" ) ) );
     connect( editExpressionButton, &QAbstractButton::clicked, this, &QgsSourceFieldsProperties::updateExpression );
     expressionWidget->layout()->setContentsMargins( 0, 0, 0, 0 );
     expressionWidget->layout()->addWidget( editExpressionButton );

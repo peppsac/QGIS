@@ -14,7 +14,7 @@
  ***************************************************************************/
 
 #include "qgsuserprofile.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgssqliteutils.h"
 
 #include <QDir>
@@ -129,7 +129,7 @@ const QIcon QgsUserProfile::icon() const
   QString path = mProfileFolder + QDir::separator() + "icon.svg";
   if ( !QDir( path ).exists() )
   {
-    return QgsApplication::getThemeIcon( "user.svg" );
+    return QgsResources::getThemeIcon( "user.svg" );
   }
   return QIcon( path );
 }

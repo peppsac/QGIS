@@ -13,7 +13,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsactionmanager.h"
 #include "qgsattributetablemodel.h"
 #include "qgsdualview.h"
@@ -52,7 +52,7 @@ QgsDualView::QgsDualView( QWidget *parent )
   mActionPreviewColumnsMenu->setMenu( mPreviewColumnsMenu );
 
   // Set preview icon
-  mActionExpressionPreview->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconExpressionPreview.svg" ) ) );
+  mActionExpressionPreview->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconExpressionPreview.svg" ) ) );
 
   // Connect layer list preview signals
   connect( mActionExpressionPreview, &QAction::triggered, this, &QgsDualView::previewExpressionBuilder );
@@ -156,7 +156,7 @@ void QgsDualView::columnBoxInit()
     }
   }
 
-  QAction *sortByPreviewExpression = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "sort.svg" ) ), tr( "Sort by preview expression" ), this );
+  QAction *sortByPreviewExpression = new QAction( QgsResources::getThemeIcon( QStringLiteral( "sort.svg" ) ), tr( "Sort by preview expression" ), this );
   connect( sortByPreviewExpression, &QAction::triggered, this, &QgsDualView::sortByPreviewExpression );
   mFeatureListPreviewButton->addAction( sortByPreviewExpression );
 
@@ -371,7 +371,7 @@ void QgsDualView::insertRecentlyUsedDisplayExpression( const QString &expression
   }
 
   QString name = expression;
-  QIcon icon = QgsApplication::getThemeIcon( QStringLiteral( "/mIconExpressionPreview.svg" ) );
+  QIcon icon = QgsResources::getThemeIcon( QStringLiteral( "/mIconExpressionPreview.svg" ) );
   if ( expression.startsWith( QLatin1String( "COALESCE( \"" ) ) && expression.endsWith( QLatin1String( ", '<NULL>' )" ) ) )
   {
     name = expression.mid( 11, expression.length() - 24 ); // Numbers calculated from the COALESCE / <NULL> parts

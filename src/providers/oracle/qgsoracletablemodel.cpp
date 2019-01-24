@@ -224,22 +224,22 @@ QIcon QgsOracleTableModel::iconForWkbType( QgsWkbTypes::Type type )
   switch ( QgsWkbTypes::geometryType( type ) )
   {
     case QgsWkbTypes::PointGeometry:
-      return QgsApplication::getThemeIcon( "/mIconPointLayer.svg" );
+      return QgsResources::getThemeIcon( "/mIconPointLayer.svg" );
 
     case QgsWkbTypes::LineGeometry:
-      return QgsApplication::getThemeIcon( "/mIconLineLayer.svg" );
+      return QgsResources::getThemeIcon( "/mIconLineLayer.svg" );
 
     case QgsWkbTypes::PolygonGeometry:
-      return QgsApplication::getThemeIcon( "/mIconPolygonLayer.svg" );
+      return QgsResources::getThemeIcon( "/mIconPolygonLayer.svg" );
 
     case QgsWkbTypes::UnknownGeometry:
-      return QgsApplication::getThemeIcon( "/mIconLayer.png" );
+      return QgsResources::getThemeIcon( "/mIconLayer.png" );
 
     case QgsWkbTypes::NullGeometry:
-      return QgsApplication::getThemeIcon( "/mIconTableLayer.svg" );
+      return QgsResources::getThemeIcon( "/mIconTableLayer.svg" );
 
   }
-  return QgsApplication::getThemeIcon( "/mIconTableLayer.png" );
+  return QgsResources::getThemeIcon( "/mIconTableLayer.png" );
 }
 
 bool QgsOracleTableModel::setData( const QModelIndex &idx, const QVariant &value, int role )

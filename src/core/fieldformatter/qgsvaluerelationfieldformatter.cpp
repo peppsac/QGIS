@@ -20,6 +20,7 @@
 #include "qgsvectorlayer.h"
 #include "qgsexpressionnodeimpl.h"
 #include "qgsapplication.h"
+#include "qgsexpressionfunction.h"
 
 #include <QSettings>
 

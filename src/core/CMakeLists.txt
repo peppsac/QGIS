@@ -104,6 +104,7 @@ SET(QGIS_CORE_SRCS
   expression/qgsexpressionnode.cpp
   expression/qgsexpressionnodeimpl.cpp
   expression/qgsexpressionfunction.cpp
+  expression/qgsscopedexpressionfunction.cpp
   expression/qgsexpressionutils.cpp
 
   locator/qgslocator.cpp
@@ -142,6 +143,7 @@ SET(QGIS_CORE_SRCS
   qgis.cpp
   qgsabstractcontentcache.cpp
   qgsapplication.cpp
+  qgsresources.cpp
   qgsaction.cpp
   qgsactionscope.cpp
   qgsactionscoperegistry.cpp
@@ -598,6 +600,7 @@ ENDIF(NOT MSVC)
 SET(QGIS_CORE_MOC_HDRS
   qgsabstractcontentcache.h
   qgsapplication.h
+  qgsresources.h
   qgsactionmanager.h
   qgsactionscoperegistry.h
   qgsanimatedicon.h
@@ -829,6 +832,7 @@ SET(QGIS_CORE_HDRS
   expression/qgsexpressionnode.h
   expression/qgsexpressionnodeimpl.h
   expression/qgsexpressionfunction.h
+  expression/qgsscopedexpressionfunction.h
 
   qgstessellator.h
 

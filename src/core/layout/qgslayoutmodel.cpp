@@ -238,11 +238,11 @@ QVariant QgsLayoutModel::headerData( int section, Qt::Orientation orientation, i
     {
       if ( section == Visibility )
       {
-        return qVariantFromValue( QgsApplication::getThemeIcon( QStringLiteral( "/mActionShowAllLayersGray.svg" ) ) );
+        return qVariantFromValue( QgsResources::getThemeIcon( QStringLiteral( "/mActionShowAllLayersGray.svg" ) ) );
       }
       else if ( section == LockStatus )
       {
-        return qVariantFromValue( QgsApplication::getThemeIcon( QStringLiteral( "/lockedGray.svg" ) ) );
+        return qVariantFromValue( QgsResources::getThemeIcon( QStringLiteral( "/lockedGray.svg" ) ) );
       }
 
       return QVariant();

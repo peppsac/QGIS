@@ -27,6 +27,7 @@
 #include "qgsauthconfigedit.h"
 #include "qgslogger.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 
 
 QgsAuthConfigSelect::QgsAuthConfigSelect( QWidget *parent, const QString &dataprovider )
@@ -51,10 +52,10 @@ QgsAuthConfigSelect::QgsAuthConfigSelect( QWidget *parent, const QString &datapr
     connect( btnConfigMsgClear, &QToolButton::clicked, this, &QgsAuthConfigSelect::btnConfigMsgClear_clicked );
 
     // Set icons and remove texts
-    btnConfigAdd->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/symbologyAdd.svg" ) ) );
-    btnConfigRemove->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/symbologyRemove.svg" ) ) );
-    btnConfigEdit->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionToggleEditing.svg" ) ) );
-    btnConfigMsgClear->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconClose.svg" ) ) );
+    btnConfigAdd->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/symbologyAdd.svg" ) ) );
+    btnConfigRemove->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/symbologyRemove.svg" ) ) );
+    btnConfigEdit->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionToggleEditing.svg" ) ) );
+    btnConfigMsgClear->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconClose.svg" ) ) );
 
     btnConfigAdd->setText( QString() );
     btnConfigRemove->setText( QString() );

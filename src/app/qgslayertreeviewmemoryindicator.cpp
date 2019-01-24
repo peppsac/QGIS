@@ -20,6 +20,7 @@
 #include "qgslayertreeutils.h"
 #include "qgsvectorlayer.h"
 #include "qgisapp.h"
+#include "qgsresources.h"
 
 QgsLayerTreeViewMemoryIndicatorProvider::QgsLayerTreeViewMemoryIndicatorProvider( QgsLayerTreeView *view )
   : QgsLayerTreeViewIndicatorProvider( view )

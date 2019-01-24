@@ -14,7 +14,7 @@
  ***************************************************************************/
 
 #include "qgsmultiedittoolbutton.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsguiutils.h"
 
 #include <QMenu>
@@ -99,15 +99,15 @@ void QgsMultiEditToolButton::updateState()
   switch ( mState )
   {
     case Default:
-      icon = QgsApplication::getThemeIcon( QStringLiteral( "/multieditSameValues.svg" ) );
+      icon = QgsResources::getThemeIcon( QStringLiteral( "/multieditSameValues.svg" ) );
       tooltip = tr( "All features in selection have equal value for '%1'" ).arg( mField.name() );
       break;
     case MixedValues:
-      icon = QgsApplication::getThemeIcon( QStringLiteral( "/multieditMixedValues.svg" ) );
+      icon = QgsResources::getThemeIcon( QStringLiteral( "/multieditMixedValues.svg" ) );
       tooltip = tr( "Some features in selection have different values for '%1'" ).arg( mField.name() );
       break;
     case Changed:
-      icon = QgsApplication::getThemeIcon( QStringLiteral( "/multieditChangedValues.svg" ) );
+      icon = QgsResources::getThemeIcon( QStringLiteral( "/multieditChangedValues.svg" ) );
       tooltip = tr( "Values for '%1' have unsaved changes" ).arg( mField.name() );
       break;
   }

@@ -33,6 +33,7 @@
 
 #include "qgsorderbydialog.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgslogger.h"
 #include "qgsvectorlayer.h"
 
@@ -53,7 +54,7 @@ static bool _initRenderer( const QString &name, QgsRendererWidgetFunc f, const Q
 
   if ( !iconName.isEmpty() )
   {
-    m->setIcon( QgsApplication::getThemeIcon( iconName ) );
+    m->setIcon( QgsResources::getThemeIcon( iconName ) );
   }
 
   QgsDebugMsg( "Set for " + name );

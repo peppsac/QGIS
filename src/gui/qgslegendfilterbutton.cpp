@@ -18,7 +18,7 @@
 #include <QMenu>
 #include <QAction>
 
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsexpressionbuilderdialog.h"
 
 QgsLegendFilterButton::QgsLegendFilterButton( QWidget *parent )
@@ -37,7 +37,7 @@ QgsLegendFilterButton::QgsLegendFilterButton( QWidget *parent )
   mMenu->addAction( mClearExpressionAction );
 
   setCheckable( true );
-  setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconExpressionFilter.svg" ) ) );
+  setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconExpressionFilter.svg" ) ) );
   setPopupMode( QToolButton::MenuButtonPopup );
 
   setMenu( mMenu );

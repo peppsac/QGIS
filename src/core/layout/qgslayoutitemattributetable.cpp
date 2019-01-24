@@ -92,7 +92,7 @@ int QgsLayoutItemAttributeTable::type() const
 
 QIcon QgsLayoutItemAttributeTable::icon() const
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mLayoutItemTable.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mLayoutItemTable.svg" ) );
 }
 
 QgsLayoutItemAttributeTable *QgsLayoutItemAttributeTable::create( QgsLayout *layout )

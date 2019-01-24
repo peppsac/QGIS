@@ -18,6 +18,7 @@
 #include "qgsfield_p.h"
 #include "qgis.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgssettings.h"
 
 #include <QDataStream>

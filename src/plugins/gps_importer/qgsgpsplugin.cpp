@@ -21,6 +21,7 @@
 #include "qgisinterface.h"
 #include "qgsguiutils.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsproject.h"
 #include "qgsmaplayer.h"
 #include "qgsvectorlayer.h"
@@ -664,7 +665,7 @@ void QgsGpsPlugin::setCurrentTheme( const QString &themeName )
 {
   Q_UNUSED( themeName );
   QString myCurThemePath = QgsApplication::activeThemePath() + "/plugins/gps_importer/";
-  QString myDefThemePath = QgsApplication::defaultThemePath() + "/plugins/gps_importer/";
+  QString myDefThemePath = QgsResources::defaultThemePath() + "/plugins/gps_importer/";
   QString myQrcPath = QStringLiteral( ":/" );
   if ( mQActionPointer )
   {

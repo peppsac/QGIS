@@ -18,7 +18,7 @@ email                : matthias@opengis.ch
 #include "qgsvectorlayer.h"
 #include "qgssinglegeometrycheck.h"
 #include "qgsfeatureid.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 #include <QIcon>
 
@@ -71,9 +71,9 @@ QVariant QgsGeometryValidationModel::data( const QModelIndex &index, int role ) 
     {
       case Qt::DecorationRole:
         if ( topologyError->status() == QgsGeometryCheckError::StatusFixed )
-          return QgsApplication::getThemeIcon( QStringLiteral( "/algorithms/mAlgorithmCheckGeometry.svg" ) );
+          return QgsResources::getThemeIcon( QStringLiteral( "/algorithms/mAlgorithmCheckGeometry.svg" ) );
         else
-          return QgsApplication::getThemeIcon( QStringLiteral( "/algorithms/mAlgorithmLineIntersections.svg" ) );
+          return QgsResources::getThemeIcon( QStringLiteral( "/algorithms/mAlgorithmLineIntersections.svg" ) );
 
       case Qt::DisplayRole:
       case DetailsRole:
@@ -166,7 +166,7 @@ QVariant QgsGeometryValidationModel::data( const QModelIndex &index, int role ) 
       {
 #if 0
         if ( mGeometryValidationService->validationActive( mCurrentLayer, featureItem.fid ) )
-          return QgsApplication::getThemeIcon( "/mActionTracing.svg" );
+          return QgsResources::getThemeIcon( "/mActionTracing.svg" );
         else
           return QVariant();
 #endif

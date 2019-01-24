@@ -23,7 +23,7 @@
 #include <QSslCertificate>
 #include <QSslKey>
 
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsauthmanager.h"
 #include "qgsauthguiutils.h"
 #include "qgslogger.h"
@@ -262,7 +262,7 @@ bool QgsAuthPkcs12Edit::populateCas()
     {
       item = new QTreeWidgetItem( twCas, QStringList( cert.subjectInfo( QSslCertificate::SubjectInfo::CommonName ) ) );
     }
-    item->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/mIconCertificate.svg" ) ) );
+    item->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/mIconCertificate.svg" ) ) );
     item->setToolTip( 0, tr( "<ul><li>Serial #: %1</li><li>Expiry date: %2</li></ul>" ).arg( cert.serialNumber( ), cert.expiryDate().toString( Qt::TextDate ) ) );
     prevItem = item;
   }

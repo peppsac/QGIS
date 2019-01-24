@@ -47,7 +47,7 @@ int QgsLayoutItem3DMap::type() const
 
 QIcon QgsLayoutItem3DMap::icon() const
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mLayoutItem3DMap.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mLayoutItem3DMap.svg" ) );
 }
 
 void QgsLayoutItem3DMap::assignFreeId()

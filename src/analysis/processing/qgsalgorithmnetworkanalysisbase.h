@@ -26,7 +26,7 @@
 #include "qgsgraph.h"
 #include "qgsgraphbuilder.h"
 #include "qgsvectorlayerdirector.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 ///@cond PRIVATE
 
@@ -39,8 +39,8 @@ class QgsNetworkAnalysisAlgorithmBase : public QgsProcessingAlgorithm
 
     QString group() const final;
     QString groupId() const final;
-    QIcon icon() const override { return QgsApplication::getThemeIcon( QStringLiteral( "/algorithms/mAlgorithmNetworkAnalysis.svg" ) ); }
-    QString svgIconPath() const override { return QgsApplication::iconPath( QStringLiteral( "/algorithms/mAlgorithmNetworkAnalysis.svg" ) ); }
+    QIcon icon() const override { return QgsResources::getThemeIcon( QStringLiteral( "/algorithms/mAlgorithmNetworkAnalysis.svg" ) ); }
+    QString svgIconPath() const override { return QgsResources::iconPath( QStringLiteral( "/algorithms/mAlgorithmNetworkAnalysis.svg" ) ); }
 
   protected:
 

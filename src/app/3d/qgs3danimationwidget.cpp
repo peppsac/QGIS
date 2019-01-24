@@ -28,12 +28,12 @@ Qgs3DAnimationWidget::Qgs3DAnimationWidget( QWidget *parent )
 {
   setupUi( this );
 
-  btnAddKeyframe->setIcon( QIcon( QgsApplication::iconPath( "symbologyAdd.svg" ) ) );
-  btnRemoveKeyframe->setIcon( QIcon( QgsApplication::iconPath( "symbologyRemove.svg" ) ) );
-  btnEditKeyframe->setIcon( QIcon( QgsApplication::iconPath( "symbologyEdit.svg" ) ) );
-  btnPlayPause->setIcon( QIcon( QgsApplication::iconPath( "mTaskRunning.svg" ) ) );
-  btnDuplicateKeyframe->setIcon( QIcon( QgsApplication::iconPath( "mActionEditCopy.svg" ) ) );
-  btnRepeat->setIcon( QIcon( QgsApplication::iconPath( "mActionRefresh.svg" ) ) );
+  btnAddKeyframe->setIcon( QIcon( QgsResources::iconPath( "symbologyAdd.svg" ) ) );
+  btnRemoveKeyframe->setIcon( QIcon( QgsResources::iconPath( "symbologyRemove.svg" ) ) );
+  btnEditKeyframe->setIcon( QIcon( QgsResources::iconPath( "symbologyEdit.svg" ) ) );
+  btnPlayPause->setIcon( QIcon( QgsResources::iconPath( "mTaskRunning.svg" ) ) );
+  btnDuplicateKeyframe->setIcon( QIcon( QgsResources::iconPath( "mActionEditCopy.svg" ) ) );
+  btnRepeat->setIcon( QIcon( QgsResources::iconPath( "mActionRefresh.svg" ) ) );
 
   cboKeyframe->addItem( tr( "<none>" ) );
 

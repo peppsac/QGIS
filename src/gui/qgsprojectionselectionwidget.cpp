@@ -16,7 +16,7 @@
 #include <QHBoxLayout>
 
 #include "qgsprojectionselectionwidget.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsprojectionselectiondialog.h"
 #include "qgsproject.h"
 #include "qgssettings.h"
@@ -53,7 +53,7 @@ QgsProjectionSelectionWidget::QgsProjectionSelectionWidget( QWidget *parent )
   layout->addWidget( mCrsComboBox );
 
   mButton = new QToolButton( this );
-  mButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mActionSetProjection.svg" ) ) );
+  mButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mActionSetProjection.svg" ) ) );
   mButton->setToolTip( tr( "Select CRS" ) );
   layout->addWidget( mButton );
 

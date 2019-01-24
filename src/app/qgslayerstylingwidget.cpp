@@ -21,6 +21,7 @@
 #include <QListWidget>
 
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgslabelingwidget.h"
 #include "qgslayerstylingwidget.h"
 #include "qgsrastertransparencywidget.h"
@@ -164,17 +165,17 @@ void QgsLayerStylingWidget::setLayer( QgsMapLayer *layer )
   mUserPages.clear();
   if ( layer->type() == QgsMapLayer::VectorLayer )
   {
-    QListWidgetItem *symbolItem = new QListWidgetItem( QgsApplication::getThemeIcon( QStringLiteral( "propertyicons/symbology.svg" ) ), QString() );
+    QListWidgetItem *symbolItem = new QListWidgetItem( QgsResources::getThemeIcon( QStringLiteral( "propertyicons/symbology.svg" ) ), QString() );
     symbolItem->setData( Qt::UserRole, Symbology );
     symbolItem->setToolTip( tr( "Symbology" ) );
     mOptionsListWidget->addItem( symbolItem );
-    QListWidgetItem *labelItem = new QListWidgetItem( QgsApplication::getThemeIcon( QStringLiteral( "labelingSingle.svg" ) ), QString() );
+    QListWidgetItem *labelItem = new QListWidgetItem( QgsResources::getThemeIcon( QStringLiteral( "labelingSingle.svg" ) ), QString() );
     labelItem->setData( Qt::UserRole, VectorLabeling );
     labelItem->setToolTip( tr( "Labels" ) );
     mOptionsListWidget->addItem( labelItem );
 
 #ifdef HAVE_3D
-    QListWidgetItem *symbol3DItem = new QListWidgetItem( QgsApplication::getThemeIcon( QStringLiteral( "3d.svg" ) ), QString() );
+    QListWidgetItem *symbol3DItem = new QListWidgetItem( QgsResources::getThemeIcon( QStringLiteral( "3d.svg" ) ), QString() );
     symbol3DItem->setData( Qt::UserRole, Symbology3D );
     symbol3DItem->setToolTip( tr( "3D View" ) );
     mOptionsListWidget->addItem( symbol3DItem );
@@ -182,18 +183,18 @@ void QgsLayerStylingWidget::setLayer( QgsMapLayer *layer )
   }
   else if ( layer->type() == QgsMapLayer::RasterLayer )
   {
-    QListWidgetItem *symbolItem = new QListWidgetItem( QgsApplication::getThemeIcon( QStringLiteral( "propertyicons/symbology.svg" ) ), QString() );
+    QListWidgetItem *symbolItem = new QListWidgetItem( QgsResources::getThemeIcon( QStringLiteral( "propertyicons/symbology.svg" ) ), QString() );
     symbolItem->setData( Qt::UserRole, Symbology );
     symbolItem->setToolTip( tr( "Symbology" ) );
     mOptionsListWidget->addItem( symbolItem );
-    QListWidgetItem *transparencyItem = new QListWidgetItem( QgsApplication::getThemeIcon( QStringLiteral( "propertyicons/transparency.svg" ) ), QString() );
+    QListWidgetItem *transparencyItem = new QListWidgetItem( QgsResources::getThemeIcon( QStringLiteral( "propertyicons/transparency.svg" ) ), QString() );
     transparencyItem->setToolTip( tr( "Transparency" ) );
     transparencyItem->setData( Qt::UserRole, RasterTransparency );
     mOptionsListWidget->addItem( transparencyItem );
 
     if ( static_cast<QgsRasterLayer *>( layer )->dataProvider()->capabilities() & QgsRasterDataProvider::Size )
     {
-      QListWidgetItem *histogramItem = new QListWidgetItem( QgsApplication::getThemeIcon( QStringLiteral( "propertyicons/histogram.svg" ) ), QString() );
+      QListWidgetItem *histogramItem = new QListWidgetItem( QgsResources::getThemeIcon( QStringLiteral( "propertyicons/histogram.svg" ) ), QString() );
       histogramItem->setData( Qt::UserRole, RasterHistogram );
       mOptionsListWidget->addItem( histogramItem );
       histogramItem->setToolTip( tr( "Histogram" ) );
@@ -201,13 +202,13 @@ void QgsLayerStylingWidget::setLayer( QgsMapLayer *layer )
   }
   else if ( layer->type() == QgsMapLayer::MeshLayer )
   {
-    QListWidgetItem *symbolItem = new QListWidgetItem( QgsApplication::getThemeIcon( QStringLiteral( "propertyicons/symbology.svg" ) ), QString() );
+    QListWidgetItem *symbolItem = new QListWidgetItem( QgsResources::getThemeIcon( QStringLiteral( "propertyicons/symbology.svg" ) ), QString() );
     symbolItem->setData( Qt::UserRole, Symbology );
     symbolItem->setToolTip( tr( "Symbology" ) );
     mOptionsListWidget->addItem( symbolItem );
 
 #ifdef HAVE_3D
-    QListWidgetItem *symbol3DItem = new QListWidgetItem( QgsApplication::getThemeIcon( QStringLiteral( "3d.svg" ) ), QString() );
+    QListWidgetItem *symbol3DItem = new QListWidgetItem( QgsResources::getThemeIcon( QStringLiteral( "3d.svg" ) ), QString() );
     symbol3DItem->setData( Qt::UserRole, Symbology3D );
     symbol3DItem->setToolTip( tr( "3D View" ) );
     mOptionsListWidget->addItem( symbol3DItem );
@@ -225,7 +226,7 @@ void QgsLayerStylingWidget::setLayer( QgsMapLayer *layer )
       mUserPages[row] = factory;
     }
   }
-  QListWidgetItem *historyItem = new QListWidgetItem( QgsApplication::getThemeIcon( QStringLiteral( "mActionHistory.svg" ) ), QString() );
+  QListWidgetItem *historyItem = new QListWidgetItem( QgsResources::getThemeIcon( QStringLiteral( "mActionHistory.svg" ) ), QString() );
   historyItem->setData( Qt::UserRole, History );
   historyItem->setToolTip( tr( "History" ) );
   mOptionsListWidget->addItem( historyItem );
@@ -646,7 +647,7 @@ bool QgsMapLayerStyleCommand::mergeWith( const QUndoCommand *other )
 
 QgsLayerStyleManagerWidgetFactory::QgsLayerStyleManagerWidgetFactory()
 {
-  setIcon( QgsApplication::getThemeIcon( QStringLiteral( "propertyicons/stylepreset.svg" ) ) );
+  setIcon( QgsResources::getThemeIcon( QStringLiteral( "propertyicons/stylepreset.svg" ) ) );
   setTitle( QObject::tr( "Style Manager" ) );
 }
 

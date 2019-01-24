@@ -26,7 +26,6 @@
 #include <QSet>
 #include <functional>
 
-#include "qgis.h"
 #include "qgsunittypes.h"
 #include "qgsinterval.h"
 #include "qgsexpressionnode.h"

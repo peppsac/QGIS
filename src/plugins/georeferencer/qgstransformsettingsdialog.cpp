@@ -20,6 +20,7 @@
 #include "qgssettings.h"
 #include "qgsprojectionselectiontreewidget.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsfilewidget.h"
 #include "qgsrasterlayer.h"
 #include "qgstransformsettingsdialog.h"
@@ -297,9 +298,9 @@ QIcon QgsTransformSettingsDialog::getThemeIcon( const QString &name )
   {
     return QIcon( QgsApplication::activeThemePath() + name );
   }
-  else if ( QFile::exists( QgsApplication::defaultThemePath() + name ) )
+  else if ( QFile::exists( QgsResources::defaultThemePath() + name ) )
   {
-    return QIcon( QgsApplication::defaultThemePath() + name );
+    return QIcon( QgsResources::defaultThemePath() + name );
   }
   else
   {

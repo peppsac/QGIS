@@ -16,10 +16,11 @@
  ***************************************************************************/
 
 #include "qgscollapsiblegroupbox.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgslogger.h"
 #include "qgssettings.h"
 
+#include <QApplication>
 #include <QToolButton>
 #include <QMouseEvent>
 #include <QPushButton>
@@ -56,8 +57,8 @@ void QgsCollapsibleGroupBoxBasic::init()
   mTitleClicked = false;
 
   // init icons
-  mCollapseIcon = QgsApplication::getThemeIcon( QStringLiteral( "/mIconCollapse.svg" ) );
-  mExpandIcon = QgsApplication::getThemeIcon( QStringLiteral( "/mIconExpand.svg" ) );
+  mCollapseIcon = QgsResources::getThemeIcon( QStringLiteral( "/mIconCollapse.svg" ) );
+  mExpandIcon = QgsResources::getThemeIcon( QStringLiteral( "/mIconExpand.svg" ) );
 
   // collapse button
   mCollapseButton = new QgsGroupBoxCollapseButton( this );

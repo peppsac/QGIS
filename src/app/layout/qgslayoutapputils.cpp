@@ -51,8 +51,8 @@ void QgsLayoutAppUtils::registerGuiForKnownItemTypes()
 {
   QgsLayoutItemGuiRegistry *registry = QgsGui::layoutItemGuiRegistry();
 
-  registry->addItemGroup( QgsLayoutItemGuiGroup( QStringLiteral( "shapes" ), QObject::tr( "Shape" ), QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddBasicShape.svg" ) ) ) );
-  registry->addItemGroup( QgsLayoutItemGuiGroup( QStringLiteral( "nodes" ), QObject::tr( "Node Item" ), QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddNodesItem.svg" ) ) ) );
+  registry->addItemGroup( QgsLayoutItemGuiGroup( QStringLiteral( "shapes" ), QObject::tr( "Shape" ), QgsResources::getThemeIcon( QStringLiteral( "/mActionAddBasicShape.svg" ) ) ) );
+  registry->addItemGroup( QgsLayoutItemGuiGroup( QStringLiteral( "nodes" ), QObject::tr( "Node Item" ), QgsResources::getThemeIcon( QStringLiteral( "/mActionAddNodesItem.svg" ) ) ) );
 
   auto createRubberBand = ( []( QgsLayoutView * view )->QgsLayoutViewRubberBand *
   {
@@ -68,12 +68,12 @@ void QgsLayoutAppUtils::registerGuiForKnownItemTypes()
   } );
 
 #if 0
-  registry->addLayoutItemGuiMetadata( new QgsLayoutItemGuiMetadata( QgsLayoutItemRegistry::LayoutItem + 1002, QStringLiteral( "test" ), QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddLabel.svg" ) ), nullptr, createRubberBand ) );
+  registry->addLayoutItemGuiMetadata( new QgsLayoutItemGuiMetadata( QgsLayoutItemRegistry::LayoutItem + 1002, QStringLiteral( "test" ), QgsResources::getThemeIcon( QStringLiteral( "/mActionAddLabel.svg" ) ), nullptr, createRubberBand ) );
 #endif
 
   // map item
 
-  auto mapItemMetadata = qgis::make_unique< QgsLayoutItemGuiMetadata >( QgsLayoutItemRegistry::LayoutMap, QObject::tr( "Map" ), QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddMap.svg" ) ),
+  auto mapItemMetadata = qgis::make_unique< QgsLayoutItemGuiMetadata >( QgsLayoutItemRegistry::LayoutMap, QObject::tr( "Map" ), QgsResources::getThemeIcon( QStringLiteral( "/mActionAddMap.svg" ) ),
                          [ = ]( QgsLayoutItem * item )->QgsLayoutItemBaseWidget *
   {
     return new QgsLayoutMapWidget( qobject_cast< QgsLayoutItemMap * >( item ) );
@@ -99,7 +99,7 @@ void QgsLayoutAppUtils::registerGuiForKnownItemTypes()
   // 3D map item
 #ifdef HAVE_3D
   std::unique_ptr< QgsLayoutItemGuiMetadata > map3dMetadata = qgis::make_unique< QgsLayoutItemGuiMetadata>(
-        QgsLayoutItemRegistry::Layout3DMap, QObject::tr( "3D Map" ), QgsApplication::getThemeIcon( QStringLiteral( "/mActionAdd3DMap.svg" ) ),
+        QgsLayoutItemRegistry::Layout3DMap, QObject::tr( "3D Map" ), QgsResources::getThemeIcon( QStringLiteral( "/mActionAdd3DMap.svg" ) ),
         [ = ]( QgsLayoutItem * item )->QgsLayoutItemBaseWidget *
   {
     return new QgsLayout3DMapWidget( qobject_cast< QgsLayoutItem3DMap * >( item ) );
@@ -109,7 +109,7 @@ void QgsLayoutAppUtils::registerGuiForKnownItemTypes()
 
   // picture item
 
-  registry->addLayoutItemGuiMetadata( new QgsLayoutItemGuiMetadata( QgsLayoutItemRegistry::LayoutPicture, QObject::tr( "Picture" ), QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddImage.svg" ) ),
+  registry->addLayoutItemGuiMetadata( new QgsLayoutItemGuiMetadata( QgsLayoutItemRegistry::LayoutPicture, QObject::tr( "Picture" ), QgsResources::getThemeIcon( QStringLiteral( "/mActionAddImage.svg" ) ),
                                       [ = ]( QgsLayoutItem * item )->QgsLayoutItemBaseWidget *
   {
     return new QgsLayoutPictureWidget( qobject_cast< QgsLayoutItemPicture * >( item ) );
@@ -118,7 +118,7 @@ void QgsLayoutAppUtils::registerGuiForKnownItemTypes()
 
   // label item
 
-  auto labelItemMetadata = qgis::make_unique< QgsLayoutItemGuiMetadata >( QgsLayoutItemRegistry::LayoutLabel, QObject::tr( "Label" ), QgsApplication::getThemeIcon( QStringLiteral( "/mActionLabel.svg" ) ),
+  auto labelItemMetadata = qgis::make_unique< QgsLayoutItemGuiMetadata >( QgsLayoutItemRegistry::LayoutLabel, QObject::tr( "Label" ), QgsResources::getThemeIcon( QStringLiteral( "/mActionLabel.svg" ) ),
                            [ = ]( QgsLayoutItem * item )->QgsLayoutItemBaseWidget *
   {
     return new QgsLayoutLabelWidget( qobject_cast< QgsLayoutItemLabel * >( item ) );
@@ -143,7 +143,7 @@ void QgsLayoutAppUtils::registerGuiForKnownItemTypes()
 
   // legend item
 
-  auto legendItemMetadata = qgis::make_unique< QgsLayoutItemGuiMetadata >( QgsLayoutItemRegistry::LayoutLegend, QObject::tr( "Legend" ), QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddLegend.svg" ) ),
+  auto legendItemMetadata = qgis::make_unique< QgsLayoutItemGuiMetadata >( QgsLayoutItemRegistry::LayoutLegend, QObject::tr( "Legend" ), QgsResources::getThemeIcon( QStringLiteral( "/mActionAddLegend.svg" ) ),
                             [ = ]( QgsLayoutItem * item )->QgsLayoutItemBaseWidget *
   {
     return new QgsLayoutLegendWidget( qobject_cast< QgsLayoutItemLegend * >( item ) );
@@ -184,7 +184,7 @@ void QgsLayoutAppUtils::registerGuiForKnownItemTypes()
 
   // scalebar item
 
-  auto scalebarItemMetadata = qgis::make_unique< QgsLayoutItemGuiMetadata >( QgsLayoutItemRegistry::LayoutScaleBar, QObject::tr( "Scale Bar" ), QgsApplication::getThemeIcon( QStringLiteral( "/mActionScaleBar.svg" ) ),
+  auto scalebarItemMetadata = qgis::make_unique< QgsLayoutItemGuiMetadata >( QgsLayoutItemRegistry::LayoutScaleBar, QObject::tr( "Scale Bar" ), QgsResources::getThemeIcon( QStringLiteral( "/mActionScaleBar.svg" ) ),
                               [ = ]( QgsLayoutItem * item )->QgsLayoutItemBaseWidget *
   {
     return new QgsLayoutScaleBarWidget( qobject_cast< QgsLayoutItemScaleBar * >( item ) );
@@ -230,19 +230,19 @@ void QgsLayoutAppUtils::registerGuiForKnownItemTypes()
     return new QgsLayoutShapeWidget( qobject_cast< QgsLayoutItemShape * >( item ) );
   };
 
-  registry->addLayoutItemGuiMetadata( new QgsLayoutItemGuiMetadata( QgsLayoutItemRegistry::LayoutShape, QObject::tr( "Rectangle" ), QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddBasicRectangle.svg" ) ), createShapeWidget, createRubberBand, QStringLiteral( "shapes" ), false, nullptr, []( QgsLayout * layout )->QgsLayoutItem*
+  registry->addLayoutItemGuiMetadata( new QgsLayoutItemGuiMetadata( QgsLayoutItemRegistry::LayoutShape, QObject::tr( "Rectangle" ), QgsResources::getThemeIcon( QStringLiteral( "/mActionAddBasicRectangle.svg" ) ), createShapeWidget, createRubberBand, QStringLiteral( "shapes" ), false, nullptr, []( QgsLayout * layout )->QgsLayoutItem*
   {
     std::unique_ptr< QgsLayoutItemShape > shape = qgis::make_unique< QgsLayoutItemShape >( layout );
     shape->setShapeType( QgsLayoutItemShape::Rectangle );
     return shape.release();
   } ) );
-  registry->addLayoutItemGuiMetadata( new QgsLayoutItemGuiMetadata( QgsLayoutItemRegistry::LayoutShape, QObject::tr( "Ellipse" ), QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddBasicCircle.svg" ) ), createShapeWidget, createEllipseBand, QStringLiteral( "shapes" ), false, nullptr, []( QgsLayout * layout )->QgsLayoutItem*
+  registry->addLayoutItemGuiMetadata( new QgsLayoutItemGuiMetadata( QgsLayoutItemRegistry::LayoutShape, QObject::tr( "Ellipse" ), QgsResources::getThemeIcon( QStringLiteral( "/mActionAddBasicCircle.svg" ) ), createShapeWidget, createEllipseBand, QStringLiteral( "shapes" ), false, nullptr, []( QgsLayout * layout )->QgsLayoutItem*
   {
     std::unique_ptr< QgsLayoutItemShape > shape = qgis::make_unique< QgsLayoutItemShape >( layout );
     shape->setShapeType( QgsLayoutItemShape::Ellipse );
     return shape.release();
   } ) );
-  registry->addLayoutItemGuiMetadata( new QgsLayoutItemGuiMetadata( QgsLayoutItemRegistry::LayoutShape, QObject::tr( "Triangle" ), QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddBasicTriangle.svg" ) ), createShapeWidget, createTriangleBand, QStringLiteral( "shapes" ), false, nullptr, []( QgsLayout * layout )->QgsLayoutItem*
+  registry->addLayoutItemGuiMetadata( new QgsLayoutItemGuiMetadata( QgsLayoutItemRegistry::LayoutShape, QObject::tr( "Triangle" ), QgsResources::getThemeIcon( QStringLiteral( "/mActionAddBasicTriangle.svg" ) ), createShapeWidget, createTriangleBand, QStringLiteral( "shapes" ), false, nullptr, []( QgsLayout * layout )->QgsLayoutItem*
   {
     std::unique_ptr< QgsLayoutItemShape > shape = qgis::make_unique< QgsLayoutItemShape >( layout );
     shape->setShapeType( QgsLayoutItemShape::Triangle );
@@ -251,7 +251,7 @@ void QgsLayoutAppUtils::registerGuiForKnownItemTypes()
 
   // arrow
   std::unique_ptr< QgsLayoutItemGuiMetadata > arrowMetadata = qgis::make_unique< QgsLayoutItemGuiMetadata>(
-        QgsLayoutItemRegistry::LayoutPolyline, QObject::tr( "Arrow" ), QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddArrow.svg" ) ),
+        QgsLayoutItemRegistry::LayoutPolyline, QObject::tr( "Arrow" ), QgsResources::getThemeIcon( QStringLiteral( "/mActionAddArrow.svg" ) ),
         [ = ]( QgsLayoutItem * item )->QgsLayoutItemBaseWidget *
   {
     return new QgsLayoutPolylineWidget( qobject_cast< QgsLayoutItemPolyline * >( item ) );
@@ -275,7 +275,7 @@ void QgsLayoutAppUtils::registerGuiForKnownItemTypes()
   // node items
 
   std::unique_ptr< QgsLayoutItemGuiMetadata > polygonMetadata = qgis::make_unique< QgsLayoutItemGuiMetadata >(
-        QgsLayoutItemRegistry::LayoutPolygon, QObject::tr( "Polygon" ), QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddPolygon.svg" ) ),
+        QgsLayoutItemRegistry::LayoutPolygon, QObject::tr( "Polygon" ), QgsResources::getThemeIcon( QStringLiteral( "/mActionAddPolygon.svg" ) ),
         [ = ]( QgsLayoutItem * item )->QgsLayoutItemBaseWidget *
   {
     return new QgsLayoutPolygonWidget( qobject_cast< QgsLayoutItemPolygon * >( item ) );
@@ -291,7 +291,7 @@ void QgsLayoutAppUtils::registerGuiForKnownItemTypes()
   registry->addLayoutItemGuiMetadata( polygonMetadata.release() );
 
   std::unique_ptr< QgsLayoutItemGuiMetadata > polylineMetadata = qgis::make_unique< QgsLayoutItemGuiMetadata>(
-        QgsLayoutItemRegistry::LayoutPolyline, QObject::tr( "Polyline" ), QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddPolyline.svg" ) ),
+        QgsLayoutItemRegistry::LayoutPolyline, QObject::tr( "Polyline" ), QgsResources::getThemeIcon( QStringLiteral( "/mActionAddPolyline.svg" ) ),
         [ = ]( QgsLayoutItem * item )->QgsLayoutItemBaseWidget *
   {
     return new QgsLayoutPolylineWidget( qobject_cast< QgsLayoutItemPolyline * >( item ) );
@@ -308,7 +308,7 @@ void QgsLayoutAppUtils::registerGuiForKnownItemTypes()
 
   // html item
 
-  auto htmlItemMetadata = qgis::make_unique< QgsLayoutItemGuiMetadata >( QgsLayoutItemRegistry::LayoutHtml, QObject::tr( "HTML" ), QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddHtml.svg" ) ),
+  auto htmlItemMetadata = qgis::make_unique< QgsLayoutItemGuiMetadata >( QgsLayoutItemRegistry::LayoutHtml, QObject::tr( "HTML" ), QgsResources::getThemeIcon( QStringLiteral( "/mActionAddHtml.svg" ) ),
                           [ = ]( QgsLayoutItem * item )->QgsLayoutItemBaseWidget *
   {
     return new QgsLayoutHtmlWidget( qobject_cast< QgsLayoutFrame * >( item ) );
@@ -327,7 +327,7 @@ void QgsLayoutAppUtils::registerGuiForKnownItemTypes()
 
   // attribute table item
 
-  auto attributeTableItemMetadata = qgis::make_unique< QgsLayoutItemGuiMetadata >( QgsLayoutItemRegistry::LayoutAttributeTable, QObject::tr( "Attribute Table" ), QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddTable.svg" ) ),
+  auto attributeTableItemMetadata = qgis::make_unique< QgsLayoutItemGuiMetadata >( QgsLayoutItemRegistry::LayoutAttributeTable, QObject::tr( "Attribute Table" ), QgsResources::getThemeIcon( QStringLiteral( "/mActionAddTable.svg" ) ),
                                     [ = ]( QgsLayoutItem * item )->QgsLayoutItemBaseWidget *
   {
     return new QgsLayoutAttributeTableWidget( qobject_cast< QgsLayoutFrame * >( item ) );

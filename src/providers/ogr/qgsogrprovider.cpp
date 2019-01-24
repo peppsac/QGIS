@@ -24,6 +24,7 @@ email                : sherman at mrcc.com
 #include "qgsfeedback.h"
 #include "qgssettings.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsauthmanager.h"
 #include "qgsdataitem.h"
 #include "qgsdataprovider.h"
@@ -6486,7 +6487,7 @@ class QgsOgrVectorSourceSelectProvider : public QgsSourceSelectProvider
     QString providerKey() const override { return QStringLiteral( "ogr" ); }
     QString text() const override { return QObject::tr( "Vector" ); }
     int ordering() const override { return QgsSourceSelectProvider::OrderLocalProvider + 10; }
-    QIcon icon() const override { return QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddOgrLayer.svg" ) ); }
+    QIcon icon() const override { return QgsResources::getThemeIcon( QStringLiteral( "/mActionAddOgrLayer.svg" ) ); }
     QgsAbstractDataSourceWidget *createDataSourceWidget( QWidget *parent = nullptr, Qt::WindowFlags fl = Qt::Widget, QgsProviderRegistry::WidgetMode widgetMode = QgsProviderRegistry::WidgetMode::Embedded ) const override;
 };
 
@@ -6500,7 +6501,7 @@ class QgsGeoPackageSourceSelectProvider : public QgsSourceSelectProvider
     QString providerKey() const override { return QStringLiteral( "ogr" ); }
     QString text() const override { return QObject::tr( "GeoPackage" ); }
     int ordering() const override { return QgsSourceSelectProvider::OrderLocalProvider + 45; }
-    QIcon icon() const override { return QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddGeoPackageLayer.svg" ) ); }
+    QIcon icon() const override { return QgsResources::getThemeIcon( QStringLiteral( "/mActionAddGeoPackageLayer.svg" ) ); }
     QgsAbstractDataSourceWidget *createDataSourceWidget( QWidget *parent = nullptr, Qt::WindowFlags fl = Qt::Widget, QgsProviderRegistry::WidgetMode widgetMode = QgsProviderRegistry::WidgetMode::Embedded ) const override;
 };
 
@@ -6514,7 +6515,7 @@ class QgsSpatiaLiteSourceSelectProvider : public QgsSourceSelectProvider
     QString providerKey() const override { return QStringLiteral( "ogr" ); }
     QString text() const override { return QObject::tr( "SQLite" ); }
     int ordering() const override { return QgsSourceSelectProvider::OrderLocalProvider + 46; }
-    QIcon icon() const override { return QgsApplication::getThemeIcon( QStringLiteral( "/mIconSpatialite.svg" ) ); }
+    QIcon icon() const override { return QgsResources::getThemeIcon( QStringLiteral( "/mIconSpatialite.svg" ) ); }
     QgsAbstractDataSourceWidget *createDataSourceWidget( QWidget *parent = nullptr, Qt::WindowFlags fl = Qt::Widget, QgsProviderRegistry::WidgetMode widgetMode = QgsProviderRegistry::WidgetMode::Embedded ) const override
     {
       return new QgsOgrDbSourceSelect( QStringLiteral( "SQLite" ), QObject::tr( "SQLite" ),  QObject::tr( "SpatiaLite Database (*.db *.sqlite)" ), parent, fl, widgetMode );

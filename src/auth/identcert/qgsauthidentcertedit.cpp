@@ -18,6 +18,7 @@
 #include "ui_qgsauthidentcertedit.h"
 
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsauthcertutils.h"
 #include "qgsauthmanager.h"
 #include "qgslogger.h"
@@ -91,7 +92,7 @@ void QgsAuthIdentCertEdit::populateIdentityComboBox()
     QgsStringMap::const_iterator it = idents.constBegin();
     for ( ; it != idents.constEnd(); ++it )
     {
-      cmbIdentityCert->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconCertificate.svg" ) ),
+      cmbIdentityCert->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconCertificate.svg" ) ),
                                 it.key(), it.value() );
     }
   }

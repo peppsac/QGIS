@@ -48,17 +48,17 @@ Qgs3DMapCanvasDockWidget::Qgs3DMapCanvasDockWidget( QWidget *parent )
 
   QToolBar *toolBar = new QToolBar( contentsWidget );
   toolBar->setIconSize( QgisApp::instance()->iconSize( true ) );
-  toolBar->addAction( QgsApplication::getThemeIcon( QStringLiteral( "mActionZoomFullExtent.svg" ) ),
+  toolBar->addAction( QgsResources::getThemeIcon( QStringLiteral( "mActionZoomFullExtent.svg" ) ),
                       tr( "Zoom Full" ), this, &Qgs3DMapCanvasDockWidget::resetView );
-  toolBar->addAction( QgsApplication::getThemeIcon( QStringLiteral( "mActionSaveMapAsImage.svg" ) ),
+  toolBar->addAction( QgsResources::getThemeIcon( QStringLiteral( "mActionSaveMapAsImage.svg" ) ),
                       tr( "Save as Image…" ), this, &Qgs3DMapCanvasDockWidget::saveAsImage );
-  toolBar->addAction( QgsApplication::getThemeIcon( QStringLiteral( "mIconProperties.svg" ) ),
+  toolBar->addAction( QgsResources::getThemeIcon( QStringLiteral( "mIconProperties.svg" ) ),
                       tr( "Configure…" ), this, &Qgs3DMapCanvasDockWidget::configure );
-  QAction *actionAnim = toolBar->addAction( QIcon( QgsApplication::iconPath( "mTaskRunning.svg" ) ),
+  QAction *actionAnim = toolBar->addAction( QIcon( QgsResources::iconPath( "mTaskRunning.svg" ) ),
                         tr( "Animations" ), this, &Qgs3DMapCanvasDockWidget::toggleAnimations );
   actionAnim->setCheckable( true );
 
-  QAction *actionIdentify = toolBar->addAction( QIcon( QgsApplication::iconPath( "mActionIdentify.svg" ) ),
+  QAction *actionIdentify = toolBar->addAction( QIcon( QgsResources::iconPath( "mActionIdentify.svg" ) ),
                             tr( "Identify" ), this, &Qgs3DMapCanvasDockWidget::identify );
   actionIdentify->setCheckable( true );
 

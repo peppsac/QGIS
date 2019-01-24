@@ -27,12 +27,12 @@ Qgs3DAlgorithms::Qgs3DAlgorithms( QObject *parent )
 
 QIcon Qgs3DAlgorithms::icon() const
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/providerQgis.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/providerQgis.svg" ) );
 }
 
 QString Qgs3DAlgorithms::svgIconPath() const
 {
-  return QgsApplication::iconPath( QStringLiteral( "providerQgis.svg" ) );
+  return QgsResources::iconPath( QStringLiteral( "providerQgis.svg" ) );
 }
 
 QString Qgs3DAlgorithms::id() const

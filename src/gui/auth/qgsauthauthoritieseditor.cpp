@@ -31,6 +31,7 @@
 
 #include "qgssettings.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsauthcertificateinfo.h"
 #include "qgsauthcertutils.h"
 #include "qgsauthguiutils.h"
@@ -293,11 +294,11 @@ void QgsAuthAuthoritiesEditor::appendCertsToItem( const QList<QSslCertificate> &
 
     QTreeWidgetItem *item( new QTreeWidgetItem( parent, coltxts, static_cast<int>( catype ) ) );
 
-    item->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/mIconCertificate.svg" ) ) );
+    item->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/mIconCertificate.svg" ) ) );
     if ( !cert.isValid() )
     {
       item->setForeground( 2, redb );
-      item->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/mIconCertificateUntrusted.svg" ) ) );
+      item->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/mIconCertificateUntrusted.svg" ) ) );
     }
 
     if ( trustedids.contains( id ) )
@@ -305,17 +306,17 @@ void QgsAuthAuthoritiesEditor::appendCertsToItem( const QList<QSslCertificate> &
       item->setForeground( 3, greenb );
       if ( cert.isValid() )
       {
-        item->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/mIconCertificateTrusted.svg" ) ) );
+        item->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/mIconCertificateTrusted.svg" ) ) );
       }
     }
     else if ( untrustedids.contains( id ) )
     {
       item->setForeground( 3, redb );
-      item->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/mIconCertificateUntrusted.svg" ) ) );
+      item->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/mIconCertificateUntrusted.svg" ) ) );
     }
     else if ( mDefaultTrustPolicy == QgsAuthCertUtils::Untrusted )
     {
-      item->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/mIconCertificateUntrusted.svg" ) ) );
+      item->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/mIconCertificateUntrusted.svg" ) ) );
     }
 
     item->setData( 0, Qt::UserRole, id );

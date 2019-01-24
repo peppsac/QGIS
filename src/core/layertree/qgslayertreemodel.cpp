@@ -20,6 +20,7 @@
 #include "qgslayertreemodellegendnode.h"
 #include "qgsproject.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 
 #include <QMimeData>
 #include <QTextStream>
@@ -1113,7 +1114,7 @@ bool QgsLayerTreeModel::testFlag( QgsLayerTreeModel::Flag f ) const
 
 QIcon QgsLayerTreeModel::iconGroup()
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mActionFolder.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mActionFolder.svg" ) );
 }
 
 QList<QgsLayerTreeModelLegendNode *> QgsLayerTreeModel::filterLegendNodes( const QList<QgsLayerTreeModelLegendNode *> &nodes )

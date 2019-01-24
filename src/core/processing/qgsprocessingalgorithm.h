@@ -19,12 +19,12 @@
 #define QGSPROCESSINGALGORITHM_H
 
 #include "qgis_core.h"
-#include "qgis.h"
+#include "qgis_sip.h"
 #include "qgsprocessingparameters.h"
 #include "qgsprocessingoutputs.h"
 #include "qgsprocessingcontext.h"
-#include "qgsfeaturesource.h"
-#include "qgsprocessingutils.h"
+// #include "qgsfeaturesource.h"
+// #include "qgsprocessingutils.h"
 #include <QString>
 #include <QVariant>
 #include <QIcon>

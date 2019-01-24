@@ -15,7 +15,7 @@
 
 #include "qgspenstylecombobox.h"
 
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsguiutils.h"
 
 #include <QList>
@@ -81,7 +81,7 @@ QIcon QgsPenStyleComboBox::iconForPen( Qt::PenStyle style )
 QgsPenJoinStyleComboBox::QgsPenJoinStyleComboBox( QWidget *parent )
   : QComboBox( parent )
 {
-  QString path = QgsApplication::defaultThemePath();
+  QString path = QgsResources::defaultThemePath();
   addItem( QIcon( path + "/join_bevel.svg" ), tr( "Bevel" ), QVariant( Qt::BevelJoin ) );
   addItem( QIcon( path + "/join_miter.svg" ), tr( "Miter" ), QVariant( Qt::MiterJoin ) );
   addItem( QIcon( path + "/join_round.svg" ), tr( "Round" ), QVariant( Qt::RoundJoin ) );
@@ -105,7 +105,7 @@ void QgsPenJoinStyleComboBox::setPenJoinStyle( Qt::PenJoinStyle style )
 QgsPenCapStyleComboBox::QgsPenCapStyleComboBox( QWidget *parent )
   : QComboBox( parent )
 {
-  QString path = QgsApplication::defaultThemePath();
+  QString path = QgsResources::defaultThemePath();
   addItem( QIcon( path + "/cap_square.svg" ), tr( "Square" ), QVariant( Qt::SquareCap ) );
   addItem( QIcon( path + "/cap_flat.svg" ), tr( "Flat" ), QVariant( Qt::FlatCap ) );
   addItem( QIcon( path + "/cap_round.svg" ), tr( "Round" ), QVariant( Qt::RoundCap ) );

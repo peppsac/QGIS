@@ -50,7 +50,7 @@ int QgsLayoutItemPolyline::type() const
 
 QIcon QgsLayoutItemPolyline::icon() const
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mLayoutItemPolyline.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mLayoutItemPolyline.svg" ) );
 }
 
 bool QgsLayoutItemPolyline::_addNode( const int indexPoint,

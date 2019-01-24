@@ -24,7 +24,7 @@
 #include "qgsgui.h"
 #include "qgsguiutils.h"
 #include "qgsexpressioncontext.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include <QHBoxLayout>
 #include <QToolButton>
 #include <QStackedWidget>
@@ -252,19 +252,19 @@ void QgsProcessingModelerParameterWidget::setSourceType( QgsProcessingModelChild
   {
     case QgsProcessingModelChildParameterSource::StaticValue:
       mStackedWidget->setCurrentIndex( static_cast< int >( StaticValue ) );
-      mSourceButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mIconFieldInteger.svg" ) ) );
+      mSourceButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mIconFieldInteger.svg" ) ) );
       mSourceButton->setToolTip( tr( "Value" ) );
       break;
 
     case QgsProcessingModelChildParameterSource::Expression:
-      mSourceButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mIconExpression.svg" ) ) );
+      mSourceButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mIconExpression.svg" ) ) );
       mStackedWidget->setCurrentIndex( static_cast< int >( Expression ) );
       mSourceButton->setToolTip( tr( "Pre-calculated Value" ) );
       break;
 
     case QgsProcessingModelChildParameterSource::ModelParameter:
     {
-      mSourceButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "processingModel.svg" ) ) );
+      mSourceButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "processingModel.svg" ) ) );
       mStackedWidget->setCurrentIndex( static_cast< int >( ModelParameter ) );
       mSourceButton->setToolTip( tr( "Model Input" ) );
       break;
@@ -272,7 +272,7 @@ void QgsProcessingModelerParameterWidget::setSourceType( QgsProcessingModelChild
 
     case QgsProcessingModelChildParameterSource::ChildOutput:
     {
-      mSourceButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "processingAlgorithm.svg" ) ) );
+      mSourceButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "processingAlgorithm.svg" ) ) );
       mStackedWidget->setCurrentIndex( static_cast< int >( ChildOutput ) );
       mSourceButton->setToolTip( tr( "Algorithm Output" ) );
       break;

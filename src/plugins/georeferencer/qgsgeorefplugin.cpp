@@ -47,6 +47,7 @@
 
 #include "qgisinterface.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsmaplayer.h"
 #include "qgsrasterlayer.h"
 #include "qgsgeorefplugin.h"
@@ -136,9 +137,9 @@ QIcon QgsGeorefPlugin::getThemeIcon( const QString &name )
   {
     return QIcon( QgsApplication::activeThemePath() + "/plugins" + name );
   }
-  else if ( QFile::exists( QgsApplication::defaultThemePath() + "/plugins" + name ) )
+  else if ( QFile::exists( QgsResources::defaultThemePath() + "/plugins" + name ) )
   {
-    return QIcon( QgsApplication::defaultThemePath() + "/plugins" + name );
+    return QIcon( QgsResources::defaultThemePath() + "/plugins" + name );
   }
   else
   {

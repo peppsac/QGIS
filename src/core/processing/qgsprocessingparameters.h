@@ -19,7 +19,7 @@
 #define QGSPROCESSINGPARAMETERS_H
 
 #include "qgis_core.h"
-#include "qgis.h"
+// #include "qgis.h"
 #include "qgsprocessing.h"
 #include "qgsproperty.h"
 #include "qgscoordinatereferencesystem.h"

@@ -18,7 +18,7 @@
 
 #include "qgis_core.h"
 #include "qgis_sip.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgspathresolver.h"
 #include <QGraphicsItem> //for QGraphicsItem::UserType
 #include <QIcon>
@@ -181,7 +181,7 @@ class CORE_EXPORT QgsLayoutMultiFrameAbstractMetadata
     /**
      * Returns an icon representing the layout multiframe type.
      */
-    virtual QIcon icon() const { return QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddBasicRectangle.svg" ) ); }
+    virtual QIcon icon() const { return QgsResources::getThemeIcon( QStringLiteral( "/mActionAddBasicRectangle.svg" ) ); }
 
     /**
      * Returns a translated, user visible name for the layout multiframe class.

@@ -16,6 +16,7 @@
 //qgis includes
 #include "qgis.h" //magic numbers here
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgslogger.h"
 #include "qgscoordinatereferencesystem.h"
 #include "qgsmessagelog.h"
@@ -551,7 +552,7 @@ void QgsProjectionSelectionTreeWidget::loadUserCrsList( QSet<QString> *crsFilter
   fontTemp.setItalic( true );
   fontTemp.setBold( true );
   mUserProjList->setFont( 0, fontTemp );
-  mUserProjList->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/user.svg" ) ) );
+  mUserProjList->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/user.svg" ) ) );
 
   //determine where the user proj database lives for this user. If none is found an empty
   //now only will be shown
@@ -627,7 +628,7 @@ void QgsProjectionSelectionTreeWidget::loadCrsList( QSet<QString> *crsFilter )
   fontTemp.setItalic( true );
   fontTemp.setBold( true );
   mGeoList->setFont( 0, fontTemp );
-  mGeoList->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/mIconProjectionEnabled.svg" ) ) );
+  mGeoList->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/mIconProjectionEnabled.svg" ) ) );
 
   // Projected coordinate system node
   mProjList = new QTreeWidgetItem( lstCoordinateSystems, QStringList( tr( "Projected Coordinate Systems" ) ) );
@@ -636,7 +637,7 @@ void QgsProjectionSelectionTreeWidget::loadCrsList( QSet<QString> *crsFilter )
   fontTemp.setItalic( true );
   fontTemp.setBold( true );
   mProjList->setFont( 0, fontTemp );
-  mProjList->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/transformed.svg" ) ) );
+  mProjList->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/transformed.svg" ) ) );
 
   //bail out in case the projections db does not exist
   //this is necessary in case the pc is running linux with a

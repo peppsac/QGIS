@@ -22,7 +22,7 @@
 #include "qgsattributetableview.h"
 #include "qgsdockwidget.h"
 
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsvectordataprovider.h"
 #include "qgsvectorlayer.h"
 #include "qgsexpression.h"
@@ -64,7 +64,7 @@ QgsOrganizeTableColumnsDialog::QgsOrganizeTableColumnsDialog( const QgsVectorLay
       if ( columnConfig.type == QgsAttributeTableConfig::Action )
       {
         item = new QListWidgetItem( tr( "[Action Widget]" ), mFieldsList );
-        item->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/propertyicons/action.svg" ) ) );
+        item->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/propertyicons/action.svg" ) ) );
       }
       else
       {
@@ -74,15 +74,15 @@ QgsOrganizeTableColumnsDialog::QgsOrganizeTableColumnsDialog( const QgsVectorLay
         switch ( vl->fields().fieldOrigin( idx ) )
         {
           case QgsFields::OriginExpression:
-            item->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconExpression.svg" ) ) );
+            item->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconExpression.svg" ) ) );
             break;
 
           case QgsFields::OriginJoin:
-            item->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/propertyicons/join.svg" ) ) );
+            item->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/propertyicons/join.svg" ) ) );
             break;
 
           default:
-            item->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/propertyicons/attributes.svg" ) ) );
+            item->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/propertyicons/attributes.svg" ) ) );
             break;
         }
       }

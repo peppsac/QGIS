@@ -15,6 +15,7 @@
 
 #include "qgsprocessingtoolboxmodel.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsvectorlayer.h"
 #include "qgsprocessingregistry.h"
 #include "qgsprocessingrecentalgorithmlog.h"
@@ -398,10 +399,10 @@ QVariant QgsProcessingToolboxModel::data( const QModelIndex &index, int role ) c
           else if ( algorithm )
             return algorithm->icon();
           else if ( isRecentNode )
-            return QgsApplication::getThemeIcon( QStringLiteral( "/mIconHistory.svg" ) );
+            return QgsResources::getThemeIcon( QStringLiteral( "/mIconHistory.svg" ) );
           else if ( !index.parent().isValid() )
             // top level groups get the QGIS icon
-            return QgsApplication::getThemeIcon( QStringLiteral( "/providerQgis.svg" ) );
+            return QgsResources::getThemeIcon( QStringLiteral( "/providerQgis.svg" ) );
           else
             return QVariant();
         }

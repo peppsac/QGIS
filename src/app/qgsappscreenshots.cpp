@@ -30,7 +30,7 @@
 #include "qgisapp.h"
 #include "qgsrendererpropertiesdialog.h"
 #include "qgs25drendererwidget.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsoptions.h"
 #include "qgsguiutils.h"
 #include "qgsvectorlayerjoininfo.h"
@@ -277,7 +277,7 @@ void QgsAppScreenShots::takeVectorLayerProperties25DSymbol()
   dlg->show();
   dlg->mOptionsListWidget->setCurrentRow( 2 );
   Q_ASSERT( dlg->mOptionsListWidget->currentItem()->icon().pixmap( 24, 24 ).toImage()
-            == QgsApplication::getThemeIcon( QStringLiteral( "/propertyicons/symbology.svg" ) ).pixmap( 24, 24 ).toImage() );
+            == QgsResources::getThemeIcon( QStringLiteral( "/propertyicons/symbology.svg" ) ).pixmap( 24, 24 ).toImage() );
   int idx = dlg->mRendererDialog->cboRenderers->findData( QLatin1String( "25dRenderer" ) );
   Q_ASSERT( idx >= 0 );
   dlg->mRendererDialog->cboRenderers->setCurrentIndex( idx );
@@ -320,7 +320,7 @@ void QgsAppScreenShots::takeGlobalOptions()
   dlg->mOptionsListWidget->setCurrentRow( 15 );
   QCoreApplication::processEvents();
   Q_ASSERT( dlg->mOptionsListWidget->currentItem()->icon().pixmap( 24, 24 ).toImage()
-            == QgsApplication::getThemeIcon( QStringLiteral( "/mIconWarning.svg" ) ).pixmap( 24, 24 ).toImage() );
+            == QgsResources::getThemeIcon( QStringLiteral( "/mIconWarning.svg" ) ).pixmap( 24, 24 ).toImage() );
   dlg->mAdvancedSettingsEditor->show();
   QCoreApplication::processEvents();
   QCoreApplication::processEvents(); // seems a second call is needed, the tabble might not be fully displayed otherwise

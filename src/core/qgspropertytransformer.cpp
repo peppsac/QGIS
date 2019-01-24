@@ -21,6 +21,7 @@
 #include "qgssymbollayerutils.h"
 #include "qgscolorramp.h"
 #include "qgspointxy.h"
+#include "qgsexpressionfunction.h"
 
 
 //

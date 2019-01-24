@@ -15,7 +15,7 @@
 #include "qgsalignrasterdialog.h"
 
 #include "qgisapp.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsalignraster.h"
 #include "qgsdataitem.h"
 #include "qgsmapcanvas.h"
@@ -76,9 +76,9 @@ QgsAlignRasterDialog::QgsAlignRasterDialog( QWidget *parent )
 {
   setupUi( this );
 
-  mBtnAdd->setIcon( QIcon( QgsApplication::iconPath( "symbologyAdd.svg" ) ) );
-  mBtnEdit->setIcon( QIcon( QgsApplication::iconPath( "symbologyEdit.svg" ) ) );
-  mBtnRemove->setIcon( QIcon( QgsApplication::iconPath( "symbologyRemove.svg" ) ) );
+  mBtnAdd->setIcon( QIcon( QgsResources::iconPath( "symbologyAdd.svg" ) ) );
+  mBtnEdit->setIcon( QIcon( QgsResources::iconPath( "symbologyEdit.svg" ) ) );
+  mBtnRemove->setIcon( QIcon( QgsResources::iconPath( "symbologyRemove.svg" ) ) );
 
   mAlign = new QgsAlignRaster;
   mAlign->setProgressHandler( new QgsAlignRasterDialogProgress( mProgress ) );

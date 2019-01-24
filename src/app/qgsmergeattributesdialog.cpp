@@ -18,6 +18,7 @@
 #include "qgsmergeattributesdialog.h"
 #include "qgisapp.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgseditorwidgetwrapper.h"
 #include "qgsfeatureiterator.h"
 #include "qgsfields.h"
@@ -72,8 +73,8 @@ QgsMergeAttributesDialog::QgsMergeAttributesDialog( const QgsFeatureList &featur
   mTableWidget->setSelectionBehavior( QAbstractItemView::SelectRows );
   mTableWidget->setSelectionMode( QAbstractItemView::SingleSelection );
 
-  mFromSelectedPushButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mActionFromSelectedFeature.svg" ) ) );
-  mRemoveFeatureFromSelectionButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mActionRemoveSelectedFeature.svg" ) ) );
+  mFromSelectedPushButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mActionFromSelectedFeature.svg" ) ) );
+  mRemoveFeatureFromSelectionButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mActionRemoveSelectedFeature.svg" ) ) );
 
   QgsSettings settings;
   restoreGeometry( settings.value( QStringLiteral( "Windows/MergeAttributes/geometry" ) ).toByteArray() );

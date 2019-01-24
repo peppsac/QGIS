@@ -29,7 +29,7 @@
 #include "qgsvertexmarker.h"
 #include "qgsrubberband.h"
 #include "qgsvectorlayer.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include <QMessageBox>
 #include <QMenu>
 #include <QToolBar>
@@ -77,7 +77,7 @@ QgsMapCanvasDockWidget::QgsMapCanvasDockWidget( const QString &name, QWidget *pa
   QToolButton *btnMapThemes = new QToolButton;
   btnMapThemes->setAutoRaise( true );
   btnMapThemes->setToolTip( tr( "Set View Theme" ) );
-  btnMapThemes->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionShowAllLayers.svg" ) ) );
+  btnMapThemes->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionShowAllLayers.svg" ) ) );
   btnMapThemes->setPopupMode( QToolButton::InstantPopup );
   btnMapThemes->setMenu( mMenu );
   mToolbar->addWidget( btnMapThemes );
@@ -88,7 +88,7 @@ QgsMapCanvasDockWidget::QgsMapCanvasDockWidget( const QString &name, QWidget *pa
   settingsButton->setToolTip( tr( "View Settings" ) );
   settingsButton->setMenu( settingsMenu );
   settingsButton->setPopupMode( QToolButton::InstantPopup );
-  settingsButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionMapSettings.svg" ) ) );
+  settingsButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionMapSettings.svg" ) ) );
   mToolbar->addWidget( settingsButton );
 
   connect( mActionSetCrs, &QAction::triggered, this, &QgsMapCanvasDockWidget::setMapCrs );

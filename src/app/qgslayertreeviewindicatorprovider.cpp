@@ -22,7 +22,7 @@
 #include "qgsvectorlayer.h"
 #include "qgsrasterlayer.h"
 #include "qgisapp.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 QgsLayerTreeViewIndicatorProvider::QgsLayerTreeViewIndicatorProvider( QgsLayerTreeView *view )
   : QObject( view )
@@ -146,7 +146,7 @@ void QgsLayerTreeViewIndicatorProvider::disconnectSignals( QgsMapLayer *layer )
 std::unique_ptr< QgsLayerTreeViewIndicator > QgsLayerTreeViewIndicatorProvider::newIndicator( QgsMapLayer *layer )
 {
   std::unique_ptr< QgsLayerTreeViewIndicator > indicator = qgis::make_unique< QgsLayerTreeViewIndicator >( this );
-  indicator->setIcon( QgsApplication::getThemeIcon( iconName( layer ) ) );
+  indicator->setIcon( QgsResources::getThemeIcon( iconName( layer ) ) );
   indicator->setToolTip( tooltipText( layer ) );
   connect( indicator.get(), &QgsLayerTreeViewIndicator::clicked, this, &QgsLayerTreeViewIndicatorProvider::onIndicatorClicked );
   mIndicators.insert( indicator.get() );
@@ -167,7 +167,7 @@ void QgsLayerTreeViewIndicatorProvider::addOrRemoveIndicator( QgsLayerTreeNode *
       {
         // Update just in case ...
         indicator->setToolTip( tooltipText( layer ) );
-        indicator->setIcon( QgsApplication::getThemeIcon( iconName( layer ) ) );
+        indicator->setIcon( QgsResources::getThemeIcon( iconName( layer ) ) );
         return;
       }
     }

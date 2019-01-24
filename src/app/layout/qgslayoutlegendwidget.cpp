@@ -112,12 +112,12 @@ QgsLayoutLegendWidget::QgsLayoutLegendWidget( QgsLayoutItemLegend *legend )
   mItemFontButton->setMode( QgsFontButton::ModeQFont );
 
   // setup icons
-  mAddToolButton->setIcon( QIcon( QgsApplication::iconPath( "symbologyAdd.svg" ) ) );
-  mEditPushButton->setIcon( QIcon( QgsApplication::iconPath( "symbologyEdit.svg" ) ) );
-  mRemoveToolButton->setIcon( QIcon( QgsApplication::iconPath( "symbologyRemove.svg" ) ) );
-  mMoveUpToolButton->setIcon( QIcon( QgsApplication::iconPath( "mActionArrowUp.svg" ) ) );
-  mMoveDownToolButton->setIcon( QIcon( QgsApplication::iconPath( "mActionArrowDown.svg" ) ) );
-  mCountToolButton->setIcon( QIcon( QgsApplication::iconPath( "mActionSum.svg" ) ) );
+  mAddToolButton->setIcon( QIcon( QgsResources::iconPath( "symbologyAdd.svg" ) ) );
+  mEditPushButton->setIcon( QIcon( QgsResources::iconPath( "symbologyEdit.svg" ) ) );
+  mRemoveToolButton->setIcon( QIcon( QgsResources::iconPath( "symbologyRemove.svg" ) ) );
+  mMoveUpToolButton->setIcon( QIcon( QgsResources::iconPath( "mActionArrowUp.svg" ) ) );
+  mMoveDownToolButton->setIcon( QIcon( QgsResources::iconPath( "mActionArrowDown.svg" ) ) );
+  mCountToolButton->setIcon( QIcon( QgsResources::iconPath( "mActionSum.svg" ) ) );
 
   mFontColorButton->setColorDialogTitle( tr( "Select Font Color" ) );
   mFontColorButton->setContext( QStringLiteral( "composer" ) );

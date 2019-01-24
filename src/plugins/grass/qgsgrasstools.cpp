@@ -57,7 +57,7 @@ QgsGrassTools::QgsGrassTools( QgisInterface *iface, QWidget *parent, const char 
   connect( mDebugButton, &QPushButton::clicked, this, &QgsGrassTools::mDebugButton_clicked );
   connect( mCloseDebugButton, &QPushButton::clicked, this, &QgsGrassTools::mCloseDebugButton_clicked );
   connect( mViewModeButton, &QToolButton::clicked, this, &QgsGrassTools::mViewModeButton_clicked );
-  QPushButton *closeMapsetButton = new QPushButton( QgsApplication::getThemeIcon( QStringLiteral( "mActionFileExit.svg" ) ), tr( "Close mapset" ), this );
+  QPushButton *closeMapsetButton = new QPushButton( QgsResources::getThemeIcon( QStringLiteral( "mActionFileExit.svg" ) ), tr( "Close mapset" ), this );
   mTabWidget->setCornerWidget( closeMapsetButton );
   connect( closeMapsetButton, &QAbstractButton::clicked, this, &QgsGrassTools::closeMapset );
 
@@ -369,7 +369,7 @@ void QgsGrassTools::addModules( QStandardItem *parent, QDomElement &element, QSt
           QStandardItem *item = new QStandardItem( label );
           item->setData( label, Qt::UserRole + Label );
           item->setData( label, Qt::UserRole + Search );
-          item->setData( QgsApplication::getThemeIcon( QStringLiteral( "mIconWarning.svg" ) ), Qt::DecorationRole );
+          item->setData( QgsResources::getThemeIcon( QStringLiteral( "mIconWarning.svg" ) ), Qt::DecorationRole );
           appendItem( treeModel, parent, item );
         }
         n = n.nextSibling();
@@ -641,7 +641,7 @@ int QgsGrassTools::debug( QStandardItem *item )
     if ( errors > 0 )
     {
       label += " ( " + tr( "%1 errors" ).arg( errors ) + " )";
-      item->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mIconWarning.svg" ) ) );
+      item->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mIconWarning.svg" ) ) );
     }
     else
     {
@@ -682,13 +682,13 @@ void QgsGrassTools::mViewModeButton_clicked()
   {
     mListView->hide();
     mTreeView->show();
-    mViewModeButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mIconListView.svg" ) ) );
+    mViewModeButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mIconListView.svg" ) ) );
   }
   else
   {
     mTreeView->hide();
     mListView->show();
-    mViewModeButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mIconTreeView.svg" ) ) );
+    mViewModeButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mIconTreeView.svg" ) ) );
   }
 }
 

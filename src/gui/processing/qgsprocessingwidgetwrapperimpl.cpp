@@ -23,7 +23,7 @@
 #include "qgsdoublespinbox.h"
 #include "qgsprocessingcontext.h"
 #include "qgsauthconfigselect.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include <QLabel>
 #include <QHBoxLayout>
 #include <QCheckBox>
@@ -771,7 +771,7 @@ QWidget *QgsProcessingDistanceWidgetWrapper::createWidget()
       warningLayout->setMargin( 0 );
       warningLayout->setContentsMargins( 0, 0, 0, 0 );
       QLabel *warning = new QLabel();
-      QIcon icon = QgsApplication::getThemeIcon( QStringLiteral( "mIconWarning.svg" ) );
+      QIcon icon = QgsResources::getThemeIcon( QStringLiteral( "mIconWarning.svg" ) );
       const int size = static_cast< int >( std::max( 24.0, spin->minimumSize().height() * 0.5 ) );
       warning->setPixmap( icon.pixmap( icon.actualSize( QSize( size, size ) ) ) );
       warning->setToolTip( tr( "Distance is in geographic degrees. Consider reprojecting to a projected local coordinate system for accurate results." ) );

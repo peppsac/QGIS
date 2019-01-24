@@ -31,7 +31,7 @@
 #include "qgsmapcanvas.h"
 #include "qgsvectorfilewriter.h"
 #include "qgsvectordataprovider.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 #include <QAction>
 #include <QEventLoop>
@@ -112,16 +112,16 @@ void QgsGeometryCheckerSetupTab::updateLayers()
     bool supportedGeometryType = true;
     if ( layer->geometryType() == QgsWkbTypes::PointGeometry )
     {
-      item->setIcon( QgsApplication::getThemeIcon( "/mIconPointLayer.svg" ) );
+      item->setIcon( QgsResources::getThemeIcon( "/mIconPointLayer.svg" ) );
     }
     else if ( layer->geometryType() == QgsWkbTypes::LineGeometry )
     {
-      item->setIcon( QgsApplication::getThemeIcon( "/mIconLineLayer.svg" ) );
+      item->setIcon( QgsResources::getThemeIcon( "/mIconLineLayer.svg" ) );
       ui.comboLineLayerIntersection->addItem( layer->name(), layer->id() );
     }
     else if ( layer->geometryType() == QgsWkbTypes::PolygonGeometry )
     {
-      item->setIcon( QgsApplication::getThemeIcon( "/mIconPolygonLayer.svg" ) );
+      item->setIcon( QgsResources::getThemeIcon( "/mIconPolygonLayer.svg" ) );
       ui.comboLineLayerIntersection->addItem( layer->name(), layer->id() );
       ui.comboBoxFollowBoundaries->addItem( layer->name(), layer->id() );
     }

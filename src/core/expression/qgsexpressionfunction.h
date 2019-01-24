@@ -24,7 +24,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
-#include "qgis.h"
+#include "qgis_sip.h"
 #include "qgis_core.h"
 #include "qgsexpressionnode.h"
 

@@ -16,7 +16,7 @@
 #include "qgssmartgroupeditordialog.h"
 
 #include "qgsstyle.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsgui.h"
 
 #include <QVariant>
@@ -36,7 +36,7 @@ QgsSmartGroupCondition::QgsSmartGroupCondition( int id, QWidget *parent ) : QWid
   mCondCombo->addItem( tr( "does NOT have the tag" ), QVariant( "!tag" ) );
   mCondCombo->addItem( tr( "has NO part of name matching" ), QVariant( "!name" ) );
 
-  mRemoveBtn->setIcon( QIcon( QgsApplication::iconPath( "symbologyRemove.svg" ) ) );
+  mRemoveBtn->setIcon( QIcon( QgsResources::iconPath( "symbologyRemove.svg" ) ) );
 
   connect( mRemoveBtn, &QAbstractButton::clicked, this, &QgsSmartGroupCondition::destruct );
 }

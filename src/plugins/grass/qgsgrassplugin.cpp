@@ -177,11 +177,11 @@ void QgsGrassPlugin::initGui()
   mToolBarPointer->addAction( mRegionAction );
 
   // Editing
-  mAddPointAction = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "/mActionCapturePoint.svg" ) ), tr( "Add Point" ), this );
+  mAddPointAction = new QAction( QgsResources::getThemeIcon( QStringLiteral( "/mActionCapturePoint.svg" ) ), tr( "Add Point" ), this );
   mAddPointAction->setObjectName( QStringLiteral( "mAddPointAction" ) );
   mAddPointAction->setCheckable( true );
 
-  mAddLineAction = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "/mActionCaptureLine.svg" ) ), tr( "Add Line" ), this );
+  mAddLineAction = new QAction( QgsResources::getThemeIcon( QStringLiteral( "/mActionCaptureLine.svg" ) ), tr( "Add Line" ), this );
   mAddLineAction->setObjectName( QStringLiteral( "mAddLineAction" ) );
   mAddLineAction->setCheckable( true );
 
@@ -193,7 +193,7 @@ void QgsGrassPlugin::initGui()
   mAddCentroidAction->setObjectName( QStringLiteral( "mAddCentroidAction" ) );
   mAddCentroidAction->setCheckable( true );
 
-  mAddAreaAction = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "/mActionCapturePolygon.svg" ) ), tr( "Add Closed Boundary" ), this );
+  mAddAreaAction = new QAction( QgsResources::getThemeIcon( QStringLiteral( "/mActionCapturePolygon.svg" ) ), tr( "Add Closed Boundary" ), this );
   mAddAreaAction->setObjectName( QStringLiteral( "mAddAreaAction" ) );
   mAddAreaAction->setCheckable( true );
 
@@ -268,7 +268,7 @@ void QgsGrassPlugin::initGui()
     QgsApplication::rendererRegistry()->addRenderer( new QgsRendererMetadata( QStringLiteral( "grassEdit" ),
         QObject::tr( "GRASS edit" ),
         QgsGrassEditRenderer::create,
-        QIcon( QgsApplication::defaultThemePath() + "rendererGrassSymbol.svg" ),
+        QIcon( QgsResources::defaultThemePath() + "rendererGrassSymbol.svg" ),
         QgsGrassEditRendererWidget::create ) );
   }
 
@@ -858,7 +858,7 @@ void QgsGrassPlugin::setCurrentTheme( QString themeName )
     mCloseMapsetAction->setIcon( getThemeIcon( QStringLiteral( "grass_close_mapset.png" ) ) );
     mOpenToolsAction->setIcon( getThemeIcon( QStringLiteral( "grass_tools.png" ) ) );
     mRegionAction->setIcon( getThemeIcon( QStringLiteral( "grass_region.png" ) ) );
-    mOptionsAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "propertyicons/general.svg" ) ) );
+    mOptionsAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "propertyicons/general.svg" ) ) );
   }
 }
 
@@ -869,7 +869,7 @@ void QgsGrassPlugin::setCurrentTheme( QString themeName )
 QIcon QgsGrassPlugin::getThemeIcon( const QString &name )
 {
   QString myCurThemePath = QgsApplication::activeThemePath() + "/grass/" + name;
-  QString myDefThemePath = QgsApplication::defaultThemePath() + "/grass/" + name;
+  QString myDefThemePath = QgsResources::defaultThemePath() + "/grass/" + name;
   QString myQrcPath = ":/default/grass/" + name;
   if ( QFile::exists( myCurThemePath ) )
   {

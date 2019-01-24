@@ -14,7 +14,7 @@
  ***************************************************************************/
 #include "qgsundowidget.h"
 
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgslogger.h"
 #include "qgsmaplayer.h"
 #include "qgsmapcanvas.h"
@@ -172,13 +172,13 @@ void QgsUndoWidget::setupUi( QWidget *UndoWidget )
 
   undoButton = new QPushButton( dockWidgetContents );
   undoButton->setObjectName( QStringLiteral( "undoButton" ) );
-  undoButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mActionUndo.svg" ) ) );
+  undoButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mActionUndo.svg" ) ) );
 
   gridLayout->addWidget( undoButton, 1, 0, 1, 1 );
 
   redoButton = new QPushButton( dockWidgetContents );
   redoButton->setObjectName( QStringLiteral( "redoButton" ) );
-  redoButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mActionRedo.svg" ) ) );
+  redoButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mActionRedo.svg" ) ) );
 
   gridLayout->addWidget( redoButton, 1, 1, 1, 1 );
 

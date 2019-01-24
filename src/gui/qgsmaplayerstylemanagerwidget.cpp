@@ -30,7 +30,7 @@
 #include "qgsrasterdataprovider.h"
 #include "qgsvectorlayer.h"
 #include "qgsrasterlayer.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 QgsMapLayerStyleManagerWidget::QgsMapLayerStyleManagerWidget( QgsMapLayer *layer, QgsMapCanvas *canvas, QWidget *parent )
   : QgsMapLayerConfigWidget( layer, canvas, parent )
@@ -43,13 +43,13 @@ QgsMapLayerStyleManagerWidget::QgsMapLayerStyleManagerWidget( QgsMapLayer *layer
 
   QToolBar *toolbar = new QToolBar( this );
   QAction *addAction = toolbar->addAction( tr( "Add" ) );
-  addAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "symbologyAdd.svg" ) ) );
+  addAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "symbologyAdd.svg" ) ) );
   connect( addAction, &QAction::triggered, this, &QgsMapLayerStyleManagerWidget::addStyle );
   QAction *removeAction = toolbar->addAction( tr( "Remove Current" ) );
-  removeAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "symbologyRemove.svg" ) ) );
+  removeAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "symbologyRemove.svg" ) ) );
   connect( removeAction, &QAction::triggered, this, &QgsMapLayerStyleManagerWidget::removeStyle );
   QAction *loadFromFileAction = toolbar->addAction( tr( "Load Style" ) );
-  loadFromFileAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionFileOpen.svg" ) ) );
+  loadFromFileAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionFileOpen.svg" ) ) );
   connect( loadFromFileAction, &QAction::triggered, this, &QgsMapLayerStyleManagerWidget::loadStyle );
   QAction *saveAsDefaultAction = toolbar->addAction( tr( "Save as Default" ) );
   connect( saveAsDefaultAction, &QAction::triggered, this, &QgsMapLayerStyleManagerWidget::saveAsDefault );

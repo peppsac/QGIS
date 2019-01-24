@@ -33,7 +33,7 @@
 
 #include "qgis.h"
 #include "qgisapp.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsconfig.h"
 #include "qgsmessagebar.h"
 #include "qgsproviderregistry.h"
@@ -552,7 +552,7 @@ void QgsPluginManager::reloadModelData()
       }
       else
       {
-        mypDetailItem->setData( QPixmap( QgsApplication::defaultThemePath() + "/propertyicons/plugin.svg" ), Qt::DecorationRole );
+        mypDetailItem->setData( QPixmap( QgsResources::defaultThemePath() + "/propertyicons/plugin.svg" ), Qt::DecorationRole );
       }
 
       mypDetailItem->setEditable( false );

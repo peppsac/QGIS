@@ -20,7 +20,7 @@
 #define SIP_NO_FILE
 
 #include "qgsprocessingalgorithm.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 ///@cond PRIVATE
 
@@ -28,8 +28,8 @@ class QgsUnionAlgorithm : public QgsProcessingAlgorithm
 {
   public:
     QgsUnionAlgorithm() = default;
-    QIcon icon() const override { return QgsApplication::getThemeIcon( QStringLiteral( "/algorithms/mAlgorithmUnion.svg" ) ); }
-    QString svgIconPath() const override { return QgsApplication::iconPath( QStringLiteral( "/algorithms/mAlgorithmUnion.svg" ) ); }
+    QIcon icon() const override { return QgsResources::getThemeIcon( QStringLiteral( "/algorithms/mAlgorithmUnion.svg" ) ); }
+    QString svgIconPath() const override { return QgsResources::iconPath( QStringLiteral( "/algorithms/mAlgorithmUnion.svg" ) ); }
     QString name() const override;
     QString displayName() const override;
     QString group() const override;

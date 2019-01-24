@@ -15,7 +15,7 @@
  ***************************************************************************/
 #include "qgsogrdbtablemodel.h"
 #include "qgsdataitem.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 #include <QIcon>
 
@@ -48,7 +48,7 @@ void QgsOgrDbTableModel::addTableEntry( const QgsLayerItem::LayerType &layerType
   }
 
   QList < QStandardItem * >childItemList;
-  QStandardItem *typeItem = new QStandardItem( QgsApplication::getThemeIcon( QgsLayerItem::iconName( layerType ) ), geometryType );
+  QStandardItem *typeItem = new QStandardItem( QgsResources::getThemeIcon( QgsLayerItem::iconName( layerType ) ), geometryType );
   typeItem->setFlags( Qt::ItemIsEnabled | Qt::ItemIsSelectable );
   QStandardItem *tableItem = new QStandardItem( tableName );
   tableItem->setFlags( Qt::ItemIsEnabled | Qt::ItemIsSelectable );

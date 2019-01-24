@@ -20,6 +20,7 @@
 #include "qgisinterface.h"
 #include "qgsguiutils.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgspoint.h"
 #include "qgsmapcanvas.h"
 #include "qgis.h"
@@ -280,7 +281,7 @@ void CoordinateCapture::setCurrentTheme( const QString &themeName )
 QString CoordinateCapture::getIconPath( const QString &name )
 {
   QString myCurThemePath = QgsApplication::activeThemePath() + "/plugins/coordinate_capture/" + name;
-  QString myDefThemePath = QgsApplication::defaultThemePath() + "/plugins/coordinate_capture/" + name;
+  QString myDefThemePath = QgsResources::defaultThemePath() + "/plugins/coordinate_capture/" + name;
   QString myQrcPath = ":/coordinate_capture/" + name;
   if ( QFile::exists( myCurThemePath ) )
   {

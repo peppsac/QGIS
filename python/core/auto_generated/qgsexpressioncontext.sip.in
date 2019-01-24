@@ -9,76 +9,11 @@
 
 
 
-class QgsScopedExpressionFunction : QgsExpressionFunction
-{
-%Docstring
-Expression function for use within a QgsExpressionContextScope. This differs from a
-standard QgsExpression.Function in that it requires an implemented
-clone() method.
-
-.. versionadded:: 2.12
-%End
-
-%TypeHeaderCode
-#include "qgsexpressioncontext.h"
-%End
-  public:
-
-    QgsScopedExpressionFunction( const QString &fnname,
-                                 int params,
-                                 const QString &group,
-                                 const QString &helpText = QString(),
-                                 bool usesGeometry = false,
-                                 const QSet<QString> &referencedColumns = QSet<QString>(),
-                                 bool lazyEval = false,
-                                 bool handlesNull = false,
-                                 bool isContextual = true );
-%Docstring
-Create a new QgsScopedExpressionFunction
-
-.. versionadded:: 2.12
-%End
-
-    QgsScopedExpressionFunction( const QString &fnname,
-                                 const QgsExpressionFunction::ParameterList &params,
-                                 const QString &group,
-                                 const QString &helpText = QString(),
-                                 bool usesGeometry = false,
-                                 const QSet<QString> &referencedColumns = QSet<QString>(),
-                                 bool lazyEval = false,
-                                 bool handlesNull = false,
-                                 bool isContextual = true );
-%Docstring
-Create a new QgsScopedExpressionFunction using named parameters.
-
-.. versionadded:: 3.0
-%End
-
-    virtual QVariant func( const QVariantList &values, const QgsExpressionContext *context, QgsExpression *parent, const QgsExpressionNodeFunction *node ) = 0;
-
-
-    virtual QgsScopedExpressionFunction *clone() const = 0 /Factory/;
-%Docstring
-Returns a clone of the function.
-%End
-
-    virtual bool usesGeometry( const QgsExpressionNodeFunction *node ) const;
-
-
-    virtual QSet<QString> referencedColumns( const QgsExpressionNodeFunction *node ) const;
-
-
-    virtual bool isStatic( const QgsExpressionNodeFunction *node, QgsExpression *parent, const QgsExpressionContext *context ) const;
-
-
-};
-
-
 
 class QgsExpressionContextScope
 {
 %Docstring
-Single scope for storing variables and functions for use within a :py:class:`QgsExpressionContext`.
+Single scope for storing variables and functions for use within a QgsExpressionContext.
 Examples include a project's scope, which could contain information about the current project such as
 the project file's location. QgsExpressionContextScope can encapsulate both variables (static values)
 and functions(which are calculated only when an expression is evaluated).
@@ -1092,8 +1027,6 @@ Creates a new scope which contains variables and functions relating to provider 
 %Docstring
 Registers all known core functions provided by QgsExpressionContextScope objects.
 %End
-
-      public:
 };
 
 /************************************************************************

@@ -18,6 +18,7 @@
 
 #include "qgisapp.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsactionmanager.h"
 #include "qgsattributedialog.h"
 #include "qgsdockwidget.h"
@@ -527,7 +528,7 @@ void QgsIdentifyResultsDialog::addFeature( QgsVectorLayer *vlayer, const QgsFeat
     if ( vlayer->fields().size() > 0 )
     {
       QTreeWidgetItem *editItem = new QTreeWidgetItem( QStringList() << QString() << ( vlayer->isEditable() ? tr( "Edit feature form" ) : tr( "View feature form" ) ) );
-      editItem->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/mActionFormView.svg" ) ) );
+      editItem->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/mActionFormView.svg" ) ) );
       editItem->setData( 0, Qt::UserRole, "edit" );
       actionItem->addChild( editItem );
     }
@@ -541,7 +542,7 @@ void QgsIdentifyResultsDialog::addFeature( QgsVectorLayer *vlayer, const QgsFeat
         continue;
 
       QTreeWidgetItem *twi = new QTreeWidgetItem( QStringList() << QString() << action.name() );
-      twi->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/mAction.svg" ) ) );
+      twi->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/mAction.svg" ) ) );
       twi->setData( 0, Qt::UserRole, "action" );
       twi->setData( 0, Qt::UserRole + 1, action.id() );
       actionItem->addChild( twi );
@@ -555,7 +556,7 @@ void QgsIdentifyResultsDialog::addFeature( QgsVectorLayer *vlayer, const QgsFeat
 
       QgsMapLayerAction *action = registeredActions.at( i );
       QTreeWidgetItem *twi = new QTreeWidgetItem( QStringList() << QString() << action->text() );
-      twi->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/mAction.svg" ) ) );
+      twi->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/mAction.svg" ) ) );
       twi->setData( 0, Qt::UserRole, "map_layer_action" );
       twi->setData( 0, Qt::UserRole + 1, qVariantFromValue( qobject_cast<QObject *>( action ) ) );
       actionItem->addChild( twi );
@@ -1060,7 +1061,7 @@ void QgsIdentifyResultsDialog::contextMenuEvent( QContextMenuEvent *event )
     if ( vlayer )
     {
       mActionPopup->addAction(
-        QgsApplication::getThemeIcon( QStringLiteral( "/mActionFormView.svg" ) ),
+        QgsResources::getThemeIcon( QStringLiteral( "/mActionFormView.svg" ) ),
         vlayer->isEditable() ? tr( "Edit Feature Form…" ) : tr( "View Feature Form…" ),
         this, &QgsIdentifyResultsDialog::featureForm );
     }
@@ -1126,7 +1127,7 @@ void QgsIdentifyResultsDialog::contextMenuEvent( QContextMenuEvent *event )
           continue;
 
         QgsFeatureAction *a = new QgsFeatureAction( action.name(), mFeatures[ featIdx ], vlayer, action.id(), idx, this );
-        mActionPopup->addAction( QgsApplication::getThemeIcon( QStringLiteral( "/mAction.svg" ) ), action.name(), a, &QgsFeatureAction::execute );
+        mActionPopup->addAction( QgsResources::getThemeIcon( QStringLiteral( "/mAction.svg" ) ), action.name(), a, &QgsFeatureAction::execute );
       }
     }
   }
@@ -1150,7 +1151,7 @@ void QgsIdentifyResultsDialog::contextMenuEvent( QContextMenuEvent *event )
           continue;
 
         QgsIdentifyResultsDialogMapLayerAction *a = new QgsIdentifyResultsDialogMapLayerAction( ( *actionIt )->text(), this, ( *actionIt ), vlayer, &( mFeatures[ featIdx ] ) );
-        mActionPopup->addAction( QgsApplication::getThemeIcon( QStringLiteral( "/mAction.svg" ) ), ( *actionIt )->text(), a, &QgsIdentifyResultsDialogMapLayerAction::execute );
+        mActionPopup->addAction( QgsResources::getThemeIcon( QStringLiteral( "/mAction.svg" ) ), ( *actionIt )->text(), a, &QgsIdentifyResultsDialogMapLayerAction::execute );
       }
     }
   }

@@ -18,7 +18,7 @@
 #include <QObject>
 #include <QKeyEvent>
 
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsfieldexpressionwidget.h"
 #include "qgsexpressionbuilderdialog.h"
 #include "qgsfieldproxymodel.h"
@@ -48,7 +48,7 @@ QgsFieldExpressionWidget::QgsFieldExpressionWidget( QWidget *parent )
 
   mButton = new QToolButton( this );
   mButton->setSizePolicy( QSizePolicy::Minimum, QSizePolicy::Minimum );
-  mButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconExpression.svg" ) ) );
+  mButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconExpression.svg" ) ) );
 
   layout->addWidget( mCombo );
   layout->addWidget( mButton );

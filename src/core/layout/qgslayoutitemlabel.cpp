@@ -94,7 +94,7 @@ int QgsLayoutItemLabel::type() const
 
 QIcon QgsLayoutItemLabel::icon() const
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mLayoutItemLabel.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mLayoutItemLabel.svg" ) );
 }
 
 void QgsLayoutItemLabel::draw( QgsLayoutItemRenderContext &context )

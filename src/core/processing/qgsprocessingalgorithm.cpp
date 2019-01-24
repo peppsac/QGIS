@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 #include "qgsprocessingalgorithm.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsprocessingprovider.h"
 #include "qgsprocessingparameters.h"
 #include "qgsprocessingoutputs.h"
@@ -73,12 +73,12 @@ QString QgsProcessingAlgorithm::helpUrl() const
 
 QIcon QgsProcessingAlgorithm::icon() const
 {
-  return QgsApplication::getThemeIcon( "/processingAlgorithm.svg" );
+  return QgsResources::getThemeIcon( "/processingAlgorithm.svg" );
 }
 
 QString QgsProcessingAlgorithm::svgIconPath() const
 {
-  return QgsApplication::iconPath( QStringLiteral( "processingAlgorithm.svg" ) );
+  return QgsResources::iconPath( QStringLiteral( "processingAlgorithm.svg" ) );
 }
 
 QgsProcessingAlgorithm::Flags QgsProcessingAlgorithm::flags() const

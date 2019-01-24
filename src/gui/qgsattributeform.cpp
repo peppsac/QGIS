@@ -39,6 +39,7 @@
 #include "qgsvectorlayerutils.h"
 #include "qgsqmlwidgetwrapper.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 
 #include <QDir>
 #include <QTextStream>
@@ -1434,25 +1435,25 @@ void QgsAttributeForm::init()
     QToolButton *selectButton = new QToolButton();
     selectButton->setSizePolicy( QSizePolicy::Minimum, QSizePolicy::Minimum );
     selectButton->setText( tr( "&Select Features" ) );
-    selectButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconFormSelect.svg" ) ) );
+    selectButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconFormSelect.svg" ) ) );
     selectButton->setPopupMode( QToolButton::MenuButtonPopup );
     selectButton->setToolButtonStyle( Qt::ToolButtonTextBesideIcon );
     connect( selectButton, &QToolButton::clicked, this, &QgsAttributeForm::searchSetSelection );
     QMenu *selectMenu = new QMenu( selectButton );
     QAction *selectAction = new QAction( tr( "Select Features" ), selectMenu );
-    selectAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconFormSelect.svg" ) ) );
+    selectAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconFormSelect.svg" ) ) );
     connect( selectAction, &QAction::triggered, this, &QgsAttributeForm::searchSetSelection );
     selectMenu->addAction( selectAction );
     QAction *addSelectAction = new QAction( tr( "Add to Current Selection" ), selectMenu );
-    addSelectAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconSelectAdd.svg" ) ) );
+    addSelectAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconSelectAdd.svg" ) ) );
     connect( addSelectAction, &QAction::triggered, this, &QgsAttributeForm::searchAddToSelection );
     selectMenu->addAction( addSelectAction );
     QAction *deselectAction = new QAction( tr( "Remove from Current Selection" ), selectMenu );
-    deselectAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconSelectRemove.svg" ) ) );
+    deselectAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconSelectRemove.svg" ) ) );
     connect( deselectAction, &QAction::triggered, this, &QgsAttributeForm::searchRemoveFromSelection );
     selectMenu->addAction( deselectAction );
     QAction *filterSelectAction = new QAction( tr( "Filter Current Selection" ), selectMenu );
-    filterSelectAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconSelectIntersect.svg" ) ) );
+    filterSelectAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconSelectIntersect.svg" ) ) );
     connect( filterSelectAction, &QAction::triggered, this, &QgsAttributeForm::searchIntersectSelection );
     selectMenu->addAction( filterSelectAction );
     selectButton->setMenu( selectMenu );
@@ -2214,7 +2215,7 @@ void QgsAttributeForm::updateIcon( QgsEditorWidgetWrapper *eww )
 
 void QgsAttributeForm::reloadIcon( const QString &file, const QString &tooltip, QSvgWidget *sw )
 {
-  sw->load( QgsApplication::iconPath( file ) );
+  sw->load( QgsResources::iconPath( file ) );
   sw->setToolTip( tooltip );
   sw->show();
 }

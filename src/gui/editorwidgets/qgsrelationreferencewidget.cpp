@@ -25,6 +25,7 @@
 #include "qgsattributetablefiltermodel.h"
 #include "qgsattributedialog.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgscollapsiblegroupbox.h"
 #include "qgseditorwidgetfactory.h"
 #include "qgsexpression.h"
@@ -78,21 +79,21 @@ QgsRelationReferenceWidget::QgsRelationReferenceWidget( QWidget *parent )
 
   // open form button
   mOpenFormButton = new QToolButton();
-  mOpenFormButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionPropertyItem.svg" ) ) );
+  mOpenFormButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionPropertyItem.svg" ) ) );
   mOpenFormButton->setText( tr( "Open Related Feature Form" ) );
   editLayout->addWidget( mOpenFormButton );
 
   mAddEntryButton = new QToolButton();
-  mAddEntryButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAdd.svg" ) ) );
+  mAddEntryButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAdd.svg" ) ) );
   mAddEntryButton->setText( tr( "Add New Entry" ) );
   editLayout->addWidget( mAddEntryButton );
 
   // highlight button
   mHighlightFeatureButton = new QToolButton( this );
   mHighlightFeatureButton->setPopupMode( QToolButton::MenuButtonPopup );
-  mHighlightFeatureAction = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "/mActionHighlightFeature.svg" ) ), tr( "Highlight feature" ), this );
-  mScaleHighlightFeatureAction = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "/mActionScaleHighlightFeature.svg" ) ), tr( "Scale and highlight feature" ), this );
-  mPanHighlightFeatureAction = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "/mActionPanHighlightFeature.svg" ) ), tr( "Pan and highlight feature" ), this );
+  mHighlightFeatureAction = new QAction( QgsResources::getThemeIcon( QStringLiteral( "/mActionHighlightFeature.svg" ) ), tr( "Highlight feature" ), this );
+  mScaleHighlightFeatureAction = new QAction( QgsResources::getThemeIcon( QStringLiteral( "/mActionScaleHighlightFeature.svg" ) ), tr( "Scale and highlight feature" ), this );
+  mPanHighlightFeatureAction = new QAction( QgsResources::getThemeIcon( QStringLiteral( "/mActionPanHighlightFeature.svg" ) ), tr( "Pan and highlight feature" ), this );
   mHighlightFeatureButton->addAction( mHighlightFeatureAction );
   mHighlightFeatureButton->addAction( mScaleHighlightFeatureAction );
   mHighlightFeatureButton->addAction( mPanHighlightFeatureAction );
@@ -101,14 +102,14 @@ QgsRelationReferenceWidget::QgsRelationReferenceWidget( QWidget *parent )
 
   // map identification button
   mMapIdentificationButton = new QToolButton( this );
-  mMapIdentificationButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionMapIdentification.svg" ) ) );
+  mMapIdentificationButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionMapIdentification.svg" ) ) );
   mMapIdentificationButton->setText( tr( "Select on Map" ) );
   mMapIdentificationButton->setCheckable( true );
   editLayout->addWidget( mMapIdentificationButton );
 
   // remove foreign key button
   mRemoveFKButton = new QToolButton( this );
-  mRemoveFKButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionRemove.svg" ) ) );
+  mRemoveFKButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionRemove.svg" ) ) );
   mRemoveFKButton->setText( tr( "No Selection" ) );
   editLayout->addWidget( mRemoveFKButton );
 

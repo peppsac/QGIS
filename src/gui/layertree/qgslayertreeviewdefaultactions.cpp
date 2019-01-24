@@ -15,7 +15,7 @@
 
 #include "qgslayertreeviewdefaultactions.h"
 #include "qgsguiutils.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgslayertree.h"
 #include "qgslayertreemodel.h"
 #include "qgslayertreeview.h"
@@ -24,6 +24,7 @@
 #include "qgsvectorlayer.h"
 
 #include <QAction>
+#include <QApplication>
 
 QgsLayerTreeViewDefaultActions::QgsLayerTreeViewDefaultActions( QgsLayerTreeView *view )
   : QObject( view )
@@ -33,14 +34,14 @@ QgsLayerTreeViewDefaultActions::QgsLayerTreeViewDefaultActions( QgsLayerTreeView
 
 QAction *QgsLayerTreeViewDefaultActions::actionAddGroup( QObject *parent )
 {
-  QAction *a = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddGroup.svg" ) ), tr( "&Add Group" ), parent );
+  QAction *a = new QAction( QgsResources::getThemeIcon( QStringLiteral( "/mActionAddGroup.svg" ) ), tr( "&Add Group" ), parent );
   connect( a, &QAction::triggered, this, &QgsLayerTreeViewDefaultActions::addGroup );
   return a;
 }
 
 QAction *QgsLayerTreeViewDefaultActions::actionRemoveGroupOrLayer( QObject *parent )
 {
-  QAction *a = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "/mActionRemoveLayer.svg" ) ), tr( "&Remove" ), parent );
+  QAction *a = new QAction( QgsResources::getThemeIcon( QStringLiteral( "/mActionRemoveLayer.svg" ) ), tr( "&Remove" ), parent );
   connect( a, &QAction::triggered, this, &QgsLayerTreeViewDefaultActions::removeGroupOrLayer );
   return a;
 }
@@ -51,7 +52,7 @@ QAction *QgsLayerTreeViewDefaultActions::actionShowInOverview( QObject *parent )
   if ( !node )
     return nullptr;
 
-  QAction *a = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "/mActionInOverview.svg" ) ), tr( "&Show in Overview" ), parent );
+  QAction *a = new QAction( QgsResources::getThemeIcon( QStringLiteral( "/mActionInOverview.svg" ) ), tr( "&Show in Overview" ), parent );
   connect( a, &QAction::triggered, this, &QgsLayerTreeViewDefaultActions::showInOverview );
   a->setCheckable( true );
   a->setChecked( node->customProperty( QStringLiteral( "overview" ), 0 ).toInt() );
@@ -90,7 +91,7 @@ QAction *QgsLayerTreeViewDefaultActions::actionShowFeatureCount( QObject *parent
 
 QAction *QgsLayerTreeViewDefaultActions::actionZoomToLayer( QgsMapCanvas *canvas, QObject *parent )
 {
-  QAction *a = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "/mActionZoomToLayer.svg" ) ),
+  QAction *a = new QAction( QgsResources::getThemeIcon( QStringLiteral( "/mActionZoomToLayer.svg" ) ),
                             tr( "&Zoom to Layer" ), parent );
   a->setData( QVariant::fromValue( reinterpret_cast<void *>( canvas ) ) );
   connect( a, &QAction::triggered, this, static_cast<void ( QgsLayerTreeViewDefaultActions::* )()>( &QgsLayerTreeViewDefaultActions::zoomToLayer ) );
@@ -99,7 +100,7 @@ QAction *QgsLayerTreeViewDefaultActions::actionZoomToLayer( QgsMapCanvas *canvas
 
 QAction *QgsLayerTreeViewDefaultActions::actionZoomToSelection( QgsMapCanvas *canvas, QObject *parent )
 {
-  QAction *a = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "/mActionZoomToSelected.svg" ) ),
+  QAction *a = new QAction( QgsResources::getThemeIcon( QStringLiteral( "/mActionZoomToSelected.svg" ) ),
                             tr( "&Zoom to Selection" ), parent );
   a->setData( QVariant::fromValue( reinterpret_cast<void *>( canvas ) ) );
   connect( a, &QAction::triggered, this, static_cast<void ( QgsLayerTreeViewDefaultActions::* )()>( &QgsLayerTreeViewDefaultActions::zoomToSelection ) );
@@ -108,7 +109,7 @@ QAction *QgsLayerTreeViewDefaultActions::actionZoomToSelection( QgsMapCanvas *ca
 
 QAction *QgsLayerTreeViewDefaultActions::actionZoomToGroup( QgsMapCanvas *canvas, QObject *parent )
 {
-  QAction *a = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "/mActionZoomToLayer.svg" ) ),
+  QAction *a = new QAction( QgsResources::getThemeIcon( QStringLiteral( "/mActionZoomToLayer.svg" ) ),
                             tr( "&Zoom to Group" ), parent );
   a->setData( QVariant::fromValue( reinterpret_cast<void *>( canvas ) ) );
   connect( a, &QAction::triggered, this, static_cast<void ( QgsLayerTreeViewDefaultActions::* )()>( &QgsLayerTreeViewDefaultActions::zoomToGroup ) );

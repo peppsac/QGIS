@@ -20,7 +20,7 @@
 #include "qgssymbollayerutils.h"
 #include "qgssymbol.h"
 #include "qgsvectorlayer.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsexpression.h"
 #include "qgssymbolselectordialog.h"
 #include "qgslogger.h"
@@ -91,9 +91,9 @@ QgsRuleBasedRendererWidget::QgsRuleBasedRendererWidget( QgsVectorLayer *layer, Q
   btnRefineRule->setMenu( mRefineMenu );
   contextMenu->addMenu( mRefineMenu );
 
-  btnAddRule->setIcon( QIcon( QgsApplication::iconPath( "symbologyAdd.svg" ) ) );
-  btnEditRule->setIcon( QIcon( QgsApplication::iconPath( "symbologyEdit.svg" ) ) );
-  btnRemoveRule->setIcon( QIcon( QgsApplication::iconPath( "symbologyRemove.svg" ) ) );
+  btnAddRule->setIcon( QIcon( QgsResources::iconPath( "symbologyAdd.svg" ) ) );
+  btnEditRule->setIcon( QIcon( QgsResources::iconPath( "symbologyEdit.svg" ) ) );
+  btnRemoveRule->setIcon( QIcon( QgsResources::iconPath( "symbologyRemove.svg" ) ) );
 
   connect( viewRules, &QAbstractItemView::doubleClicked, this, static_cast < void ( QgsRuleBasedRendererWidget::* )( const QModelIndex &index ) > ( &QgsRuleBasedRendererWidget::editRule ) );
 

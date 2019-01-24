@@ -16,6 +16,7 @@
  ***************************************************************************/
 
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsguiutils.h"
 #include "qgsrasterrendererregistry.h"
 #include "qgsrasterrendererwidget.h"
@@ -64,7 +65,7 @@ QgsRasterHistogramWidget::QgsRasterHistogramWidget( QgsRasterLayer *lyr, QWidget
   connect( btnHistoMax, &QToolButton::toggled, this, &QgsRasterHistogramWidget::btnHistoMax_toggled );
   connect( btnHistoCompute, &QPushButton::clicked, this, &QgsRasterHistogramWidget::btnHistoCompute_clicked );
 
-  mSaveAsImageButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionFileSave.svg" ) ) );
+  mSaveAsImageButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionFileSave.svg" ) ) );
 
   mRendererWidget = nullptr;
   mRendererName = QStringLiteral( "singlebandgray" );

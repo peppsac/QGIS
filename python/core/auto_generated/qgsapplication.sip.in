@@ -314,23 +314,6 @@ Returns the common root path of all application data directories.
 Returns the path to the currently active theme directory.
 %End
 
-    static QString defaultThemePath();
-%Docstring
-Returns the path to the default theme directory.
-%End
-
-    static QString iconPath( const QString &iconFile );
-%Docstring
-Returns path to the desired icon file.
-First it tries to use the active theme path, then default theme path
-%End
-
-    static QIcon getThemeIcon( const QString &name );
-%Docstring
-Helper to get a theme icon. It will fall back to the
-default theme if the active theme does not have the required icon.
-%End
-
     enum Cursor
     {
       ZoomIn,

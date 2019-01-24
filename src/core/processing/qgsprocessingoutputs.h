@@ -19,8 +19,10 @@
 #define QGSPROCESSINGOUTPUTS_H
 
 #include "qgis_core.h"
-#include "qgis.h"
-#include "qgsprocessingparameters.h"
+#include "qgsprocessing.h"
+#include <QString>
+// #include "qgis.h"
+// #include "qgsprocessingparameters.h"
 
 //
 // Output definitions

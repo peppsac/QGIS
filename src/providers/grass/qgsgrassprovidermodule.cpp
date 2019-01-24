@@ -65,14 +65,14 @@ QList<QAction *> QgsGrassItemActions::actions( QWidget *parent )
   // TODO: check ownership
   if ( mGrassObject.type() == QgsGrassObject::Location )
   {
-    QAction *newMapsetAction = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "grass_new_mapset.png" ) ), tr( "New mapset" ), parent );
+    QAction *newMapsetAction = new QAction( QgsResources::getThemeIcon( QStringLiteral( "grass_new_mapset.png" ) ), tr( "New mapset" ), parent );
     connect( newMapsetAction, &QAction::triggered, this, &QgsGrassItemActions::newMapset );
     list << newMapsetAction;
   }
 
   if ( mGrassObject.type() == QgsGrassObject::Mapset && isMapsetOwner )
   {
-    QAction *openMapsetAction = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "grass_open_mapset.png" ) ), tr( "Open mapset" ), parent );
+    QAction *openMapsetAction = new QAction( QgsResources::getThemeIcon( QStringLiteral( "grass_open_mapset.png" ) ), tr( "Open mapset" ), parent );
     connect( openMapsetAction, &QAction::triggered, this, &QgsGrassItemActions::openMapset );
     list << openMapsetAction;
   }
@@ -373,7 +373,7 @@ QVector<QgsDataItem *>QgsGrassLocationItem::createChildren()
 
 QIcon QgsGrassLocationItem::icon()
 {
-  return QgsApplication::getThemeIcon( "/grass_mapset.svg" );
+  return QgsResources::getThemeIcon( "/grass_mapset.svg" );
 }
 
 
@@ -409,16 +409,16 @@ QIcon QgsGrassMapsetItem::icon()
 {
   if ( mGrassObject == QgsGrass::getDefaultMapsetObject() )
   {
-    return QgsApplication::getThemeIcon( "/grass_mapset_open.svg" );
+    return QgsResources::getThemeIcon( "/grass_mapset_open.svg" );
   }
   else if ( mGrassObject.locationIdentical( QgsGrass::getDefaultLocationObject() ) )
   {
     if ( QgsGrass::instance()->isMapsetInSearchPath( mGrassObject.mapset() ) )
     {
-      return QgsApplication::getThemeIcon( "/grass_mapset_search.svg" );
+      return QgsResources::getThemeIcon( "/grass_mapset_search.svg" );
     }
   }
-  return QgsApplication::getThemeIcon( "/grass_mapset.svg" );
+  return QgsResources::getThemeIcon( "/grass_mapset.svg" );
 }
 
 void QgsGrassMapsetItem::setState( State state )
@@ -1096,7 +1096,7 @@ QIcon QgsGrassRasterItem::icon()
 {
   if ( mExternal )
   {
-    return QgsApplication::getThemeIcon( QStringLiteral( "/mIconRasterLink.svg" ) );
+    return QgsResources::getThemeIcon( QStringLiteral( "/mIconRasterLink.svg" ) );
   }
   return QgsDataItem::icon();
 }
@@ -1117,7 +1117,7 @@ QgsGrassGroupItem::QgsGrassGroupItem( QgsDataItem *parent, QgsGrassObject grassO
 
 QIcon QgsGrassGroupItem::icon()
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mIconRasterGroup.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mIconRasterGroup.svg" ) );
 }
 
 #ifdef HAVE_GUI

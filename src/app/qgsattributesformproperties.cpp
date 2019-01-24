@@ -20,7 +20,7 @@
 #include "qgisapp.h"
 #include "qgsfieldcombobox.h"
 #include "qgsqmlwidgetwrapper.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 QgsAttributesFormProperties::QgsAttributesFormProperties( QgsVectorLayer *layer, QWidget *parent )
   : QWidget( parent )
@@ -846,15 +846,15 @@ QTreeWidgetItem *DnDTree::addItem( QTreeWidgetItem *parent, QgsAttributesFormPro
     switch ( data.type() )
     {
       case QgsAttributesFormProperties::DnDTreeItemData::Field:
-        newItem->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/mFieldIcon.svg" ) ) );
+        newItem->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/mFieldIcon.svg" ) ) );
         break;
 
       case QgsAttributesFormProperties::DnDTreeItemData::Relation:
-        newItem->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/mRelationIcon.svg" ) ) );
+        newItem->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/mRelationIcon.svg" ) ) );
         break;
 
       case QgsAttributesFormProperties::DnDTreeItemData::Container:
-        newItem->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/mContainerIcon.svg" ) ) );
+        newItem->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/mContainerIcon.svg" ) ) );
         break;
 
       case QgsAttributesFormProperties::DnDTreeItemData::QmlWidget:
@@ -1220,7 +1220,7 @@ void DnDTree::onItemDoubleClicked( QTreeWidgetItem *item, int column )
       QgsFieldExpressionWidget *expressionWidget = new QgsFieldExpressionWidget;
       expressionWidget->setLayer( mLayer );
       QToolButton *addExpressionButton = new QToolButton();
-      addExpressionButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/symbologyAdd.svg" ) ) );
+      addExpressionButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/symbologyAdd.svg" ) ) );
 
       connect( addExpressionButton, &QAbstractButton::clicked, this, [ = ]
       {

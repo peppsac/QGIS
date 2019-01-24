@@ -117,12 +117,12 @@ QgsNativeAlgorithms::QgsNativeAlgorithms( QObject *parent )
 
 QIcon QgsNativeAlgorithms::icon() const
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/providerQgis.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/providerQgis.svg" ) );
 }
 
 QString QgsNativeAlgorithms::svgIconPath() const
 {
-  return QgsApplication::iconPath( QStringLiteral( "providerQgis.svg" ) );
+  return QgsResources::iconPath( QStringLiteral( "providerQgis.svg" ) );
 }
 
 QString QgsNativeAlgorithms::id() const

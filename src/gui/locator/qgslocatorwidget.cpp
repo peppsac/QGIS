@@ -22,6 +22,7 @@
 #include "qgsfilterlineedit.h"
 #include "qgsmapcanvas.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgslogger.h"
 #include "qgsguiutils.h"
 #include <QLayout>
@@ -104,7 +105,7 @@ QgsLocatorWidget::QgsLocatorWidget( QWidget *parent )
   mModelBridge->locator()->registerFilter( new QgsLocatorFilterFilter( this, this ) );
 
   mMenu = new QMenu( this );
-  QAction *menuAction = mLineEdit->addAction( QgsApplication::getThemeIcon( QStringLiteral( "/search.svg" ) ), QLineEdit::LeadingPosition );
+  QAction *menuAction = mLineEdit->addAction( QgsResources::getThemeIcon( QStringLiteral( "/search.svg" ) ), QLineEdit::LeadingPosition );
   connect( menuAction, &QAction::triggered, this, [ = ]
   {
     mFocusTimer.stop();
@@ -430,7 +431,7 @@ void QgsLocatorFilterFilter::fetchResults( const QString &string, const QgsLocat
     result.displayString = filter->activePrefix();
     result.description = filter->displayName();
     result.userData = filter->activePrefix() + ' ';
-    result.icon = QgsApplication::getThemeIcon( QStringLiteral( "/search.svg" ) );
+    result.icon = QgsResources::getThemeIcon( QStringLiteral( "/search.svg" ) );
     emit resultFetched( result );
   }
 }

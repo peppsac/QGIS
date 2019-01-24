@@ -25,7 +25,7 @@
 #include "qgssinglebandgrayrenderer.h"
 #include "qgssinglebandpseudocolorrenderer.h"
 #include "qgshillshaderenderer.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgssettings.h"
 
 #include <QIcon>
@@ -42,7 +42,7 @@ QgsRasterRendererRegistryEntry::QgsRasterRendererRegistryEntry( const QString &n
 
 QIcon QgsRasterRendererRegistryEntry::icon()
 {
-  return QgsApplication::getThemeIcon( QString( "styleicons/%1.svg" ).arg( name ) );
+  return QgsResources::getThemeIcon( QString( "styleicons/%1.svg" ).arg( name ) );
 }
 
 QgsRasterRendererRegistry::QgsRasterRendererRegistry()

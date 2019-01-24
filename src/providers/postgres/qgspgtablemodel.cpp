@@ -18,7 +18,7 @@
 #include "qgspgtablemodel.h"
 #include "qgsdataitem.h"
 #include "qgslogger.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgssettings.h"
 
 #include <climits>
@@ -151,7 +151,7 @@ void QgsPgTableModel::addTableEntry( const QgsPostgresLayerProperty &layerProper
       else
       {
         if ( item == schemaNameItem )
-          item->setData( QgsApplication::getThemeIcon( QStringLiteral( "/mIconWarning.svg" ) ), Qt::DecorationRole );
+          item->setData( QgsResources::getThemeIcon( QStringLiteral( "/mIconWarning.svg" ) ), Qt::DecorationRole );
 
         if ( item == schemaNameItem || item == tableItem || item == geomItem )
         {
@@ -252,15 +252,15 @@ QIcon QgsPgTableModel::iconForWkbType( QgsWkbTypes::Type type )
   switch ( geomType )
   {
     case QgsWkbTypes::PointGeometry:
-      return QgsApplication::getThemeIcon( "/mIconPointLayer.svg" );
+      return QgsResources::getThemeIcon( "/mIconPointLayer.svg" );
     case QgsWkbTypes::LineGeometry:
-      return QgsApplication::getThemeIcon( "/mIconLineLayer.svg" );
+      return QgsResources::getThemeIcon( "/mIconLineLayer.svg" );
     case QgsWkbTypes::PolygonGeometry:
-      return QgsApplication::getThemeIcon( "/mIconPolygonLayer.svg" );
+      return QgsResources::getThemeIcon( "/mIconPolygonLayer.svg" );
     default:
       break;
   }
-  return QgsApplication::getThemeIcon( "/mIconLayer.png" );
+  return QgsResources::getThemeIcon( "/mIconLayer.png" );
 }
 
 bool QgsPgTableModel::setData( const QModelIndex &idx, const QVariant &value, int role )
@@ -313,7 +313,7 @@ bool QgsPgTableModel::setData( const QModelIndex &idx, const QVariant &value, in
         item->setFlags( item->flags() & ~Qt::ItemIsSelectable );
 
         if ( i == DbtmSchema )
-          item->setData( QgsApplication::getThemeIcon( QStringLiteral( "/mIconWarning.svg" ) ), Qt::DecorationRole );
+          item->setData( QgsResources::getThemeIcon( QStringLiteral( "/mIconWarning.svg" ) ), Qt::DecorationRole );
 
         if ( i == DbtmSchema || i == DbtmTable || i == DbtmGeomCol )
         {

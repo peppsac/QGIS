@@ -15,6 +15,7 @@
 
 #include "qgscolorwidgets.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgssymbollayerutils.h"
 #include "qgssettings.h"
 #include "qgslogger.h"
@@ -1394,7 +1395,7 @@ QgsColorTextWidget::QgsColorTextWidget( QWidget *parent )
   hLayout->addWidget( mLineEdit );
 
   mMenuButton = new QToolButton( mLineEdit );
-  mMenuButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconDropDownMenu.svg" ) ) );
+  mMenuButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconDropDownMenu.svg" ) ) );
   mMenuButton->setCursor( Qt::ArrowCursor );
   mMenuButton->setFocusPolicy( Qt::NoFocus );
   mMenuButton->setStyleSheet( QStringLiteral( "QToolButton { border: none; padding: 0px; }" ) );

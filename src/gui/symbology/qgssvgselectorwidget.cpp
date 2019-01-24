@@ -17,6 +17,7 @@
 #include "qgssvgselectorwidget.h"
 
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgslogger.h"
 #include "qgspathresolver.h"
 #include "qgsproject.h"
@@ -332,7 +333,7 @@ QgsSvgSelectorGroupsModel::QgsSvgSelectorGroupsModel( QObject *parent )
     baseGroup->setData( QVariant( svgPaths.at( i ) ) );
     baseGroup->setEditable( false );
     baseGroup->setCheckable( false );
-    baseGroup->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mIconFolder.svg" ) ) );
+    baseGroup->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mIconFolder.svg" ) ) );
     baseGroup->setToolTip( dir.path() );
     parentItem->appendRow( baseGroup );
     parentPaths << svgPaths.at( i );
@@ -361,7 +362,7 @@ void QgsSvgSelectorGroupsModel::addPath( const QString &parentPath, const QStrin
   group->setEditable( false );
   group->setCheckable( false );
   group->setToolTip( fullPath );
-  group->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mIconFolder.svg" ) ) );
+  group->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mIconFolder.svg" ) ) );
   parentGroup->appendRow( group );
   mPathItemHash.insert( fullPath, group );
 }

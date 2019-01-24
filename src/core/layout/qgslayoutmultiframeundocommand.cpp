@@ -21,6 +21,7 @@
 #include "qgslayout.h"
 #include "qgsproject.h"
 #include "qgsfeedback.h"
+#include "qgsapplication.h"
 
 ///@cond PRIVATE
 QgsLayoutMultiFrameUndoCommand::QgsLayoutMultiFrameUndoCommand( QgsLayoutMultiFrame *frame, const QString &text, int id, QUndoCommand *parent )

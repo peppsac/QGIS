@@ -16,6 +16,7 @@
 #include "qgspostgresexpressioncompiler.h"
 #include "qgssqlexpressioncompiler.h"
 #include "qgsexpressionnodeimpl.h"
+#include "qgsexpressionfunction.h"
 
 QgsPostgresExpressionCompiler::QgsPostgresExpressionCompiler( QgsPostgresFeatureSource *source )
   : QgsSqlExpressionCompiler( source->mFields, QgsSqlExpressionCompiler::IntegerDivisionResultsInInteger )

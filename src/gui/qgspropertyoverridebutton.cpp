@@ -16,6 +16,7 @@
 #include "qgspropertyoverridebutton.h"
 
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsexpressionbuilderdialog.h"
 #include "qgsexpression.h"
 #include "qgsmessageviewer.h"
@@ -751,18 +752,18 @@ void QgsPropertyOverrideButton::updateGui()
   bool hasExp = !mExpressionString.isEmpty();
   bool hasField = !mFieldName.isEmpty();
 
-  QIcon icon = QgsApplication::getThemeIcon( QStringLiteral( "/mIconDataDefine.svg" ) );
+  QIcon icon = QgsResources::getThemeIcon( QStringLiteral( "/mIconDataDefine.svg" ) );
   QString deftip = tr( "undefined" );
   QString deftype;
   if ( mProperty.propertyType() == QgsProperty::ExpressionBasedProperty && hasExp )
   {
-    icon = mProperty.isActive() ? QgsApplication::getThemeIcon( QStringLiteral( "/mIconDataDefineExpressionOn.svg" ) ) : QgsApplication::getThemeIcon( QStringLiteral( "/mIconDataDefineExpression.svg" ) );
+    icon = mProperty.isActive() ? QgsResources::getThemeIcon( QStringLiteral( "/mIconDataDefineExpressionOn.svg" ) ) : QgsResources::getThemeIcon( QStringLiteral( "/mIconDataDefineExpression.svg" ) );
 
     QRegularExpression rx( QStringLiteral( "^project_color\\('(.*)'\\)$" ) );
     QRegularExpressionMatch match = rx.match( mExpressionString );
     if ( match.hasMatch() )
     {
-      icon = mProperty.isActive() ? QgsApplication::getThemeIcon( QStringLiteral( "/mIconDataDefineColorOn.svg" ) ) : QgsApplication::getThemeIcon( QStringLiteral( "/mIconDataDefineColor.svg" ) );
+      icon = mProperty.isActive() ? QgsResources::getThemeIcon( QStringLiteral( "/mIconDataDefineColorOn.svg" ) ) : QgsResources::getThemeIcon( QStringLiteral( "/mIconDataDefineColor.svg" ) );
       deftip = match.captured( 1 );
       deftype = tr( "project color" );
     }
@@ -771,7 +772,7 @@ void QgsPropertyOverrideButton::updateGui()
       QgsExpression exp( mExpressionString );
       if ( exp.hasParserError() )
       {
-        icon = QgsApplication::getThemeIcon( QStringLiteral( "/mIconDataDefineExpressionError.svg" ) );
+        icon = QgsResources::getThemeIcon( QStringLiteral( "/mIconDataDefineExpressionError.svg" ) );
         deftip = tr( "Parse error: %1" ).arg( exp.parserErrorString() );
       }
       else
@@ -782,11 +783,11 @@ void QgsPropertyOverrideButton::updateGui()
   }
   else if ( mProperty.propertyType() != QgsProperty::ExpressionBasedProperty && hasField )
   {
-    icon = mProperty.isActive() ? QgsApplication::getThemeIcon( QStringLiteral( "/mIconDataDefineOn.svg" ) ) : QgsApplication::getThemeIcon( QStringLiteral( "/mIconDataDefine.svg" ) );
+    icon = mProperty.isActive() ? QgsResources::getThemeIcon( QStringLiteral( "/mIconDataDefineOn.svg" ) ) : QgsResources::getThemeIcon( QStringLiteral( "/mIconDataDefine.svg" ) );
 
     if ( !mFieldNameList.contains( mFieldName ) && !mProperty.transformer() )
     {
-      icon = QgsApplication::getThemeIcon( QStringLiteral( "/mIconDataDefineError.svg" ) );
+      icon = QgsResources::getThemeIcon( QStringLiteral( "/mIconDataDefineError.svg" ) );
       deftip = tr( "'%1' field missing" ).arg( mFieldName );
     }
     else

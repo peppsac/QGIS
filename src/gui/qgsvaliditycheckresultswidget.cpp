@@ -16,6 +16,7 @@
 #include "qgsvaliditycheckresultswidget.h"
 #include "qgsvaliditycheckregistry.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsfeedback.h"
 #include "qgsproxyprogresstask.h"
 #include <QProgressDialog>
@@ -76,10 +77,10 @@ QVariant QgsValidityCheckResultsModel::data( const QModelIndex &index, int role 
       switch ( res.type )
       {
         case QgsValidityCheckResult::Critical:
-          return QgsApplication::getThemeIcon( QStringLiteral( "/mIconCritical.svg" ) );
+          return QgsResources::getThemeIcon( QStringLiteral( "/mIconCritical.svg" ) );
 
         case QgsValidityCheckResult::Warning:
-          return QgsApplication::getThemeIcon( QStringLiteral( "/mIconWarning.svg" ) );
+          return QgsResources::getThemeIcon( QStringLiteral( "/mIconWarning.svg" ) );
       }
       break;
 

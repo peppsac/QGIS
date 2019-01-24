@@ -21,7 +21,7 @@
 #include "qgsnewspatialitelayerdialog.h"
 
 #include "qgis.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsproviderregistry.h"
 #include "qgisapp.h" // <- for theme icons
 #include "qgsvectorlayer.h"
@@ -56,13 +56,13 @@ QgsNewSpatialiteLayerDialog::QgsNewSpatialiteLayerDialog( QWidget *parent, Qt::W
   connect( buttonBox, &QDialogButtonBox::accepted, this, &QgsNewSpatialiteLayerDialog::buttonBox_accepted );
   connect( buttonBox, &QDialogButtonBox::rejected, this, &QgsNewSpatialiteLayerDialog::buttonBox_rejected );
 
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconTableLayer.svg" ) ), tr( "No geometry" ), QString() );
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconPointLayer.svg" ) ), tr( "Point" ), QStringLiteral( "POINT" ) );
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) ), tr( "Line" ), QStringLiteral( "LINESTRING" ) );
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconPolygonLayer.svg" ) ), tr( "Polygon" ), QStringLiteral( "POLYGON" ) );
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconPointLayer.svg" ) ), tr( "MultiPoint" ), QStringLiteral( "MULTIPOINT" ) );
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) ), tr( "MultiLine" ), QStringLiteral( "MULTILINESTRING" ) );
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconPolygonLayer.svg" ) ), tr( "MultiPolygon" ), QStringLiteral( "MULTIPOLYGON" ) );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconTableLayer.svg" ) ), tr( "No geometry" ), QString() );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconPointLayer.svg" ) ), tr( "Point" ), QStringLiteral( "POINT" ) );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) ), tr( "Line" ), QStringLiteral( "LINESTRING" ) );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconPolygonLayer.svg" ) ), tr( "Polygon" ), QStringLiteral( "POLYGON" ) );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconPointLayer.svg" ) ), tr( "MultiPoint" ), QStringLiteral( "MULTIPOINT" ) );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) ), tr( "MultiLine" ), QStringLiteral( "MULTILINESTRING" ) );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconPolygonLayer.svg" ) ), tr( "MultiPolygon" ), QStringLiteral( "MULTIPOLYGON" ) );
 
   pbnFindSRID->setEnabled( false );
   mGeometryWithZCheckBox->setEnabled( false );
@@ -70,11 +70,11 @@ QgsNewSpatialiteLayerDialog::QgsNewSpatialiteLayerDialog( QWidget *parent, Qt::W
   leGeometryColumn->setEnabled( false );
   leGeometryColumn->setText( QStringLiteral( "geometry" ) );
 
-  mAddAttributeButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionNewAttribute.svg" ) ) );
-  mRemoveAttributeButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionDeleteAttribute.svg" ) ) );
-  mTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconFieldText.svg" ) ), tr( "Text data" ), "text" );
-  mTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconFieldInteger.svg" ) ), tr( "Whole number" ), "integer" );
-  mTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconFieldFloat.svg" ) ), tr( "Decimal number" ), "real" );
+  mAddAttributeButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionNewAttribute.svg" ) ) );
+  mRemoveAttributeButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionDeleteAttribute.svg" ) ) );
+  mTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconFieldText.svg" ) ), tr( "Text data" ), "text" );
+  mTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconFieldInteger.svg" ) ), tr( "Whole number" ), "integer" );
+  mTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconFieldFloat.svg" ) ), tr( "Decimal number" ), "real" );
 
   // Populate the database list from the stored connections
   QgsSettings settings;

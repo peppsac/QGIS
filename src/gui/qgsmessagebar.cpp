@@ -17,7 +17,7 @@
 
 #include "qgsmessagebar.h"
 #include "qgsmessagebaritem.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsmessagelog.h"
 #include "qgsmessageviewer.h"
 
@@ -86,7 +86,7 @@ QgsMessageBar::QgsMessageBar( QWidget *parent )
     "QToolButton { border:none; background-color: rgba(0, 0, 0, 0); }"
     "QToolButton::menu-button { border:none; background-color: rgba(0, 0, 0, 0); }" );
   mCloseBtn->setCursor( Qt::PointingHandCursor );
-  mCloseBtn->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconClose.svg" ) ) );
+  mCloseBtn->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconClose.svg" ) ) );
 
   const int iconSize = std::max( 18.0, Qgis::UI_SCALE_FACTOR * fontMetrics().height() * 0.9 );
   mCloseBtn->setIconSize( QSize( iconSize, iconSize ) );

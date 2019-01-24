@@ -22,7 +22,7 @@
 
 #include "qgis_sip.h"
 #include "qgsprocessingalgorithm.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 ///@cond PRIVATE
 
@@ -36,8 +36,8 @@ class QgsBufferAlgorithm : public QgsProcessingAlgorithm
 
     QgsBufferAlgorithm() = default;
     void initAlgorithm( const QVariantMap &configuration = QVariantMap() ) override;
-    QIcon icon() const override { return QgsApplication::getThemeIcon( QStringLiteral( "/algorithms/mAlgorithmBuffer.svg" ) ); }
-    QString svgIconPath() const override { return QgsApplication::iconPath( QStringLiteral( "/algorithms/mAlgorithmBuffer.svg" ) ); }
+    QIcon icon() const override { return QgsResources::getThemeIcon( QStringLiteral( "/algorithms/mAlgorithmBuffer.svg" ) ); }
+    QString svgIconPath() const override { return QgsResources::iconPath( QStringLiteral( "/algorithms/mAlgorithmBuffer.svg" ) ); }
     QString name() const override;
     QString displayName() const override;
     QStringList tags() const override;

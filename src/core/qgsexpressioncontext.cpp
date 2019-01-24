@@ -35,10 +35,11 @@
 #include "qgsexpressionutils.h"
 #include "qgslayoutrendercontext.h"
 #include "qgsxmlutils.h"
+#include "qgsscopedexpressionfunction.h"
 
 #include <QSettings>
 #include <QDir>
-
+#include <QString>
 
 const QString QgsExpressionContext::EXPR_FIELDS( QStringLiteral( "_fields_" ) );
 const QString QgsExpressionContext::EXPR_ORIGINAL_VALUE( QStringLiteral( "value" ) );
@@ -1343,53 +1344,4 @@ void QgsExpressionContextUtils::registerContextFunctions()
   QgsExpression::registerFunction( new GetLayerVisibility( QList<QgsMapLayer *>() ) );
   QgsExpression::registerFunction( new GetProcessingParameterValue( QVariantMap() ) );
   QgsExpression::registerFunction( new GetCurrentFormFieldValue( ) );
-}
-
-bool QgsScopedExpressionFunction::usesGeometry( const QgsExpressionNodeFunction *node ) const
-{
-  Q_UNUSED( node )
-  return mUsesGeometry;
-}
-
-QSet<QString> QgsScopedExpressionFunction::referencedColumns( const QgsExpressionNodeFunction *node ) const
-{
-  Q_UNUSED( node )
-  return mReferencedColumns;
-}
-
-bool QgsScopedExpressionFunction::isStatic( const QgsExpressionNodeFunction *node, QgsExpression *parent, const QgsExpressionContext *context ) const
-{
-  return allParamsStatic( node, parent, context );
-}
-
-//
-// GetLayerVisibility
-//
-
-QgsExpressionContextUtils::GetLayerVisibility::GetLayerVisibility( const QList<QgsMapLayer *> &layers )
-  : QgsScopedExpressionFunction( QStringLiteral( "is_layer_visible" ), QgsExpressionFunction::ParameterList() << QgsExpressionFunction::Parameter( QStringLiteral( "id" ) ), QStringLiteral( "General" ) )
-  , mLayers( _qgis_listRawToQPointer( layers ) )
-{}
-
-QVariant QgsExpressionContextUtils::GetLayerVisibility::func( const QVariantList &values, const QgsExpressionContext *, QgsExpression *parent, const QgsExpressionNodeFunction * )
-{
-  if ( mLayers.isEmpty() )
-  {
-    return false;
-  }
-
-  QgsMapLayer *layer = QgsExpressionUtils::getMapLayer( values.at( 0 ), parent );
-  if ( layer )
-  {
-    return mLayers.contains( layer );
-  }
-  else
-  {
-    return false;
-  }
-}
-
-QgsScopedExpressionFunction *QgsExpressionContextUtils::GetLayerVisibility::clone() const
-{
-  return new GetLayerVisibility( _qgis_listQPointerToRaw( mLayers ) );
 }

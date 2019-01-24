@@ -26,8 +26,8 @@ QgsLightsWidget::QgsLightsWidget( QWidget *parent )
 {
   setupUi( this );
 
-  btnAddLight->setIcon( QIcon( QgsApplication::iconPath( "symbologyAdd.svg" ) ) );
-  btnRemoveLight->setIcon( QIcon( QgsApplication::iconPath( "symbologyRemove.svg" ) ) );
+  btnAddLight->setIcon( QIcon( QgsResources::iconPath( "symbologyAdd.svg" ) ) );
+  btnRemoveLight->setIcon( QIcon( QgsResources::iconPath( "symbologyRemove.svg" ) ) );
 
   connect( btnAddLight, &QToolButton::clicked, this, &QgsLightsWidget::onAddLight );
   connect( btnRemoveLight, &QToolButton::clicked, this, &QgsLightsWidget::onRemoveLight );

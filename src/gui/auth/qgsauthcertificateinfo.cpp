@@ -26,6 +26,7 @@
 #include <QTextEdit>
 
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsauthcertutils.h"
 #include "qgsauthguiutils.h"
 #include "qgsauthmanager.h"
@@ -869,7 +870,7 @@ void QgsAuthCertInfo::decorateCertTreeItem( const QSslCertificate &cert,
 
   if ( cert.isNull() || trustpolicy == QgsAuthCertUtils::NoPolicy )
   {
-    item->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/mIconCertificateMissing.svg" ) ) );
+    item->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/mIconCertificateMissing.svg" ) ) );
     // missing CA, color gray and italicize
     QBrush b( item->foreground( 0 ) );
     b.setColor( QColor::fromRgb( 90, 90, 90 ) );
@@ -882,23 +883,23 @@ void QgsAuthCertInfo::decorateCertTreeItem( const QSslCertificate &cert,
 
   if ( !QgsAuthCertUtils::certIsViable( cert ) )
   {
-    item->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/mIconCertificateUntrusted.svg" ) ) );
+    item->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/mIconCertificateUntrusted.svg" ) ) );
     return;
   }
 
   if ( trustpolicy == QgsAuthCertUtils::Trusted )
   {
-    item->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/mIconCertificateTrusted.svg" ) ) );
+    item->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/mIconCertificateTrusted.svg" ) ) );
   }
   else if ( trustpolicy == QgsAuthCertUtils::Untrusted
             || ( trustpolicy == QgsAuthCertUtils::DefaultTrust
                  && mDefaultTrustPolicy == QgsAuthCertUtils::Untrusted ) )
   {
-    item->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/mIconCertificateUntrusted.svg" ) ) );
+    item->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/mIconCertificateUntrusted.svg" ) ) );
   }
   else
   {
-    item->setIcon( 0, QgsApplication::getThemeIcon( QStringLiteral( "/mIconCertificate.svg" ) ) );
+    item->setIcon( 0, QgsResources::getThemeIcon( QStringLiteral( "/mIconCertificate.svg" ) ) );
   }
 }
 

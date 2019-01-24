@@ -31,7 +31,7 @@ extern "C"
 #include "qgsproject.h"
 #include "qgsdatasourceuri.h"
 #include "qgslogger.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 #include "qgsvirtuallayerprovider.h"
 #include "qgsvirtuallayersqlitemodule.h"
@@ -688,7 +688,7 @@ class QgsVirtualSourceSelectProvider : public QgsSourceSelectProvider
     QString text() const override { return QObject::tr( "Virtual Layer" ); }
     int ordering() const override { return QgsSourceSelectProvider::OrderDatabaseProvider + 60; }
     QString toolTip() const override { return QObject::tr( "Add Virtual Layer" ); }
-    QIcon icon() const override { return QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddVirtualLayer.svg" ) ); }
+    QIcon icon() const override { return QgsResources::getThemeIcon( QStringLiteral( "/mActionAddVirtualLayer.svg" ) ); }
     QgsAbstractDataSourceWidget *createDataSourceWidget( QWidget *parent = nullptr, Qt::WindowFlags fl = Qt::Widget, QgsProviderRegistry::WidgetMode widgetMode = QgsProviderRegistry::WidgetMode::Embedded ) const override
     {
       return new QgsVirtualLayerSourceSelect( parent, fl, widgetMode );

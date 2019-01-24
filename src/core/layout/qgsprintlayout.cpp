@@ -50,7 +50,7 @@ QgsProject *QgsPrintLayout::layoutProject() const
 
 QIcon QgsPrintLayout::icon() const
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "mIconLayout.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "mIconLayout.svg" ) );
 }
 
 QgsLayoutAtlas *QgsPrintLayout::atlas()

@@ -24,7 +24,7 @@
 #include "qgsdataitem.h"
 #include "qgslogger.h"
 #include "qgscredentials.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 #ifdef HAVE_GUI
 #include "qgsdb2sourceselect.h"
@@ -1799,7 +1799,7 @@ class QgsDb2SourceSelectProvider : public QgsSourceSelectProvider
     QString providerKey() const override { return QStringLiteral( "DB2" ); }
     QString text() const override { return QObject::tr( "DB2" ); }
     int ordering() const override { return QgsSourceSelectProvider::OrderDatabaseProvider + 50; }
-    QIcon icon() const override { return QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddDb2Layer.svg" ) ); }
+    QIcon icon() const override { return QgsResources::getThemeIcon( QStringLiteral( "/mActionAddDb2Layer.svg" ) ); }
     QgsAbstractDataSourceWidget *createDataSourceWidget( QWidget *parent = nullptr, Qt::WindowFlags fl = Qt::Widget, QgsProviderRegistry::WidgetMode widgetMode = QgsProviderRegistry::WidgetMode::Embedded ) const override
     {
       return new QgsDb2SourceSelect( parent, fl, widgetMode );

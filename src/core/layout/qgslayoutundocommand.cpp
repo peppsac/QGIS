@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 #include "qgslayoutundocommand.h"
-
+#include "qgsapplication.h"
 
 QgsAbstractLayoutUndoCommand::QgsAbstractLayoutUndoCommand( const QString &text, int id, QUndoCommand *parent )
   : QUndoCommand( text, parent )

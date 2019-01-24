@@ -16,7 +16,7 @@
 #include <QMouseEvent>
 
 #include "qgsidentifymenu.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsactionmanager.h"
 #include "qgshighlight.h"
 #include "qgsmapcanvas.h"
@@ -125,7 +125,7 @@ QList<QgsMapToolIdentify::IdentifyResult> QgsIdentifyMenu::exec( const QList<Qgs
   if ( !singleLayer && mAllowMultipleReturn && idResults.count() > 1 )
   {
     addSeparator();
-    QAction *allAction = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "/mActionIdentify.svg" ) ), tr( "%1 All (%2)" ).arg( mDefaultActionName ).arg( idResults.count() ), this );
+    QAction *allAction = new QAction( QgsResources::getThemeIcon( QStringLiteral( "/mActionIdentify.svg" ) ), tr( "%1 All (%2)" ).arg( mDefaultActionName ).arg( idResults.count() ), this );
     allAction->setData( QVariant::fromValue<ActionData>( ActionData( nullptr ) ) );
     connect( allAction, &QAction::hovered, this, &QgsIdentifyMenu::handleMenuHover );
     addAction( allAction );
@@ -190,7 +190,7 @@ void QgsIdentifyMenu::addRasterLayer( QgsMapLayer *layer )
   }
 
   // add layer action to the top menu
-  layerAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconRasterLayer.svg" ) ) );
+  layerAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconRasterLayer.svg" ) ) );
   layerAction->setData( QVariant::fromValue<ActionData>( ActionData( layer ) ) );
   connect( layerAction, &QAction::hovered, this, &QgsIdentifyMenu::handleMenuHover );
   addAction( layerAction );
@@ -309,13 +309,13 @@ void QgsIdentifyMenu::addVectorLayer( QgsVectorLayer *layer, const QList<QgsMapT
     switch ( layer->geometryType() )
     {
       case QgsWkbTypes::PointGeometry:
-        layerAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconPointLayer.svg" ) ) );
+        layerAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconPointLayer.svg" ) ) );
         break;
       case QgsWkbTypes::LineGeometry:
-        layerAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) ) );
+        layerAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) ) );
         break;
       case QgsWkbTypes::PolygonGeometry:
-        layerAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconPolygonLayer.svg" ) ) );
+        layerAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconPolygonLayer.svg" ) ) );
         break;
       default:
         break;
@@ -388,7 +388,7 @@ void QgsIdentifyMenu::addVectorLayer( QgsVectorLayer *layer, const QList<QgsMapT
       continue;
 
     // add default identify action
-    QAction *identifyFeatureAction = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "/mActionIdentify.svg" ) ), mDefaultActionName, featureMenu );
+    QAction *identifyFeatureAction = new QAction( QgsResources::getThemeIcon( QStringLiteral( "/mActionIdentify.svg" ) ), mDefaultActionName, featureMenu );
     connect( identifyFeatureAction, &QAction::hovered, this, &QgsIdentifyMenu::handleMenuHover );
     identifyFeatureAction->setData( QVariant::fromValue<ActionData>( ActionData( layer, result.mFeature.id() ) ) );
     featureMenu->addAction( identifyFeatureAction );
@@ -420,7 +420,7 @@ void QgsIdentifyMenu::addVectorLayer( QgsVectorLayer *layer, const QList<QgsMapT
   if ( mAllowMultipleReturn && results.count() > 1 )
   {
     layerMenu->addSeparator();
-    QAction *allAction = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "/mActionIdentify.svg" ) ), tr( "%1 All (%2)" ).arg( mDefaultActionName ).arg( results.count() ), layerMenu );
+    QAction *allAction = new QAction( QgsResources::getThemeIcon( QStringLiteral( "/mActionIdentify.svg" ) ), tr( "%1 All (%2)" ).arg( mDefaultActionName ).arg( results.count() ), layerMenu );
     allAction->setData( QVariant::fromValue<ActionData>( ActionData( layer ) ) );
     connect( allAction, &QAction::hovered, this, &QgsIdentifyMenu::handleMenuHover );
     layerMenu->addAction( allAction );

@@ -21,6 +21,7 @@
 #include "qgisapp.h"
 #include "qgsgui.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsbilinearrasterresampler.h"
 #include "qgsbrightnesscontrastfilter.h"
 #include "qgscontrastenhancement.h"
@@ -172,15 +173,15 @@ QgsRasterLayerProperties::QgsRasterLayerProperties( QgsMapLayer *lyr, QgsMapCanv
   leNoDataValue->setValidator( new QDoubleValidator( -std::numeric_limits<double>::max(), std::numeric_limits<double>::max(), 1000, this ) );
 
   // build GUI components
-  QIcon myPyramidPixmap( QgsApplication::getThemeIcon( "/mIconPyramid.svg" ) );
-  QIcon myNoPyramidPixmap( QgsApplication::getThemeIcon( "/mIconNoPyramid.svg" ) );
+  QIcon myPyramidPixmap( QgsResources::getThemeIcon( "/mIconPyramid.svg" ) );
+  QIcon myNoPyramidPixmap( QgsResources::getThemeIcon( "/mIconNoPyramid.svg" ) );
 
-  pbnAddValuesManually->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/symbologyAdd.svg" ) ) );
-  pbnAddValuesFromDisplay->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionContextHelp.png" ) ) );
-  pbnRemoveSelectedRow->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/symbologyRemove.svg" ) ) );
-  pbnDefaultValues->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionOpenTable.svg" ) ) );
-  pbnImportTransparentPixelValues->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionFileOpen.svg" ) ) );
-  pbnExportTransparentPixelValues->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionFileSave.svg" ) ) );
+  pbnAddValuesManually->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/symbologyAdd.svg" ) ) );
+  pbnAddValuesFromDisplay->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionContextHelp.png" ) ) );
+  pbnRemoveSelectedRow->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/symbologyRemove.svg" ) ) );
+  pbnDefaultValues->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionOpenTable.svg" ) ) );
+  pbnImportTransparentPixelValues->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionFileOpen.svg" ) ) );
+  pbnExportTransparentPixelValues->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionFileSave.svg" ) ) );
 
   if ( mMapCanvas )
   {
@@ -448,7 +449,7 @@ QgsRasterLayerProperties::QgsRasterLayerProperties( QgsMapLayer *lyr, QgsMapCanv
                        mOptStackedWidget->indexOf( mOptsPage_Style ) );
   }
 
-  mResetColorRenderingBtn->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionUndo.svg" ) ) );
+  mResetColorRenderingBtn->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionUndo.svg" ) ) );
 
   QString title = QString( tr( "Layer Properties - %1" ) ).arg( lyr->name() );
 
@@ -1149,8 +1150,8 @@ void QgsRasterLayerProperties::buttonBuildPyramids_clicked()
   lbxPyramidResolutions->clear();
   // Need to rebuild list as some or all pyramids may have failed to build
   myPyramidList = provider->buildPyramidList();
-  QIcon myPyramidPixmap( QgsApplication::getThemeIcon( "/mIconPyramid.svg" ) );
-  QIcon myNoPyramidPixmap( QgsApplication::getThemeIcon( "/mIconNoPyramid.svg" ) );
+  QIcon myPyramidPixmap( QgsResources::getThemeIcon( "/mIconPyramid.svg" ) );
+  QIcon myNoPyramidPixmap( QgsResources::getThemeIcon( "/mIconNoPyramid.svg" ) );
 
   QList< QgsRasterPyramid >::iterator myRasterPyramidIterator;
   for ( myRasterPyramidIterator = myPyramidList.begin();

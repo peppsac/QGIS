@@ -19,7 +19,7 @@
 
 #include "qgsadvanceddigitizingdockwidget.h"
 #include "qgsadvanceddigitizingcanvasitem.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgscadutils.h"
 #include "qgsexpression.h"
 #include "qgslogger.h"
@@ -59,7 +59,7 @@ QgsAdvancedDigitizingDockWidget::QgsAdvancedDigitizingDockWidget( QgsMapCanvas *
   // this action is also used in the advanced digitizing tool bar
   mEnableAction = new QAction( this );
   mEnableAction->setText( tr( "Enable advanced digitizing tools" ) );
-  mEnableAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/cadtools/cad.svg" ) ) );
+  mEnableAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/cadtools/cad.svg" ) ) );
   mEnableAction->setCheckable( true );
   mEnabledButton->addAction( mEnableAction );
   mEnabledButton->setDefaultAction( mEnableAction );

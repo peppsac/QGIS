@@ -16,6 +16,7 @@
  ***************************************************************************/
 
 #include "qgsexpressioncontext.h"
+#include "qgsscopedexpressionfunction.h"
 #include "qgsexpression.h"
 #include "qgsvectorlayer.h"
 #include "qgsapplication.h"

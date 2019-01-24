@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 #include "qgsfilterlineedit.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsanimatedicon.h"
 #include "qgis.h"
 
@@ -33,8 +33,8 @@ QgsFilterLineEdit::QgsFilterLineEdit( QWidget *parent, const QString &nullValue 
   // icon size is about 2/3 height of text, but minimum size of 16
   int iconSize = std::floor( std::max( Qgis::UI_SCALE_FACTOR * fontMetrics().height() * 0.75, 16.0 ) );
 
-  mClearIcon.addPixmap( QgsApplication::getThemeIcon( "/mIconClearText.svg" ).pixmap( QSize( iconSize, iconSize ) ), QIcon::Normal, QIcon::On );
-  mClearIcon.addPixmap( QgsApplication::getThemeIcon( "/mIconClearTextHover.svg" ).pixmap( QSize( iconSize, iconSize ) ), QIcon::Selected, QIcon::On );
+  mClearIcon.addPixmap( QgsResources::getThemeIcon( "/mIconClearText.svg" ).pixmap( QSize( iconSize, iconSize ) ), QIcon::Normal, QIcon::On );
+  mClearIcon.addPixmap( QgsResources::getThemeIcon( "/mIconClearTextHover.svg" ).pixmap( QSize( iconSize, iconSize ) ), QIcon::Selected, QIcon::On );
 
   connect( this, &QLineEdit::textChanged, this,
            &QgsFilterLineEdit::onTextChanged );
@@ -50,7 +50,7 @@ void QgsFilterLineEdit::setShowSearchIcon( bool visible )
 {
   if ( visible && !mSearchAction )
   {
-    QIcon searchIcon = QgsApplication::getThemeIcon( "/search.svg" );
+    QIcon searchIcon = QgsResources::getThemeIcon( "/search.svg" );
     mSearchAction = new QAction( searchIcon, QString(), this );
     mSearchAction->setCheckable( false );
     addAction( mSearchAction, QLineEdit::LeadingPosition );
@@ -175,7 +175,7 @@ void QgsFilterLineEdit::setShowSpinner( bool showSpinner )
   if ( showSpinner )
   {
     if ( !mBusySpinnerAnimatedIcon )
-      mBusySpinnerAnimatedIcon = new QgsAnimatedIcon( QgsApplication::iconPath( QStringLiteral( "/mIconLoading.gif" ) ), this );
+      mBusySpinnerAnimatedIcon = new QgsAnimatedIcon( QgsResources::iconPath( QStringLiteral( "/mIconLoading.gif" ) ), this );
 
     mBusySpinnerAnimatedIcon->connectFrameChanged( this, &QgsFilterLineEdit::updateBusySpinner );
   }

@@ -1322,31 +1322,31 @@ QgisApp::QgisApp( QSplashScreen *splash, bool restorePlugins, bool skipVersionCh
   connect( zoomInShortCut, &QShortcut::activated, mMapCanvas, &QgsMapCanvas::zoomIn );
   zoomInShortCut->setObjectName( QStringLiteral( "ZoomInToCanvas" ) );
   zoomInShortCut->setWhatsThis( tr( "Zoom in to canvas" ) );
-  zoomInShortCut->setProperty( "Icon", QgsApplication::getThemeIcon( QStringLiteral( "/mActionZoomIn.svg" ) ) );
+  zoomInShortCut->setProperty( "Icon", QgsResources::getThemeIcon( QStringLiteral( "/mActionZoomIn.svg" ) ) );
 
   QShortcut *zoomShortCut2 = new QShortcut( QKeySequence( tr( "Ctrl+=" ) ), this );
   connect( zoomShortCut2, &QShortcut::activated, mMapCanvas, &QgsMapCanvas::zoomIn );
   zoomShortCut2->setObjectName( QStringLiteral( "ZoomInToCanvas2" ) );
   zoomShortCut2->setWhatsThis( tr( "Zoom in to canvas (secondary)" ) );
-  zoomShortCut2->setProperty( "Icon", QgsApplication::getThemeIcon( QStringLiteral( "/mActionZoomIn.svg" ) ) );
+  zoomShortCut2->setProperty( "Icon", QgsResources::getThemeIcon( QStringLiteral( "/mActionZoomIn.svg" ) ) );
 
   QShortcut *zoomOutShortCut = new QShortcut( QKeySequence( tr( "Ctrl+-" ) ), this );
   connect( zoomOutShortCut, &QShortcut::activated, mMapCanvas, &QgsMapCanvas::zoomOut );
   zoomOutShortCut->setObjectName( QStringLiteral( "ZoomOutOfCanvas" ) );
   zoomOutShortCut->setWhatsThis( tr( "Zoom out of canvas" ) );
-  zoomOutShortCut->setProperty( "Icon", QgsApplication::getThemeIcon( QStringLiteral( "/mActionZoomOut.svg" ) ) );
+  zoomOutShortCut->setProperty( "Icon", QgsResources::getThemeIcon( QStringLiteral( "/mActionZoomOut.svg" ) ) );
 
   //also make ctrl+alt+= a shortcut to switch to zoom in map tool
   QShortcut *zoomInToolShortCut = new QShortcut( QKeySequence( tr( "Ctrl+Alt+=" ) ), this );
   connect( zoomInToolShortCut, &QShortcut::activated, this, &QgisApp::zoomIn );
   zoomInToolShortCut->setObjectName( QStringLiteral( "ZoomIn2" ) );
   zoomInToolShortCut->setWhatsThis( tr( "Zoom in (secondary)" ) );
-  zoomInToolShortCut->setProperty( "Icon", QgsApplication::getThemeIcon( QStringLiteral( "/mActionZoomIn.svg" ) ) );
+  zoomInToolShortCut->setProperty( "Icon", QgsResources::getThemeIcon( QStringLiteral( "/mActionZoomIn.svg" ) ) );
 
   QShortcut *attributeTableSelected = new QShortcut( QKeySequence( tr( "Shift+F6" ) ), this );
   attributeTableSelected->setObjectName( QStringLiteral( "attributeTableSelectedFeatures" ) );
   attributeTableSelected->setWhatsThis( tr( "Open Attribute Table (Selected Features)" ) );
-  attributeTableSelected->setProperty( "Icon", QgsApplication::getThemeIcon( QStringLiteral( "/mActionOpenTable.svg" ) ) );
+  attributeTableSelected->setProperty( "Icon", QgsResources::getThemeIcon( QStringLiteral( "/mActionOpenTable.svg" ) ) );
   connect( attributeTableSelected, &QShortcut::activated, this, [ = ]
   {
     attributeTable( QgsAttributeTableFilterModel::ShowSelected );
@@ -1355,7 +1355,7 @@ QgisApp::QgisApp( QSplashScreen *splash, bool restorePlugins, bool skipVersionCh
   QShortcut *attributeTableVisible = new QShortcut( QKeySequence( tr( "Ctrl+F6" ) ), this );
   attributeTableVisible->setObjectName( QStringLiteral( "attributeTableVisibleFeatures" ) );
   attributeTableVisible->setWhatsThis( tr( "Open Attribute Table (Visible Features)" ) );
-  attributeTableVisible->setProperty( "Icon", QgsApplication::getThemeIcon( QStringLiteral( "/mActionOpenTable.svg" ) ) );
+  attributeTableVisible->setProperty( "Icon", QgsResources::getThemeIcon( QStringLiteral( "/mActionOpenTable.svg" ) ) );
   connect( attributeTableVisible, &QShortcut::activated, this, [ = ]
   {
     attributeTable( QgsAttributeTableFilterModel::ShowVisible );
@@ -3150,7 +3150,7 @@ void QgisApp::createStatusBar()
   // Maintain uniform widget height in status bar by setting button height same as labels
   // For Qt/Mac 3.3, the default toolbutton height is 30 and labels were expanding to match
   mOnTheFlyProjectionStatusButton->setMaximumHeight( mScaleWidget->height() );
-  mOnTheFlyProjectionStatusButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mIconProjectionEnabled.svg" ) ) );
+  mOnTheFlyProjectionStatusButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mIconProjectionEnabled.svg" ) ) );
   mOnTheFlyProjectionStatusButton->setToolTip( tr( "CRS status - Click "
       "to open coordinate reference system dialog" ) );
   connect( mOnTheFlyProjectionStatusButton, &QAbstractButton::clicked,
@@ -3160,7 +3160,7 @@ void QgisApp::createStatusBar()
 
   mMessageButton = new QToolButton( mStatusBar );
   mMessageButton->setAutoRaise( true );
-  mMessageButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mMessageLogRead.svg" ) ) );
+  mMessageButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mMessageLogRead.svg" ) ) );
   mMessageButton->setToolTip( tr( "Messages" ) );
   mMessageButton->setObjectName( QStringLiteral( "mMessageLogViewerButton" ) );
   mMessageButton->setMaximumHeight( mScaleWidget->height() );
@@ -3269,152 +3269,152 @@ void QgisApp::setTheme( const QString &themeName )
   QgsApplication::setUITheme( theme );
 
   //QgsDebugMsg("Setting theme to \n" + themeName);
-  mActionNewProject->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionFileNew.svg" ) ) );
-  mActionOpenProject->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionFileOpen.svg" ) ) );
-  mActionSaveProject->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionFileSave.svg" ) ) );
-  mActionSaveProjectAs->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionFileSaveAs.svg" ) ) );
-  mActionSaveMapAsImage->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSaveMapAsImage.svg" ) ) );
-  mActionSaveMapAsPdf->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSaveAsPDF.svg" ) ) );
-  mActionExit->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionFileExit.png" ) ) );
-  mActionAddOgrLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddOgrLayer.svg" ) ) );
-  mActionAddRasterLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddRasterLayer.svg" ) ) );
+  mActionNewProject->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionFileNew.svg" ) ) );
+  mActionOpenProject->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionFileOpen.svg" ) ) );
+  mActionSaveProject->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionFileSave.svg" ) ) );
+  mActionSaveProjectAs->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionFileSaveAs.svg" ) ) );
+  mActionSaveMapAsImage->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSaveMapAsImage.svg" ) ) );
+  mActionSaveMapAsPdf->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSaveAsPDF.svg" ) ) );
+  mActionExit->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionFileExit.png" ) ) );
+  mActionAddOgrLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAddOgrLayer.svg" ) ) );
+  mActionAddRasterLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAddRasterLayer.svg" ) ) );
 #ifdef HAVE_POSTGRESQL
-  mActionAddPgLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddPostgisLayer.svg" ) ) );
+  mActionAddPgLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAddPostgisLayer.svg" ) ) );
 #endif
-  mActionNewSpatiaLiteLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionNewSpatiaLiteLayer.svg" ) ) );
-  mActionAddSpatiaLiteLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddSpatiaLiteLayer.svg" ) ) );
-  mActionAddMssqlLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddMssqlLayer.svg" ) ) );
-  mActionAddDb2Layer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddDb2Layer.svg" ) ) );
+  mActionNewSpatiaLiteLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionNewSpatiaLiteLayer.svg" ) ) );
+  mActionAddSpatiaLiteLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAddSpatiaLiteLayer.svg" ) ) );
+  mActionAddMssqlLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAddMssqlLayer.svg" ) ) );
+  mActionAddDb2Layer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAddDb2Layer.svg" ) ) );
 #ifdef HAVE_ORACLE
-  mActionAddOracleLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddOracleLayer.svg" ) ) );
+  mActionAddOracleLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAddOracleLayer.svg" ) ) );
 #endif
-  mActionRemoveLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionRemoveLayer.svg" ) ) );
-  mActionDuplicateLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionDuplicateLayer.svg" ) ) );
-  mActionSetLayerCRS->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSetLayerCRS.png" ) ) );
-  mActionSetProjectCRSFromLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSetProjectCRSFromLayer.png" ) ) );
-  mActionNewVectorLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionNewVectorLayer.svg" ) ) );
-  mActionDataSourceManager->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionDataSourceManager.svg" ) ) );
-  mActionNewMemoryLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionCreateMemory.svg" ) ) );
-  mActionAddAllToOverview->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddAllToOverview.svg" ) ) );
-  mActionHideAllLayers->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionHideAllLayers.svg" ) ) );
-  mActionShowAllLayers->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionShowAllLayers.svg" ) ) );
-  mActionHideSelectedLayers->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionHideSelectedLayers.svg" ) ) );
-  mActionHideDeselectedLayers->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionHideDeselectedLayers.svg" ) ) );
-  mActionShowSelectedLayers->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionShowSelectedLayers.svg" ) ) );
-  mActionRemoveAllFromOverview->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionRemoveAllFromOverview.svg" ) ) );
-  mActionToggleFullScreen->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionToggleFullScreen.png" ) ) );
-  mActionProjectProperties->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionProjectProperties.png" ) ) );
-  mActionManagePlugins->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionShowPluginManager.svg" ) ) );
-  mActionShowPythonDialog->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "console/mIconRunConsole.svg" ) ) );
-  mActionCheckQgisVersion->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconSuccess.svg" ) ) );
-  mActionOptions->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionOptions.svg" ) ) );
-  mActionConfigureShortcuts->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionKeyboardShortcuts.svg" ) ) );
-  mActionCustomization->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionInterfaceCustomization.svg" ) ) );
-  mActionHelpContents->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionHelpContents.svg" ) ) );
-  mActionLocalHistogramStretch->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionLocalHistogramStretch.svg" ) ) );
-  mActionFullHistogramStretch->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionFullHistogramStretch.svg" ) ) );
-  mActionIncreaseBrightness->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionIncreaseBrightness.svg" ) ) );
-  mActionDecreaseBrightness->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionDecreaseBrightness.svg" ) ) );
-  mActionIncreaseContrast->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionIncreaseContrast.svg" ) ) );
-  mActionDecreaseContrast->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionDecreaseContrast.svg" ) ) );
-  mActionZoomActualSize->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionZoomNative.png" ) ) );
-  mActionQgisHomePage->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionQgisHomePage.png" ) ) );
-  mActionAbout->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionHelpAbout.svg" ) ) );
-  mActionSponsors->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionHelpSponsors.png" ) ) );
-  mActionDraw->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionRefresh.svg" ) ) );
-  mActionToggleEditing->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionToggleEditing.svg" ) ) );
-  mActionSaveLayerEdits->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSaveAllEdits.svg" ) ) );
-  mActionAllEdits->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAllEdits.svg" ) ) );
-  mActionSaveEdits->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSaveEdits.svg" ) ) );
-  mActionSaveAllEdits->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSaveAllEdits.svg" ) ) );
-  mActionRollbackEdits->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionRollbackEdits.svg" ) ) );
-  mActionRollbackAllEdits->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionRollbackAllEdits.svg" ) ) );
-  mActionCancelEdits->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionCancelEdits.svg" ) ) );
-  mActionCancelAllEdits->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionCancelAllEdits.svg" ) ) );
-  mActionCutFeatures->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionEditCut.svg" ) ) );
-  mActionCopyFeatures->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionEditCopy.svg" ) ) );
-  mActionPasteFeatures->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionEditPaste.svg" ) ) );
-  mActionAddFeature->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionCapturePoint.svg" ) ) );
-  mActionMoveFeature->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionMoveFeaturePoint.svg" ) ) );
-  mActionMoveFeatureCopy->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionMoveFeatureCopyPoint.svg" ) ) );
-  mActionRotateFeature->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionRotateFeature.svg" ) ) );
-  mActionReshapeFeatures->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionReshape.svg" ) ) );
-  mActionSplitFeatures->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSplitFeatures.svg" ) ) );
-  mActionSplitParts->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSplitParts.svg" ) ) );
-  mActionDeleteSelected->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionDeleteSelected.svg" ) ) );
-  mActionVertexTool->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionVertexTool.svg" ) ) );
-  mActionVertexToolActiveLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionVertexToolActiveLayer.svg" ) ) );
-  mActionSimplifyFeature->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSimplify.svg" ) ) );
-  mActionUndo->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionUndo.svg" ) ) );
-  mActionRedo->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionRedo.svg" ) ) );
-  mActionAddRing->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddRing.svg" ) ) );
-  mActionFillRing->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionFillRing.svg" ) ) );
-  mActionAddPart->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddPart.svg" ) ) );
-  mActionDeleteRing->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionDeleteRing.svg" ) ) );
-  mActionDeletePart->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionDeletePart.svg" ) ) );
-  mActionMergeFeatures->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionMergeFeatures.svg" ) ) );
-  mActionOffsetCurve->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionOffsetCurve.svg" ) ) );
-  mActionMergeFeatureAttributes->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionMergeFeatureAttributes.svg" ) ) );
-  mActionRotatePointSymbols->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mActionRotatePointSymbols.svg" ) ) );
-  mActionOffsetPointSymbol->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mActionOffsetPointSymbols.svg" ) ) );
-  mActionZoomIn->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionZoomIn.svg" ) ) );
-  mActionZoomOut->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionZoomOut.svg" ) ) );
-  mActionZoomFullExtent->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionZoomFullExtent.svg" ) ) );
-  mActionZoomToSelected->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionZoomToSelected.svg" ) ) );
-  mActionShowRasterCalculator->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionShowRasterCalculator.png" ) ) );
-  mActionShowMeshCalculator->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionShowMeshCalculator.png" ) ) );
-  mActionPan->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionPan.svg" ) ) );
-  mActionPanToSelected->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionPanToSelected.svg" ) ) );
-  mActionZoomLast->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionZoomLast.svg" ) ) );
-  mActionZoomNext->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionZoomNext.svg" ) ) );
-  mActionZoomToLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionZoomToLayer.svg" ) ) );
-  mActionZoomActualSize->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionZoomActual.svg" ) ) );
-  mActionIdentify->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionIdentify.svg" ) ) );
-  mActionFeatureAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mAction.svg" ) ) );
-  mActionSelectFeatures->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSelectRectangle.svg" ) ) );
-  mActionSelectPolygon->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSelectPolygon.svg" ) ) );
-  mActionSelectFreehand->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSelectFreehand.svg" ) ) );
-  mActionSelectRadius->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSelectRadius.svg" ) ) );
-  mActionDeselectAll->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionDeselectAll.svg" ) ) );
-  mActionSelectAll->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSelectAll.svg" ) ) );
-  mActionInvertSelection->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionInvertSelection.svg" ) ) );
-  mActionSelectByExpression->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconExpressionSelect.svg" ) ) );
-  mActionSelectByForm->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconFormSelect.svg" ) ) );
-  mActionOpenTable->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionOpenTable.svg" ) ) );
-  mActionOpenFieldCalc->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionCalculateField.svg" ) ) );
-  mActionMeasure->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionMeasure.svg" ) ) );
-  mActionMeasureArea->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionMeasureArea.svg" ) ) );
-  mActionMeasureAngle->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionMeasureAngle.svg" ) ) );
-  mActionMapTips->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionMapTips.svg" ) ) );
-  mActionShowBookmarks->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionShowBookmarks.svg" ) ) );
-  mActionNewBookmark->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionNewBookmark.svg" ) ) );
-  mActionCustomProjection->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionCustomProjection.svg" ) ) );
-  mActionAddWmsLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddWmsLayer.svg" ) ) );
-  mActionAddWcsLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddWcsLayer.svg" ) ) );
-  mActionAddWfsLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddWfsLayer.svg" ) ) );
-  mActionAddAfsLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddAfsLayer.svg" ) ) );
-  mActionAddAmsLayer->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddAmsLayer.svg" ) ) );
-  mActionAddToOverview->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionInOverview.svg" ) ) );
-  mActionAnnotation->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAnnotation.svg" ) ) );
-  mActionFormAnnotation->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionFormAnnotation.svg" ) ) );
-  mActionHtmlAnnotation->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionHtmlAnnotation.svg" ) ) );
-  mActionSvgAnnotation->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSvgAnnotation.svg" ) ) );
-  mActionTextAnnotation->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionTextAnnotation.svg" ) ) );
-  mActionLabeling->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionLabeling.svg" ) ) );
-  mActionShowPinnedLabels->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionShowPinnedLabels.svg" ) ) );
-  mActionPinLabels->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionPinLabels.svg" ) ) );
-  mActionShowHideLabels->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionShowHideLabels.svg" ) ) );
-  mActionMoveLabel->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionMoveLabel.svg" ) ) );
-  mActionRotateLabel->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionRotateLabel.svg" ) ) );
-  mActionChangeLabelProperties->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionChangeLabelProperties.svg" ) ) );
-  mActionDiagramProperties->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/propertyicons/diagram.svg" ) ) );
-  mActionDecorationTitle->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/title_label.svg" ) ) );
-  mActionDecorationCopyright->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/copyright_label.svg" ) ) );
-  mActionDecorationNorthArrow->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/north_arrow.svg" ) ) );
-  mActionDecorationScaleBar->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionScaleBar.svg" ) ) );
-  mActionDecorationGrid->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/grid.svg" ) ) );
-  mActionReverseLine->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionReverseLine.svg" ) ) );
-  mActionTrimExtendFeature->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionTrimExtendFeature.svg" ) ) );
+  mActionRemoveLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionRemoveLayer.svg" ) ) );
+  mActionDuplicateLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionDuplicateLayer.svg" ) ) );
+  mActionSetLayerCRS->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSetLayerCRS.png" ) ) );
+  mActionSetProjectCRSFromLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSetProjectCRSFromLayer.png" ) ) );
+  mActionNewVectorLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionNewVectorLayer.svg" ) ) );
+  mActionDataSourceManager->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionDataSourceManager.svg" ) ) );
+  mActionNewMemoryLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionCreateMemory.svg" ) ) );
+  mActionAddAllToOverview->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAddAllToOverview.svg" ) ) );
+  mActionHideAllLayers->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionHideAllLayers.svg" ) ) );
+  mActionShowAllLayers->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionShowAllLayers.svg" ) ) );
+  mActionHideSelectedLayers->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionHideSelectedLayers.svg" ) ) );
+  mActionHideDeselectedLayers->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionHideDeselectedLayers.svg" ) ) );
+  mActionShowSelectedLayers->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionShowSelectedLayers.svg" ) ) );
+  mActionRemoveAllFromOverview->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionRemoveAllFromOverview.svg" ) ) );
+  mActionToggleFullScreen->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionToggleFullScreen.png" ) ) );
+  mActionProjectProperties->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionProjectProperties.png" ) ) );
+  mActionManagePlugins->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionShowPluginManager.svg" ) ) );
+  mActionShowPythonDialog->setIcon( QgsResources::getThemeIcon( QStringLiteral( "console/mIconRunConsole.svg" ) ) );
+  mActionCheckQgisVersion->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconSuccess.svg" ) ) );
+  mActionOptions->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionOptions.svg" ) ) );
+  mActionConfigureShortcuts->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionKeyboardShortcuts.svg" ) ) );
+  mActionCustomization->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionInterfaceCustomization.svg" ) ) );
+  mActionHelpContents->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionHelpContents.svg" ) ) );
+  mActionLocalHistogramStretch->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionLocalHistogramStretch.svg" ) ) );
+  mActionFullHistogramStretch->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionFullHistogramStretch.svg" ) ) );
+  mActionIncreaseBrightness->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionIncreaseBrightness.svg" ) ) );
+  mActionDecreaseBrightness->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionDecreaseBrightness.svg" ) ) );
+  mActionIncreaseContrast->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionIncreaseContrast.svg" ) ) );
+  mActionDecreaseContrast->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionDecreaseContrast.svg" ) ) );
+  mActionZoomActualSize->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionZoomNative.png" ) ) );
+  mActionQgisHomePage->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionQgisHomePage.png" ) ) );
+  mActionAbout->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionHelpAbout.svg" ) ) );
+  mActionSponsors->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionHelpSponsors.png" ) ) );
+  mActionDraw->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionRefresh.svg" ) ) );
+  mActionToggleEditing->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionToggleEditing.svg" ) ) );
+  mActionSaveLayerEdits->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSaveAllEdits.svg" ) ) );
+  mActionAllEdits->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAllEdits.svg" ) ) );
+  mActionSaveEdits->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSaveEdits.svg" ) ) );
+  mActionSaveAllEdits->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSaveAllEdits.svg" ) ) );
+  mActionRollbackEdits->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionRollbackEdits.svg" ) ) );
+  mActionRollbackAllEdits->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionRollbackAllEdits.svg" ) ) );
+  mActionCancelEdits->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionCancelEdits.svg" ) ) );
+  mActionCancelAllEdits->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionCancelAllEdits.svg" ) ) );
+  mActionCutFeatures->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionEditCut.svg" ) ) );
+  mActionCopyFeatures->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionEditCopy.svg" ) ) );
+  mActionPasteFeatures->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionEditPaste.svg" ) ) );
+  mActionAddFeature->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionCapturePoint.svg" ) ) );
+  mActionMoveFeature->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionMoveFeaturePoint.svg" ) ) );
+  mActionMoveFeatureCopy->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionMoveFeatureCopyPoint.svg" ) ) );
+  mActionRotateFeature->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionRotateFeature.svg" ) ) );
+  mActionReshapeFeatures->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionReshape.svg" ) ) );
+  mActionSplitFeatures->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSplitFeatures.svg" ) ) );
+  mActionSplitParts->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSplitParts.svg" ) ) );
+  mActionDeleteSelected->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionDeleteSelected.svg" ) ) );
+  mActionVertexTool->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionVertexTool.svg" ) ) );
+  mActionVertexToolActiveLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionVertexToolActiveLayer.svg" ) ) );
+  mActionSimplifyFeature->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSimplify.svg" ) ) );
+  mActionUndo->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionUndo.svg" ) ) );
+  mActionRedo->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionRedo.svg" ) ) );
+  mActionAddRing->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAddRing.svg" ) ) );
+  mActionFillRing->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionFillRing.svg" ) ) );
+  mActionAddPart->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAddPart.svg" ) ) );
+  mActionDeleteRing->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionDeleteRing.svg" ) ) );
+  mActionDeletePart->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionDeletePart.svg" ) ) );
+  mActionMergeFeatures->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionMergeFeatures.svg" ) ) );
+  mActionOffsetCurve->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionOffsetCurve.svg" ) ) );
+  mActionMergeFeatureAttributes->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionMergeFeatureAttributes.svg" ) ) );
+  mActionRotatePointSymbols->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mActionRotatePointSymbols.svg" ) ) );
+  mActionOffsetPointSymbol->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mActionOffsetPointSymbols.svg" ) ) );
+  mActionZoomIn->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionZoomIn.svg" ) ) );
+  mActionZoomOut->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionZoomOut.svg" ) ) );
+  mActionZoomFullExtent->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionZoomFullExtent.svg" ) ) );
+  mActionZoomToSelected->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionZoomToSelected.svg" ) ) );
+  mActionShowRasterCalculator->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionShowRasterCalculator.png" ) ) );
+  mActionShowMeshCalculator->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionShowMeshCalculator.png" ) ) );
+  mActionPan->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionPan.svg" ) ) );
+  mActionPanToSelected->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionPanToSelected.svg" ) ) );
+  mActionZoomLast->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionZoomLast.svg" ) ) );
+  mActionZoomNext->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionZoomNext.svg" ) ) );
+  mActionZoomToLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionZoomToLayer.svg" ) ) );
+  mActionZoomActualSize->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionZoomActual.svg" ) ) );
+  mActionIdentify->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionIdentify.svg" ) ) );
+  mActionFeatureAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mAction.svg" ) ) );
+  mActionSelectFeatures->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSelectRectangle.svg" ) ) );
+  mActionSelectPolygon->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSelectPolygon.svg" ) ) );
+  mActionSelectFreehand->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSelectFreehand.svg" ) ) );
+  mActionSelectRadius->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSelectRadius.svg" ) ) );
+  mActionDeselectAll->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionDeselectAll.svg" ) ) );
+  mActionSelectAll->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSelectAll.svg" ) ) );
+  mActionInvertSelection->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionInvertSelection.svg" ) ) );
+  mActionSelectByExpression->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconExpressionSelect.svg" ) ) );
+  mActionSelectByForm->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconFormSelect.svg" ) ) );
+  mActionOpenTable->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionOpenTable.svg" ) ) );
+  mActionOpenFieldCalc->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionCalculateField.svg" ) ) );
+  mActionMeasure->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionMeasure.svg" ) ) );
+  mActionMeasureArea->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionMeasureArea.svg" ) ) );
+  mActionMeasureAngle->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionMeasureAngle.svg" ) ) );
+  mActionMapTips->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionMapTips.svg" ) ) );
+  mActionShowBookmarks->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionShowBookmarks.svg" ) ) );
+  mActionNewBookmark->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionNewBookmark.svg" ) ) );
+  mActionCustomProjection->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionCustomProjection.svg" ) ) );
+  mActionAddWmsLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAddWmsLayer.svg" ) ) );
+  mActionAddWcsLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAddWcsLayer.svg" ) ) );
+  mActionAddWfsLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAddWfsLayer.svg" ) ) );
+  mActionAddAfsLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAddAfsLayer.svg" ) ) );
+  mActionAddAmsLayer->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAddAmsLayer.svg" ) ) );
+  mActionAddToOverview->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionInOverview.svg" ) ) );
+  mActionAnnotation->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAnnotation.svg" ) ) );
+  mActionFormAnnotation->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionFormAnnotation.svg" ) ) );
+  mActionHtmlAnnotation->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionHtmlAnnotation.svg" ) ) );
+  mActionSvgAnnotation->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSvgAnnotation.svg" ) ) );
+  mActionTextAnnotation->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionTextAnnotation.svg" ) ) );
+  mActionLabeling->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionLabeling.svg" ) ) );
+  mActionShowPinnedLabels->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionShowPinnedLabels.svg" ) ) );
+  mActionPinLabels->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionPinLabels.svg" ) ) );
+  mActionShowHideLabels->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionShowHideLabels.svg" ) ) );
+  mActionMoveLabel->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionMoveLabel.svg" ) ) );
+  mActionRotateLabel->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionRotateLabel.svg" ) ) );
+  mActionChangeLabelProperties->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionChangeLabelProperties.svg" ) ) );
+  mActionDiagramProperties->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/propertyicons/diagram.svg" ) ) );
+  mActionDecorationTitle->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/title_label.svg" ) ) );
+  mActionDecorationCopyright->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/copyright_label.svg" ) ) );
+  mActionDecorationNorthArrow->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/north_arrow.svg" ) ) );
+  mActionDecorationScaleBar->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionScaleBar.svg" ) ) );
+  mActionDecorationGrid->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/grid.svg" ) ) );
+  mActionReverseLine->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionReverseLine.svg" ) ) );
+  mActionTrimExtendFeature->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionTrimExtendFeature.svg" ) ) );
 
   emit currentThemeChanged( themeName );
 }
@@ -3918,11 +3918,11 @@ void QgisApp::toggleLogMessageIcon( bool hasLogMessage )
 {
   if ( hasLogMessage && !mLogDock->isVisible() )
   {
-    mMessageButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mMessageLog.svg" ) ) );
+    mMessageButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mMessageLog.svg" ) ) );
   }
   else
   {
-    mMessageButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mMessageLogRead.svg" ) ) );
+    mMessageButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mMessageLogRead.svg" ) ) );
   }
 }
 
@@ -3977,7 +3977,7 @@ void QgisApp::initLayerTreeView()
 
   // add group action
   QAction *actionAddGroup = new QAction( tr( "Add Group" ), this );
-  actionAddGroup->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddGroup.svg" ) ) );
+  actionAddGroup->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAddGroup.svg" ) ) );
   actionAddGroup->setToolTip( tr( "Add Group" ) );
   connect( actionAddGroup, &QAction::triggered, mLayerTreeView->defaultActions(), &QgsLayerTreeViewDefaultActions::addGroup );
 
@@ -3985,7 +3985,7 @@ void QgisApp::initLayerTreeView()
   QToolButton *btnVisibilityPresets = new QToolButton;
   btnVisibilityPresets->setAutoRaise( true );
   btnVisibilityPresets->setToolTip( tr( "Manage Map Themes" ) );
-  btnVisibilityPresets->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionShowAllLayers.svg" ) ) );
+  btnVisibilityPresets->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionShowAllLayers.svg" ) ) );
   btnVisibilityPresets->setPopupMode( QToolButton::InstantPopup );
   btnVisibilityPresets->setMenu( QgsMapThemes::instance()->menu() );
 
@@ -3993,7 +3993,7 @@ void QgisApp::initLayerTreeView()
   mActionFilterLegend = new QAction( tr( "Filter Legend by Map Content" ), this );
   mActionFilterLegend->setCheckable( true );
   mActionFilterLegend->setToolTip( tr( "Filter Legend by Map Content" ) );
-  mActionFilterLegend->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionFilter2.svg" ) ) );
+  mActionFilterLegend->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionFilter2.svg" ) ) );
   connect( mActionFilterLegend, &QAction::toggled, this, &QgisApp::updateFilterLegend );
 
   mLegendExpressionFilterButton = new QgsLegendFilterButton( this );
@@ -4004,16 +4004,16 @@ void QgisApp::initLayerTreeView()
   mActionStyleDock->setCheckable( true );
   mActionStyleDock->setToolTip( tr( "Open the Layer Styling panel" ) );
   mActionStyleDock->setShortcut( QStringLiteral( "F7" ) );
-  mActionStyleDock->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "propertyicons/symbology.svg" ) ) );
+  mActionStyleDock->setIcon( QgsResources::getThemeIcon( QStringLiteral( "propertyicons/symbology.svg" ) ) );
   connect( mActionStyleDock, &QAction::toggled, this, &QgisApp::mapStyleDock );
 
   // expand / collapse tool buttons
   QAction *actionExpandAll = new QAction( tr( "Expand All" ), this );
-  actionExpandAll->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionExpandTree.svg" ) ) );
+  actionExpandAll->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionExpandTree.svg" ) ) );
   actionExpandAll->setToolTip( tr( "Expand All" ) );
   connect( actionExpandAll, &QAction::triggered, mLayerTreeView, &QgsLayerTreeView::expandAllNodes );
   QAction *actionCollapseAll = new QAction( tr( "Collapse All" ), this );
-  actionCollapseAll->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionCollapseTree.svg" ) ) );
+  actionCollapseAll->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionCollapseTree.svg" ) ) );
   actionCollapseAll->setToolTip( tr( "Collapse All" ) );
   connect( actionCollapseAll, &QAction::triggered, mLayerTreeView, &QgsLayerTreeView::collapseAllNodes );
 
@@ -4204,7 +4204,7 @@ void QgisApp::updateRecentProjectPaths()
     action->setData( recentProject.path );
     if ( recentProject.pin )
     {
-      action->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/pin.svg" ) ) );
+      action->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/pin.svg" ) ) );
     }
   }
 
@@ -6949,7 +6949,7 @@ void QgisApp::updateDefaultFeatureAction( QAction *action )
   if ( !vlayer )
     return;
 
-  mActionFeatureAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mAction.svg" ) ) );
+  mActionFeatureAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mAction.svg" ) ) );
   mActionFeatureAction->setToolTip( tr( "No action selected" ) );
 
   mFeatureActionMenu->setActiveAction( action );
@@ -6970,7 +6970,7 @@ void QgisApp::updateDefaultFeatureAction( QAction *action )
     if ( !qgsAction.icon().isNull() )
       mActionFeatureAction->setIcon( qgsAction.icon() );
     else
-      mActionFeatureAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionActive.svg" ) ) );
+      mActionFeatureAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionActive.svg" ) ) );
   }
   else
   {
@@ -6988,7 +6988,7 @@ void QgisApp::updateDefaultFeatureAction( QAction *action )
       if ( !mapLayerAction->icon().isNull() )
         mActionFeatureAction->setIcon( mapLayerAction->icon() );
       else
-        mActionFeatureAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionActive.svg" ) ) );
+        mActionFeatureAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionActive.svg" ) ) );
     }
     else
     {
@@ -8242,7 +8242,7 @@ void QgisApp::setupDuplicateFeaturesAction()
 {
   mDuplicateFeatureAction.reset( new QgsMapLayerAction( tr( "Duplicate feature" ),
                                  nullptr, QgsMapLayerAction::SingleFeature,
-                                 QgsApplication::getThemeIcon( QStringLiteral( "/mActionDuplicateFeature.svg" ) ), QgsMapLayerAction::EnabledOnlyWhenEditable ) );
+                                 QgsResources::getThemeIcon( QStringLiteral( "/mActionDuplicateFeature.svg" ) ), QgsMapLayerAction::EnabledOnlyWhenEditable ) );
 
   QgsGui::mapLayerActionRegistry()->addMapLayerAction( mDuplicateFeatureAction.get() );
   connect( mDuplicateFeatureAction.get(), &QgsMapLayerAction::triggeredForFeature, this, [this]( QgsMapLayer * layer, const QgsFeature & feat )
@@ -8253,7 +8253,7 @@ void QgisApp::setupDuplicateFeaturesAction()
 
   mDuplicateFeatureDigitizeAction.reset( new QgsMapLayerAction( tr( "Duplicate feature and digitize" ),
                                          nullptr, QgsMapLayerAction::SingleFeature,
-                                         QgsApplication::getThemeIcon( QStringLiteral( "/mActionDuplicateFeatureDigitized.svg" ) ), QgsMapLayerAction::EnabledOnlyWhenEditable ) );
+                                         QgsResources::getThemeIcon( QStringLiteral( "/mActionDuplicateFeatureDigitized.svg" ) ), QgsMapLayerAction::EnabledOnlyWhenEditable ) );
 
   QgsGui::mapLayerActionRegistry()->addMapLayerAction( mDuplicateFeatureDigitizeAction.get() );
   connect( mDuplicateFeatureDigitizeAction.get(), &QgsMapLayerAction::triggeredForFeature, this, [this]( QgsMapLayer * layer, const QgsFeature & feat )
@@ -8278,7 +8278,7 @@ void QgisApp::setupAtlasMapLayerAction( QgsPrintLayout *layout, bool enableActio
   {
     action = new QgsMapLayerAction( QString( tr( "Set as atlas feature for %1" ) ).arg( layout->name() ),
                                     this, layout->atlas()->coverageLayer(), QgsMapLayerAction::SingleFeature,
-                                    QgsApplication::getThemeIcon( QStringLiteral( "/mIconAtlas.svg" ) ) );
+                                    QgsResources::getThemeIcon( QStringLiteral( "/mIconAtlas.svg" ) ) );
     mAtlasFeatureActions.insert( layout, action );
     QgsGui::mapLayerActionRegistry()->addMapLayerAction( action );
     connect( action, &QgsMapLayerAction::triggeredForFeature, this, [this, layout]( QgsMapLayer * layer, const QgsFeature & feat )
@@ -12119,13 +12119,13 @@ void QgisApp::updateCrsStatusBar()
 
     mOnTheFlyProjectionStatusButton->setToolTip(
       tr( "Current CRS: %1" ).arg( QgsProject::instance()->crs().description() ) );
-    mOnTheFlyProjectionStatusButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mIconProjectionEnabled.svg" ) ) );
+    mOnTheFlyProjectionStatusButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mIconProjectionEnabled.svg" ) ) );
   }
   else
   {
     mOnTheFlyProjectionStatusButton->setText( QString() );
     mOnTheFlyProjectionStatusButton->setToolTip( tr( "No projection" ) );
-    mOnTheFlyProjectionStatusButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mIconProjectionDisabled.svg" ) ) );
+    mOnTheFlyProjectionStatusButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mIconProjectionDisabled.svg" ) ) );
   }
 }
 
@@ -12709,10 +12709,10 @@ void QgisApp::activateDeactivateLayerRelatedActions( QgsMapLayer *layer )
 
       if ( vlayer->geometryType() == QgsWkbTypes::PointGeometry )
       {
-        mActionAddFeature->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionCapturePoint.svg" ) ) );
+        mActionAddFeature->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionCapturePoint.svg" ) ) );
         addFeatureText = tr( "Add Point Feature" );
-        mActionMoveFeature->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionMoveFeaturePoint.svg" ) ) );
-        mActionMoveFeatureCopy->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionMoveFeatureCopyPoint.svg" ) ) );
+        mActionMoveFeature->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionMoveFeaturePoint.svg" ) ) );
+        mActionMoveFeatureCopy->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionMoveFeatureCopyPoint.svg" ) ) );
 
         mActionAddRing->setEnabled( false );
         mActionFillRing->setEnabled( false );
@@ -12739,10 +12739,10 @@ void QgisApp::activateDeactivateLayerRelatedActions( QgsMapLayer *layer )
       }
       else if ( vlayer->geometryType() == QgsWkbTypes::LineGeometry )
       {
-        mActionAddFeature->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionCaptureLine.svg" ) ) );
+        mActionAddFeature->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionCaptureLine.svg" ) ) );
         addFeatureText = tr( "Add Line Feature" );
-        mActionMoveFeature->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionMoveFeatureLine.svg" ) ) );
-        mActionMoveFeatureCopy->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionMoveFeatureCopyLine.svg" ) ) );
+        mActionMoveFeature->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionMoveFeatureLine.svg" ) ) );
+        mActionMoveFeatureCopy->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionMoveFeatureCopyLine.svg" ) ) );
 
         mActionReshapeFeatures->setEnabled( isEditable && canChangeGeometry );
         mActionSplitFeatures->setEnabled( isEditable && canAddFeatures );
@@ -12758,10 +12758,10 @@ void QgisApp::activateDeactivateLayerRelatedActions( QgsMapLayer *layer )
       }
       else if ( vlayer->geometryType() == QgsWkbTypes::PolygonGeometry )
       {
-        mActionAddFeature->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionCapturePolygon.svg" ) ) );
+        mActionAddFeature->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionCapturePolygon.svg" ) ) );
         addFeatureText = tr( "Add Polygon Feature" );
-        mActionMoveFeature->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionMoveFeature.svg" ) ) );
-        mActionMoveFeatureCopy->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionMoveFeatureCopy.svg" ) ) );
+        mActionMoveFeature->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionMoveFeature.svg" ) ) );
+        mActionMoveFeatureCopy->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionMoveFeatureCopy.svg" ) ) );
 
         mActionAddRing->setEnabled( isEditable && canChangeGeometry );
         mActionFillRing->setEnabled( isEditable && canChangeGeometry );
@@ -12775,7 +12775,7 @@ void QgisApp::activateDeactivateLayerRelatedActions( QgsMapLayer *layer )
       }
       else if ( vlayer->geometryType() == QgsWkbTypes::NullGeometry )
       {
-        mActionAddFeature->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionNewTableRow.svg" ) ) );
+        mActionAddFeature->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionNewTableRow.svg" ) ) );
         addFeatureText = tr( "Add Record" );
         mActionAddRing->setEnabled( false );
         mActionFillRing->setEnabled( false );

@@ -18,6 +18,7 @@
 #include "qgslayoutview.h"
 #include "qgslayoutviewrubberband.h"
 #include "qgsrectangle.h"
+#include "qgsapplication.h"
 #include <QScrollBar>
 
 QgsLayoutViewToolZoom::QgsLayoutViewToolZoom( QgsLayoutView *view )

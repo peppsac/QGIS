@@ -20,7 +20,7 @@
 #include "qgsnewgeopackagelayerdialog.h"
 
 #include "qgis.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsproviderregistry.h"
 #include "qgsvectorlayer.h"
 #include "qgsproject.h"
@@ -63,25 +63,25 @@ QgsNewGeoPackageLayerDialog::QgsNewGeoPackageLayerDialog( QWidget *parent, Qt::W
   connect( buttonBox, &QDialogButtonBox::rejected, this, &QgsNewGeoPackageLayerDialog::buttonBox_rejected );
   connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsNewGeoPackageLayerDialog::showHelp );
 
-  mAddAttributeButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionNewAttribute.svg" ) ) );
-  mRemoveAttributeButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionDeleteAttribute.svg" ) ) );
+  mAddAttributeButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionNewAttribute.svg" ) ) );
+  mRemoveAttributeButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionDeleteAttribute.svg" ) ) );
 
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconTableLayer.svg" ) ), tr( "No geometry" ), wkbNone );
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconPointLayer.svg" ) ), tr( "Point" ), wkbPoint );
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) ), tr( "Line" ), wkbLineString );
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconPolygonLayer.svg" ) ), tr( "Polygon" ), wkbPolygon );
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconPointLayer.svg" ) ), tr( "MultiPoint" ), wkbMultiPoint );
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) ), tr( "MultiLine" ), wkbMultiLineString );
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconPolygonLayer.svg" ) ), tr( "MultiPolygon" ), wkbMultiPolygon );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconTableLayer.svg" ) ), tr( "No geometry" ), wkbNone );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconPointLayer.svg" ) ), tr( "Point" ), wkbPoint );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) ), tr( "Line" ), wkbLineString );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconPolygonLayer.svg" ) ), tr( "Polygon" ), wkbPolygon );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconPointLayer.svg" ) ), tr( "MultiPoint" ), wkbMultiPoint );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) ), tr( "MultiLine" ), wkbMultiLineString );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconPolygonLayer.svg" ) ), tr( "MultiPolygon" ), wkbMultiPolygon );
 
 #if 0
   // QGIS always create CompoundCurve and there's no real interest of having just CircularString. CompoundCurve are more useful
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) ), tr( "CircularString" ), wkbCircularString );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) ), tr( "CircularString" ), wkbCircularString );
 #endif
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) ), tr( "CompoundCurve" ), wkbCompoundCurve );
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconPolygonLayer.svg" ) ), tr( "CurvePolygon" ), wkbCurvePolygon );
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) ), tr( "MultiCurve" ), wkbMultiCurve );
-  mGeometryTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconPolygonLayer.svg" ) ), tr( "MultiSurface" ), wkbMultiSurface );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) ), tr( "CompoundCurve" ), wkbCompoundCurve );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconPolygonLayer.svg" ) ), tr( "CurvePolygon" ), wkbCurvePolygon );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) ), tr( "MultiCurve" ), wkbMultiCurve );
+  mGeometryTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconPolygonLayer.svg" ) ), tr( "MultiSurface" ), wkbMultiSurface );
 
   mGeometryWithZCheckBox->setEnabled( false );
   mGeometryWithMCheckBox->setEnabled( false );
@@ -91,14 +91,14 @@ QgsNewGeoPackageLayerDialog::QgsNewGeoPackageLayerDialog( QWidget *parent, Qt::W
   mCheckBoxCreateSpatialIndex->setEnabled( false );
   mCrsSelector->setEnabled( false );
 
-  mFieldTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconFieldText.svg" ) ), tr( "Text data" ), "text" );
-  mFieldTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconFieldInteger.svg" ) ), tr( "Whole number (integer)" ), "integer" );
-  mFieldTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconFieldInteger.svg" ) ), tr( "Whole number (integer 64 bit)" ), "integer64" );
-  mFieldTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconFieldFloat.svg" ) ), tr( "Decimal number (real)" ), "real" );
-  mFieldTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconFieldDate.svg" ) ), tr( "Date" ), "date" );
-  mFieldTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconFieldDateTime.svg" ) ), tr( "Date & time" ), "datetime" );
-  mFieldTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconFieldBool.svg" ) ), tr( "Boolean" ), "bool" );
-  mFieldTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconFieldBinary.svg" ) ), tr( "Binary (BLOB)" ), "binary" );
+  mFieldTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconFieldText.svg" ) ), tr( "Text data" ), "text" );
+  mFieldTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconFieldInteger.svg" ) ), tr( "Whole number (integer)" ), "integer" );
+  mFieldTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconFieldInteger.svg" ) ), tr( "Whole number (integer 64 bit)" ), "integer64" );
+  mFieldTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconFieldFloat.svg" ) ), tr( "Decimal number (real)" ), "real" );
+  mFieldTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconFieldDate.svg" ) ), tr( "Date" ), "date" );
+  mFieldTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconFieldDateTime.svg" ) ), tr( "Date & time" ), "datetime" );
+  mFieldTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconFieldBool.svg" ) ), tr( "Boolean" ), "bool" );
+  mFieldTypeBox->addItem( QgsResources::getThemeIcon( QStringLiteral( "/mIconFieldBinary.svg" ) ), tr( "Binary (BLOB)" ), "binary" );
 
   mOkButton = buttonBox->button( QDialogButtonBox::Ok );
   mOkButton->setEnabled( false );

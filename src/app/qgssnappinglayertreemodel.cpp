@@ -24,7 +24,7 @@
 #include "qgsproject.h"
 #include "qgssnappingconfig.h"
 #include "qgsvectorlayer.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 QgsSnappingLayerDelegate::QgsSnappingLayerDelegate( QgsMapCanvas *canvas, QObject *parent )
   : QItemDelegate( parent )
@@ -40,9 +40,9 @@ QWidget *QgsSnappingLayerDelegate::createEditor( QWidget *parent, const QStyleOp
   if ( index.column() == QgsSnappingLayerTreeModel::TypeColumn )
   {
     QComboBox *w = new QComboBox( parent );
-    w->addItem( QIcon( QgsApplication::getThemeIcon( "/mIconSnappingVertex.svg" ) ), tr( "vertex" ), QgsSnappingConfig::Vertex );
-    w->addItem( QIcon( QgsApplication::getThemeIcon( "/mIconSnappingVertexAndSegment.svg" ) ), tr( "vertex and segment" ), QgsSnappingConfig::VertexAndSegment );
-    w->addItem( QIcon( QgsApplication::getThemeIcon( "/mIconSnappingSegment.svg" ) ), tr( "segment" ), QgsSnappingConfig::Segment );
+    w->addItem( QIcon( QgsResources::getThemeIcon( "/mIconSnappingVertex.svg" ) ), tr( "vertex" ), QgsSnappingConfig::Vertex );
+    w->addItem( QIcon( QgsResources::getThemeIcon( "/mIconSnappingVertexAndSegment.svg" ) ), tr( "vertex and segment" ), QgsSnappingConfig::VertexAndSegment );
+    w->addItem( QIcon( QgsResources::getThemeIcon( "/mIconSnappingSegment.svg" ) ), tr( "segment" ), QgsSnappingConfig::Segment );
     return w;
   }
 

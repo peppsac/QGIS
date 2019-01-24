@@ -45,7 +45,7 @@
 #include "qgsvariantdelegate.h"
 #include "qgslogger.h"
 #include "qgssettings.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 #include <QMenu>
 #include <QMessageBox>
@@ -66,8 +66,8 @@ QgsSettingsTree::QgsSettingsTree( QWidget *parent )
 
   mRefreshTimer.setInterval( 2000 );
 
-  mGroupIcon = QgsApplication::getThemeIcon( QStringLiteral( "mIconFolderOpen.svg" ) );
-  mKeyIcon = QgsApplication::getThemeIcon( QStringLiteral( "mIconDeselected.svg" ) );
+  mGroupIcon = QgsResources::getThemeIcon( QStringLiteral( "mIconFolderOpen.svg" ) );
+  mKeyIcon = QgsResources::getThemeIcon( QStringLiteral( "mIconDeselected.svg" ) );
 
   setEditTriggers( QAbstractItemView::AllEditTriggers );
 

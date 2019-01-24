@@ -12,7 +12,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsgdalutils.h"
 #include "qgslogger.h"
 #include "qgscoordinatetransform.h"
@@ -62,10 +62,10 @@ QgsRasterLayerSaveAsDialog::QgsRasterLayerSaveAsDialog( QgsRasterLayer *rasterLa
   connect( mRemoveAllNoDataToolButton, &QPushButton::clicked, this, &QgsRasterLayerSaveAsDialog::mRemoveAllNoDataToolButton_clicked );
   connect( mTileModeCheckBox, &QCheckBox::toggled, this, &QgsRasterLayerSaveAsDialog::mTileModeCheckBox_toggled );
   connect( mPyramidsGroupBox, &QgsCollapsibleGroupBox::toggled, this, &QgsRasterLayerSaveAsDialog::mPyramidsGroupBox_toggled );
-  mAddNoDataManuallyToolButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/symbologyAdd.svg" ) ) );
-  mLoadTransparentNoDataToolButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionFileOpen.svg" ) ) );
-  mRemoveSelectedNoDataToolButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/symbologyRemove.svg" ) ) );
-  mRemoveAllNoDataToolButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionRemove.svg" ) ) );
+  mAddNoDataManuallyToolButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/symbologyAdd.svg" ) ) );
+  mLoadTransparentNoDataToolButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionFileOpen.svg" ) ) );
+  mRemoveSelectedNoDataToolButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/symbologyRemove.svg" ) ) );
+  mRemoveAllNoDataToolButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionRemove.svg" ) ) );
 
   mNoDataTableWidget->setColumnCount( 2 );
   mNoDataTableWidget->setHorizontalHeaderItem( 0, new QTableWidgetItem( tr( "From" ) ) );

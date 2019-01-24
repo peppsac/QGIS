@@ -17,6 +17,7 @@
 #include "qgscustomization.h"
 #include "qgisapp.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgslogger.h"
 #include "qgsstatusbar.h"
 #include "qgsgui.h"
@@ -354,7 +355,7 @@ QTreeWidgetItem *QgsCustomizationDialog::readWidgetsXmlNode( const QDomNode &nod
   // It is nice to have icons for each Qt widget class, is it too heavy?
   // There are 47 png files, total 196K in qt/tools/designer/src/components/formeditor/images/
   QString iconName = myElement.attribute( QStringLiteral( "class" ), QString() ).toLower().mid( 1 ) + ".png";
-  QString iconPath = QgsApplication::iconPath( "/customization/" + iconName );
+  QString iconPath = QgsResources::iconPath( "/customization/" + iconName );
   QgsDebugMsg( "iconPath = " + iconPath );
   if ( QFile::exists( iconPath ) )
   {

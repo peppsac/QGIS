@@ -101,7 +101,7 @@ class GUI_EXPORT QgsLayoutItemAbstractGuiMetadata
     /**
      * Returns an icon representing creation of the layout item type.
      */
-    virtual QIcon creationIcon() const { return QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddBasicRectangle.svg" ) ); }
+    virtual QIcon creationIcon() const { return QgsResources::getThemeIcon( QStringLiteral( "/mActionAddBasicRectangle.svg" ) ); }
 
     /**
      * Creates a configuration widget for an \a item of this type. Can return nullptr if no configuration GUI is required.

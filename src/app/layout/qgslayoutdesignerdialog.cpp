@@ -431,7 +431,7 @@ QgsLayoutDesignerDialog::QgsLayoutDesignerDialog( QWidget *parent, Qt::WindowFla
   mActionsToolbar->addWidget( resizeToolButton );
 
   QToolButton *atlasExportToolButton = new QToolButton( mAtlasToolbar );
-  atlasExportToolButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mActionExport.svg" ) ) );
+  atlasExportToolButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mActionExport.svg" ) ) );
   atlasExportToolButton->setPopupMode( QToolButton::InstantPopup );
   atlasExportToolButton->setAutoRaise( true );
   atlasExportToolButton->setToolButtonStyle( Qt::ToolButtonIconOnly );
@@ -647,7 +647,7 @@ QgsLayoutDesignerDialog::QgsLayoutDesignerDialog( QWidget *parent, Qt::WindowFla
   mActionCut = new QAction( tr( "Cu&t" ), this );
   mActionCut->setShortcuts( QKeySequence::Cut );
   mActionCut->setStatusTip( tr( "Cut" ) );
-  mActionCut->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionEditCut.svg" ) ) );
+  mActionCut->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionEditCut.svg" ) ) );
   connect( mActionCut, &QAction::triggered, this, [ = ]
   {
     mView->copySelectedItems( QgsLayoutView::ClipboardCut );
@@ -656,7 +656,7 @@ QgsLayoutDesignerDialog::QgsLayoutDesignerDialog( QWidget *parent, Qt::WindowFla
   mActionCopy = new QAction( tr( "&Copy" ), this );
   mActionCopy->setShortcuts( QKeySequence::Copy );
   mActionCopy->setStatusTip( tr( "Copy" ) );
-  mActionCopy->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionEditCopy.svg" ) ) );
+  mActionCopy->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionEditCopy.svg" ) ) );
   connect( mActionCopy, &QAction::triggered, this, [ = ]
   {
     mView->copySelectedItems( QgsLayoutView::ClipboardCopy );
@@ -665,7 +665,7 @@ QgsLayoutDesignerDialog::QgsLayoutDesignerDialog( QWidget *parent, Qt::WindowFla
   mActionPaste = new QAction( tr( "&Paste" ), this );
   mActionPaste->setShortcuts( QKeySequence::Paste );
   mActionPaste->setStatusTip( tr( "Paste" ) );
-  mActionPaste->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionEditPaste.svg" ) ) );
+  mActionPaste->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionEditPaste.svg" ) ) );
   connect( mActionPaste, &QAction::triggered, this, &QgsLayoutDesignerDialog::paste );
 
   menuEdit->insertAction( mActionPasteInPlace, mActionCut );
@@ -1026,10 +1026,10 @@ void QgsLayoutDesignerDialog::setCurrentLayout( QgsLayout *layout )
     delete mUndoAction;
     delete mRedoAction;
     mUndoAction = layout->undoStack()->stack()->createUndoAction( this );
-    mUndoAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionUndo.svg" ) ) );
+    mUndoAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionUndo.svg" ) ) );
     mUndoAction->setShortcuts( QKeySequence::Undo );
     mRedoAction = layout->undoStack()->stack()->createRedoAction( this );
-    mRedoAction->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionRedo.svg" ) ) );
+    mRedoAction->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionRedo.svg" ) ) );
     mRedoAction->setShortcuts( QKeySequence::Redo );
     menuEdit->insertAction( menuEdit->actions().at( 0 ), mRedoAction );
     menuEdit->insertAction( mRedoAction, mUndoAction );
@@ -1450,7 +1450,7 @@ void QgsLayoutDesignerDialog::itemTypeAdded( int id )
   {
     // find existing group toolbutton and submenu, or create new ones if this is the first time the group has been encountered
     const QgsLayoutItemGuiGroup &group = QgsGui::layoutItemGuiRegistry()->itemGroup( groupId );
-    QIcon groupIcon = group.icon.isNull() ? QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddBasicShape.svg" ) ) : group.icon;
+    QIcon groupIcon = group.icon.isNull() ? QgsResources::getThemeIcon( QStringLiteral( "/mActionAddBasicShape.svg" ) ) : group.icon;
     QString groupText = tr( "Add %1" ).arg( group.name );
     if ( mItemGroupToolButtons.contains( groupId ) )
     {
@@ -4393,27 +4393,27 @@ void QgsLayoutDesignerDialog::updateActionNames( QgsMasterLayoutInterface::Type 
     case QgsMasterLayoutInterface::PrintLayout:
       mActionDuplicateLayout->setText( tr( "&Duplicate Layout…" ) );
       mActionDuplicateLayout->setToolTip( tr( "Duplicate layout" ) );
-      mActionDuplicateLayout->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mActionDuplicateLayout.svg" ) ) );
+      mActionDuplicateLayout->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mActionDuplicateLayout.svg" ) ) );
       mActionRemoveLayout->setText( tr( "Delete Layout…" ) );
       mActionRemoveLayout->setToolTip( tr( "Delete layout" ) );
       mActionRenameLayout->setText( tr( "Rename Layout…" ) );
       mActionRenameLayout->setToolTip( tr( "Rename layout" ) );
       mActionNewLayout->setText( tr( "New Layout…" ) );
       mActionNewLayout->setToolTip( tr( "New layout" ) );
-      mActionNewLayout->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mActionNewLayout.svg" ) ) );
+      mActionNewLayout->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mActionNewLayout.svg" ) ) );
       break;
 
     case QgsMasterLayoutInterface::Report:
       mActionDuplicateLayout->setText( tr( "&Duplicate Report…" ) );
       mActionDuplicateLayout->setToolTip( tr( "Duplicate report" ) );
-      mActionDuplicateLayout->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mActionDuplicateLayout.svg" ) ) );
+      mActionDuplicateLayout->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mActionDuplicateLayout.svg" ) ) );
       mActionRemoveLayout->setText( tr( "Delete Report…" ) );
       mActionRemoveLayout->setToolTip( tr( "Delete report" ) );
       mActionRenameLayout->setText( tr( "Rename Report…" ) );
       mActionRenameLayout->setToolTip( tr( "Rename report" ) );
       mActionNewLayout->setText( tr( "New Report…" ) );
       mActionNewLayout->setToolTip( tr( "New report" ) );
-      mActionNewLayout->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mActionNewReport.svg" ) ) );
+      mActionNewLayout->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mActionNewReport.svg" ) ) );
       break;
   }
 }

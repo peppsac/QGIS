@@ -22,7 +22,7 @@
 
 #include "qgis_sip.h"
 #include "qgsprocessingalgorithm.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 ///@cond PRIVATE
 
@@ -35,8 +35,8 @@ class QgsMultipartToSinglepartAlgorithm : public QgsProcessingFeatureBasedAlgori
   public:
 
     QgsMultipartToSinglepartAlgorithm() = default;
-    QIcon icon() const override { return QgsApplication::getThemeIcon( QStringLiteral( "/algorithms/mAlgorithmMultiToSingle.svg" ) ); }
-    QString svgIconPath() const override { return QgsApplication::iconPath( QStringLiteral( "/algorithms/mAlgorithmMultiToSingle.svg" ) ); }
+    QIcon icon() const override { return QgsResources::getThemeIcon( QStringLiteral( "/algorithms/mAlgorithmMultiToSingle.svg" ) ); }
+    QString svgIconPath() const override { return QgsResources::iconPath( QStringLiteral( "/algorithms/mAlgorithmMultiToSingle.svg" ) ); }
     QString name() const override;
     QString displayName() const override;
     QString outputName() const override;

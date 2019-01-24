@@ -33,9 +33,9 @@ QgsRuleBased3DRendererWidget::QgsRuleBased3DRendererWidget( QWidget *parent )
 {
   setupUi( this );
 
-  btnAddRule->setIcon( QIcon( QgsApplication::iconPath( "symbologyAdd.svg" ) ) );
-  btnEditRule->setIcon( QIcon( QgsApplication::iconPath( "symbologyEdit.svg" ) ) );
-  btnRemoveRule->setIcon( QIcon( QgsApplication::iconPath( "symbologyRemove.svg" ) ) );
+  btnAddRule->setIcon( QIcon( QgsResources::iconPath( "symbologyAdd.svg" ) ) );
+  btnEditRule->setIcon( QIcon( QgsResources::iconPath( "symbologyEdit.svg" ) ) );
+  btnRemoveRule->setIcon( QIcon( QgsResources::iconPath( "symbologyRemove.svg" ) ) );
 
   mCopyAction = new QAction( tr( "Copy" ), this );
   mCopyAction->setShortcut( QKeySequence( QKeySequence::Copy ) );

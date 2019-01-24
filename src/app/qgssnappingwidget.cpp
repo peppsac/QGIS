@@ -26,7 +26,7 @@
 #include <QWidgetAction>
 
 #include "qgisapp.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsdoublespinbox.h"
 #include "qgsfloatingwidget.h"
 #include "qgslayertreegroup.h"
@@ -105,7 +105,7 @@ QgsSnappingWidget::QgsSnappingWidget( QgsProject *project, QgsMapCanvas *canvas,
   // enable button
   mEnabledAction = new QAction( tr( "Toggle Snapping" ), this );
   mEnabledAction->setCheckable( true );
-  mEnabledAction->setIcon( QIcon( QgsApplication::getThemeIcon( "/mIconSnapping.svg" ) ) );
+  mEnabledAction->setIcon( QIcon( QgsResources::getThemeIcon( "/mIconSnapping.svg" ) ) );
   mEnabledAction->setToolTip( tr( "Enable Snapping (S)" ) );
   mEnabledAction->setShortcut( tr( "S", "Keyboard shortcut: toggle snapping" ) );
   mEnabledAction->setObjectName( QStringLiteral( "EnableSnappingAction" ) );
@@ -116,9 +116,9 @@ QgsSnappingWidget::QgsSnappingWidget( QgsProject *project, QgsMapCanvas *canvas,
   mModeButton->setToolTip( tr( "Snapping Mode" ) );
   mModeButton->setPopupMode( QToolButton::InstantPopup );
   QMenu *modeMenu = new QMenu( tr( "Set Snapping Mode" ), this );
-  mAllLayersAction = new QAction( QIcon( QgsApplication::getThemeIcon( "/mIconSnappingAllLayers.svg" ) ), tr( "All Layers" ), modeMenu );
-  mActiveLayerAction = new QAction( QIcon( QgsApplication::getThemeIcon( "/mIconSnappingActiveLayer.svg" ) ), tr( "Active Layer" ), modeMenu );
-  mAdvancedModeAction = new QAction( QIcon( QgsApplication::getThemeIcon( "/mIconSnappingAdvanced.svg" ) ), tr( "Advanced Configuration" ), modeMenu );
+  mAllLayersAction = new QAction( QIcon( QgsResources::getThemeIcon( "/mIconSnappingAllLayers.svg" ) ), tr( "All Layers" ), modeMenu );
+  mActiveLayerAction = new QAction( QIcon( QgsResources::getThemeIcon( "/mIconSnappingActiveLayer.svg" ) ), tr( "Active Layer" ), modeMenu );
+  mAdvancedModeAction = new QAction( QIcon( QgsResources::getThemeIcon( "/mIconSnappingAdvanced.svg" ) ), tr( "Advanced Configuration" ), modeMenu );
   modeMenu->addAction( mAllLayersAction );
   modeMenu->addAction( mActiveLayerAction );
   modeMenu->addAction( mAdvancedModeAction );
@@ -142,9 +142,9 @@ QgsSnappingWidget::QgsSnappingWidget( QgsProject *project, QgsMapCanvas *canvas,
   mTypeButton->setToolTip( tr( "Snapping Type" ) );
   mTypeButton->setPopupMode( QToolButton::InstantPopup );
   QMenu *typeMenu = new QMenu( tr( "Set Snapping Mode" ), this );
-  mVertexAction = new QAction( QIcon( QgsApplication::getThemeIcon( "/mIconSnappingVertex.svg" ) ), tr( "Vertex" ), typeMenu );
-  mVertexAndSegmentAction = new QAction( QIcon( QgsApplication::getThemeIcon( "/mIconSnappingVertexAndSegment.svg" ) ), tr( "Vertex and Segment" ), typeMenu );
-  mSegmentAction = new QAction( QIcon( QgsApplication::getThemeIcon( "/mIconSnappingSegment.svg" ) ), tr( "Segment" ), typeMenu );
+  mVertexAction = new QAction( QIcon( QgsResources::getThemeIcon( "/mIconSnappingVertex.svg" ) ), tr( "Vertex" ), typeMenu );
+  mVertexAndSegmentAction = new QAction( QIcon( QgsResources::getThemeIcon( "/mIconSnappingVertexAndSegment.svg" ) ), tr( "Vertex and Segment" ), typeMenu );
+  mSegmentAction = new QAction( QIcon( QgsResources::getThemeIcon( "/mIconSnappingSegment.svg" ) ), tr( "Segment" ), typeMenu );
   typeMenu->addAction( mVertexAction );
   typeMenu->addAction( mVertexAndSegmentAction );
   typeMenu->addAction( mSegmentAction );
@@ -175,7 +175,7 @@ QgsSnappingWidget::QgsSnappingWidget( QgsProject *project, QgsMapCanvas *canvas,
   // topological editing button
   mTopologicalEditingAction = new QAction( tr( "Topological Editing" ), this );
   mTopologicalEditingAction->setCheckable( true );
-  mTopologicalEditingAction->setIcon( QIcon( QgsApplication::getThemeIcon( "/mIconTopologicalEditing.svg" ) ) );
+  mTopologicalEditingAction->setIcon( QIcon( QgsResources::getThemeIcon( "/mIconTopologicalEditing.svg" ) ) );
   mTopologicalEditingAction->setToolTip( tr( "Enable Topological Editing" ) );
   mTopologicalEditingAction->setObjectName( QStringLiteral( "TopologicalEditingAction" ) );
   connect( mTopologicalEditingAction, &QAction::toggled, this, &QgsSnappingWidget::enableTopologicalEditing );
@@ -183,7 +183,7 @@ QgsSnappingWidget::QgsSnappingWidget( QgsProject *project, QgsMapCanvas *canvas,
   // snapping on intersection button
   mIntersectionSnappingAction = new QAction( tr( "Snapping on Intersection" ), this );
   mIntersectionSnappingAction->setCheckable( true );
-  mIntersectionSnappingAction->setIcon( QIcon( QgsApplication::getThemeIcon( "/mIconSnappingIntersection.svg" ) ) );
+  mIntersectionSnappingAction->setIcon( QIcon( QgsResources::getThemeIcon( "/mIconSnappingIntersection.svg" ) ) );
   mIntersectionSnappingAction->setToolTip( tr( "Enable Snapping on Intersection" ) );
   mIntersectionSnappingAction->setObjectName( QStringLiteral( "IntersectionSnappingAction" ) );
   connect( mIntersectionSnappingAction, &QAction::toggled, this, &QgsSnappingWidget::enableIntersectionSnapping );
@@ -191,7 +191,7 @@ QgsSnappingWidget::QgsSnappingWidget( QgsProject *project, QgsMapCanvas *canvas,
   // snapping on intersection button
   mEnableTracingAction = new QAction( tr( "Enable Tracing" ), this );
   mEnableTracingAction->setCheckable( true );
-  mEnableTracingAction->setIcon( QIcon( QgsApplication::getThemeIcon( "/mActionTracing.svg" ) ) );
+  mEnableTracingAction->setIcon( QIcon( QgsResources::getThemeIcon( "/mActionTracing.svg" ) ) );
   mEnableTracingAction->setToolTip( tr( "Enable Tracing (T)" ) );
   mEnableTracingAction->setShortcut( tr( "T", "Keyboard shortcut: Enable tracing" ) );
   mEnableTracingAction->setObjectName( QStringLiteral( "EnableTracingAction" ) );
@@ -230,7 +230,7 @@ QgsSnappingWidget::QgsSnappingWidget( QgsProject *project, QgsMapCanvas *canvas,
     QWidgetAction *advConfigWidgetAction = new QWidgetAction( advConfigMenu );
     advConfigWidgetAction->setDefaultWidget( mAdvancedConfigWidget );
     advConfigMenu->addAction( advConfigWidgetAction );
-    advConfigButton->setIcon( QIcon( QgsApplication::getThemeIcon( "/mActionShowAllLayers.svg" ) ) );
+    advConfigButton->setIcon( QIcon( QgsResources::getThemeIcon( "/mActionShowAllLayers.svg" ) ) );
     advConfigButton->setToolTip( tr( "Edit advanced configuration" ) );
     advConfigButton->setObjectName( QStringLiteral( "EditAdvancedConfigurationButton" ) );
     advConfigButton->setMenu( advConfigMenu );

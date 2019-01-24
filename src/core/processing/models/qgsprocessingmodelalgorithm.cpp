@@ -22,7 +22,7 @@
 #include "qgsxmlutils.h"
 #include "qgsexception.h"
 #include "qgsvectorlayer.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 #include <QFile>
 #include <QTextStream>
@@ -61,12 +61,12 @@ QString QgsProcessingModelAlgorithm::groupId() const
 
 QIcon QgsProcessingModelAlgorithm::icon() const
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/processingModel.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/processingModel.svg" ) );
 }
 
 QString QgsProcessingModelAlgorithm::svgIconPath() const
 {
-  return QgsApplication::iconPath( QStringLiteral( "processingModel.svg" ) );
+  return QgsResources::iconPath( QStringLiteral( "processingModel.svg" ) );
 }
 
 QString QgsProcessingModelAlgorithm::shortHelpString() const

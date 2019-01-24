@@ -21,6 +21,7 @@
 #include "qgslayout.h"
 #include "qgsproject.h"
 #include "qgslayoutundostack.h"
+#include "qgsapplication.h"
 
 ///@cond PRIVATE
 QgsLayoutItemUndoCommand::QgsLayoutItemUndoCommand( QgsLayoutItem *item, const QString &text, int id, QUndoCommand *parent )

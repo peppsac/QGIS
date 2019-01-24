@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "qgsvaluemapfieldformatter.h"
+#include "qgsexpressionfunction.h"
 
 #include "qgsvectorlayer.h"
 

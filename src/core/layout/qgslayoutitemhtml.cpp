@@ -72,7 +72,7 @@ int QgsLayoutItemHtml::type() const
 
 QIcon QgsLayoutItemHtml::icon() const
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mLayoutItemHtml.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mLayoutItemHtml.svg" ) );
 }
 
 QgsLayoutItemHtml *QgsLayoutItemHtml::create( QgsLayout *layout )

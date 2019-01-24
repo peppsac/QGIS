@@ -19,7 +19,7 @@
 
 #include "qgslocatormodel.h"
 #include "qgslocator.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgslogger.h"
 
 
@@ -118,7 +118,7 @@ QVariant QgsLocatorModel::data( const QModelIndex &index, int role ) const
             QIcon icon = mResults.at( index.row() ).result.icon;
             if ( !icon.isNull() )
               return icon;
-            return QgsApplication::getThemeIcon( QStringLiteral( "/search.svg" ) );
+            return QgsResources::getThemeIcon( QStringLiteral( "/search.svg" ) );
           }
           else
             return QVariant();

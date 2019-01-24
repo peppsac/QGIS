@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsdelattrdialog.h"
 #include "qgsfields.h"
 #include "qgsvectordataprovider.h"
@@ -36,16 +36,16 @@ QgsDelAttrDialog::QgsDelAttrDialog( const QgsVectorLayer *vl )
       switch ( vl->fields().fieldOrigin( idx ) )
       {
         case QgsFields::OriginExpression:
-          item->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconExpression.svg" ) ) );
+          item->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconExpression.svg" ) ) );
           break;
 
         case QgsFields::OriginJoin:
-          item->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/propertyicons/join.svg" ) ) );
+          item->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/propertyicons/join.svg" ) ) );
           item->setFlags( item->flags() & ~Qt::ItemIsEnabled );
           break;
 
         default:
-          item->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/propertyicons/attributes.svg" ) ) );
+          item->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/propertyicons/attributes.svg" ) ) );
           if ( !vl->isEditable() || !canDeleteAttributes )
             item->setFlags( item->flags() & ~Qt::ItemIsEnabled );
           break;

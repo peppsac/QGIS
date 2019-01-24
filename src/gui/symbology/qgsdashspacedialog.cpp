@@ -14,7 +14,7 @@
  ***************************************************************************/
 
 #include "qgsdashspacedialog.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include <QFile>
 
 QgsDashSpaceDialog::QgsDashSpaceDialog( const QVector<qreal> &v, QWidget *parent, Qt::WindowFlags f ): QDialog( parent, f )
@@ -23,8 +23,8 @@ QgsDashSpaceDialog::QgsDashSpaceDialog( const QVector<qreal> &v, QWidget *parent
   connect( mAddButton, &QPushButton::clicked, this, &QgsDashSpaceDialog::mAddButton_clicked );
   connect( mRemoveButton, &QPushButton::clicked, this, &QgsDashSpaceDialog::mRemoveButton_clicked );
 
-  mAddButton->setIcon( QgsApplication::getThemeIcon( "symbologyAdd.svg" ) );
-  mRemoveButton->setIcon( QgsApplication::getThemeIcon( "symbologyRemove.svg" ) );
+  mAddButton->setIcon( QgsResources::getThemeIcon( "symbologyAdd.svg" ) );
+  mRemoveButton->setIcon( QgsResources::getThemeIcon( "symbologyRemove.svg" ) );
 
   double dash = 0;
   double space = 0;

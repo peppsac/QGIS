@@ -62,6 +62,7 @@
 #include "qgsdxfexport.h"
 #include "qgssymbollayerutils.h"
 #include "qgsserverexception.h"
+#include "qgsapplication.h"
 
 #include <QImage>
 #include <QPainter>

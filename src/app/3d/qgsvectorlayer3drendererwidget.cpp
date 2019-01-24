@@ -74,9 +74,9 @@ QgsVectorLayer3DRendererWidget::QgsVectorLayer3DRendererWidget( QgsVectorLayer *
   layout->setContentsMargins( 0, 0, 0, 0 );
 
   cboRendererType = new QComboBox( this );
-  cboRendererType->addItem( QgsApplication::getThemeIcon( QStringLiteral( "rendererNullSymbol.svg" ) ), tr( "No symbols" ) );
-  cboRendererType->addItem( QgsApplication::getThemeIcon( QStringLiteral( "rendererSingleSymbol.svg" ) ), tr( "Single symbol" ) );
-  cboRendererType->addItem( QgsApplication::getThemeIcon( QStringLiteral( "rendererRuleBasedSymbol.svg" ) ), tr( "Rule-based" ) );
+  cboRendererType->addItem( QgsResources::getThemeIcon( QStringLiteral( "rendererNullSymbol.svg" ) ), tr( "No symbols" ) );
+  cboRendererType->addItem( QgsResources::getThemeIcon( QStringLiteral( "rendererSingleSymbol.svg" ) ), tr( "Single symbol" ) );
+  cboRendererType->addItem( QgsResources::getThemeIcon( QStringLiteral( "rendererRuleBasedSymbol.svg" ) ), tr( "Rule-based" ) );
 
   widgetRendererStack = new QStackedWidget( this );
   layout->addWidget( cboRendererType );

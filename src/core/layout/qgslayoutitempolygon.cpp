@@ -49,7 +49,7 @@ int QgsLayoutItemPolygon::type() const
 
 QIcon QgsLayoutItemPolygon::icon() const
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mLayoutItemPolygon.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mLayoutItemPolygon.svg" ) );
 }
 
 bool QgsLayoutItemPolygon::_addNode( const int indexPoint,

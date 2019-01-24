@@ -47,6 +47,7 @@
 #include "qgsexception.h"
 #include "qgssettings.h"
 #include "qgsogrutils.h"
+#include "qgsresources.h"
 
 #ifdef HAVE_GUI
 #include "qgswmssourceselect.h"
@@ -4259,7 +4260,7 @@ class QgsWmsSourceSelectProvider : public QgsSourceSelectProvider
     QString providerKey() const override { return QStringLiteral( "wms" ); }
     QString text() const override { return QStringLiteral( "WMS/WMTS" ); } // untranslatable string as acronym for this particular case. Use QObject::tr() otherwise
     int ordering() const override { return QgsSourceSelectProvider::OrderRemoteProvider + 10; }
-    QIcon icon() const override { return QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddWmsLayer.svg" ) ); }
+    QIcon icon() const override { return QgsResources::getThemeIcon( QStringLiteral( "/mActionAddWmsLayer.svg" ) ); }
     QgsAbstractDataSourceWidget *createDataSourceWidget( QWidget *parent = nullptr, Qt::WindowFlags fl = Qt::Widget, QgsProviderRegistry::WidgetMode widgetMode = QgsProviderRegistry::WidgetMode::Embedded ) const override
     {
       return new QgsWMSSourceSelect( parent, fl, widgetMode );

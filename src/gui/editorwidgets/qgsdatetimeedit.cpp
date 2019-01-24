@@ -24,6 +24,7 @@
 #include "qgsdatetimeedit.h"
 
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgslogger.h"
 
 
@@ -31,7 +32,7 @@
 QgsDateTimeEdit::QgsDateTimeEdit( QWidget *parent )
   : QDateTimeEdit( parent )
 {
-  QIcon clearIcon = QgsApplication::getThemeIcon( "/mIconClearText.svg" );
+  QIcon clearIcon = QgsResources::getThemeIcon( "/mIconClearText.svg" );
   mClearAction = new QAction( clearIcon, tr( "clear" ), this );
   mClearAction->setCheckable( false );
   lineEdit()->addAction( mClearAction, QLineEdit::TrailingPosition );

@@ -19,7 +19,7 @@
 #define QGSPROCESSINGCONTEXT_H
 
 #include "qgis_core.h"
-#include "qgis.h"
+// #include "qgis.h"
 #include "qgsproject.h"
 #include "qgsexpressioncontext.h"
 #include "qgsfeaturerequest.h"

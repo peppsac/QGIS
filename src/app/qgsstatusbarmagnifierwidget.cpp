@@ -20,7 +20,7 @@
 #include <QToolButton>
 
 #include "qgssettings.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsstatusbarmagnifierwidget.h"
 #include "qgsdoublespinbox.h"
 #include "qgsguiutils.h"
@@ -57,7 +57,7 @@ QgsStatusBarMagnifierWidget::QgsStatusBarMagnifierWidget( QWidget *parent )
   connect( mSpinBox, static_cast < void ( QgsDoubleSpinBox::* )( double ) > ( &QgsDoubleSpinBox::valueChanged ), this, &QgsStatusBarMagnifierWidget::setMagnification );
 
   mLockButton = new QToolButton();
-  mLockButton->setIcon( QIcon( QgsApplication::getThemeIcon( "/lockedGray.svg" ) ) );
+  mLockButton->setIcon( QIcon( QgsResources::getThemeIcon( "/lockedGray.svg" ) ) );
   mLockButton->setToolTip( tr( "Lock the scale to use magnifier to zoom in or out." ) );
   mLockButton->setCheckable( true );
   mLockButton->setChecked( false );

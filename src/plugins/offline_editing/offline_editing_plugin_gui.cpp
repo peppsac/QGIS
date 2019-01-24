@@ -26,7 +26,7 @@
 #include "qgsvectordataprovider.h"
 #include "qgsvectorlayer.h"
 #include "qgssettings.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 #include <QFileDialog>
 #include <QMessageBox>
@@ -85,7 +85,7 @@ QVariant QgsSelectLayerTreeModel::data( const QModelIndex &index, int role ) con
                        "editing." );
 
           case Qt::DecorationRole:
-            return QgsApplication::getThemeIcon( QStringLiteral( "/mIconWarning.svg" ) );
+            return QgsResources::getThemeIcon( QStringLiteral( "/mIconWarning.svg" ) );
         }
       }
     }

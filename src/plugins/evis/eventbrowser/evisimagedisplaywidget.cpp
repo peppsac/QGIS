@@ -26,7 +26,7 @@
 **/
 #include "evisimagedisplaywidget.h"
 
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsscrollarea.h"
 
 #include <QVBoxLayout>
@@ -49,7 +49,7 @@ eVisImageDisplayWidget::eVisImageDisplayWidget( QWidget *parent, Qt::WindowFlags
   pbtnZoomIn->setEnabled( false );
   pbtnZoomOut->setEnabled( false );
   pbtnZoomFull->setEnabled( false );
-  QString myThemePath = QgsApplication::defaultThemePath();
+  QString myThemePath = QgsResources::defaultThemePath();
   pbtnZoomIn->setToolTip( tr( "Zoom in" ) );
   pbtnZoomIn->setWhatsThis( tr( "Zoom in to see more detail." ) );
   pbtnZoomOut->setToolTip( tr( "Zoom out" ) );

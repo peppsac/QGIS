@@ -19,7 +19,7 @@
 #include "qgsprocessingconfigurationwidgets.h"
 #include "qgsprocessingalgorithm.h"
 #include "qgsexpressionlineedit.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsgui.h"
 #include "qgsprocessingguiregistry.h"
 
@@ -49,11 +49,11 @@ QgsFilterAlgorithmConfigurationWidget::QgsFilterAlgorithmConfigurationWidget( QW
   layout->addWidget( new QLabel( tr( "Outputs and filters" ) ), 0, 0, 1, 2 );
   layout->addWidget( mOutputExpressionWidget, 1, 0, 4, 1 );
   QToolButton *addOutputButton = new QToolButton();
-  addOutputButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddLayer.svg" ) ) );
+  addOutputButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionAddLayer.svg" ) ) );
   addOutputButton->setText( tr( "Add Output" ) );
 
   QToolButton *removeOutputButton = new QToolButton();
-  removeOutputButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionRemoveLayer.svg" ) ) );
+  removeOutputButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionRemoveLayer.svg" ) ) );
   removeOutputButton->setToolTip( tr( "Remove Selected Outputs" ) );
 
   layout->addWidget( addOutputButton, 2, 1, 1, 1 );

@@ -20,6 +20,7 @@
 #include "qgslayoutundostack.h"
 #include "qgsprintlayout.h"
 #include "qgslayoutatlas.h"
+#include "qgsapplication.h"
 
 #include <QButtonGroup>
 

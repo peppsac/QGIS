@@ -30,6 +30,7 @@
 
 #include "qgslogger.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgssettings.h"
 #include "qgsfeatureiterator.h"
 #include "qgsvectorlayer.h"
@@ -245,17 +246,17 @@ QgsSymbolSelectorWidget::QgsSymbolSelectorWidget( QgsSymbol *symbol, QgsStyle *s
   layersTree->setMinimumHeight( layersTree->maximumHeight() );
 
   // setup icons
-  btnAddLayer->setIcon( QIcon( QgsApplication::iconPath( "symbologyAdd.svg" ) ) );
-  btnRemoveLayer->setIcon( QIcon( QgsApplication::iconPath( "symbologyRemove.svg" ) ) );
+  btnAddLayer->setIcon( QIcon( QgsResources::iconPath( "symbologyAdd.svg" ) ) );
+  btnRemoveLayer->setIcon( QIcon( QgsResources::iconPath( "symbologyRemove.svg" ) ) );
   QIcon iconLock;
-  iconLock.addFile( QgsApplication::iconPath( QStringLiteral( "locked.svg" ) ), QSize(), QIcon::Normal, QIcon::On );
-  iconLock.addFile( QgsApplication::iconPath( QStringLiteral( "locked.svg" ) ), QSize(), QIcon::Active, QIcon::On );
-  iconLock.addFile( QgsApplication::iconPath( QStringLiteral( "unlocked.svg" ) ), QSize(), QIcon::Normal, QIcon::Off );
-  iconLock.addFile( QgsApplication::iconPath( QStringLiteral( "unlocked.svg" ) ), QSize(), QIcon::Active, QIcon::Off );
+  iconLock.addFile( QgsResources::iconPath( QStringLiteral( "locked.svg" ) ), QSize(), QIcon::Normal, QIcon::On );
+  iconLock.addFile( QgsResources::iconPath( QStringLiteral( "locked.svg" ) ), QSize(), QIcon::Active, QIcon::On );
+  iconLock.addFile( QgsResources::iconPath( QStringLiteral( "unlocked.svg" ) ), QSize(), QIcon::Normal, QIcon::Off );
+  iconLock.addFile( QgsResources::iconPath( QStringLiteral( "unlocked.svg" ) ), QSize(), QIcon::Active, QIcon::Off );
   btnLock->setIcon( iconLock );
-  btnDuplicate->setIcon( QIcon( QgsApplication::iconPath( "mActionDuplicateLayer.svg" ) ) );
-  btnUp->setIcon( QIcon( QgsApplication::iconPath( "mActionArrowUp.svg" ) ) );
-  btnDown->setIcon( QIcon( QgsApplication::iconPath( "mActionArrowDown.svg" ) ) );
+  btnDuplicate->setIcon( QIcon( QgsResources::iconPath( "mActionDuplicateLayer.svg" ) ) );
+  btnUp->setIcon( QIcon( QgsResources::iconPath( "mActionArrowUp.svg" ) ) );
+  btnDown->setIcon( QIcon( QgsResources::iconPath( "mActionArrowDown.svg" ) ) );
 
   model = new QStandardItemModel( layersTree );
   // Set the symbol

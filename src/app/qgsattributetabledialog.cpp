@@ -24,7 +24,7 @@
 #include "qgsattributetableview.h"
 
 
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsvectorlayer.h"
 #include "qgsvectorlayerutils.h"
 #include "qgsvectordataprovider.h"
@@ -187,7 +187,7 @@ QgsAttributeTableDialog::QgsAttributeTableDialog( QgsVectorLayer *layer, QgsAttr
   mApplyFilterButton->setDefaultAction( mActionApplyFilter );
 
   // Set filter icon in a couple of places
-  QIcon filterIcon = QgsApplication::getThemeIcon( "/mActionFilter2.svg" );
+  QIcon filterIcon = QgsResources::getThemeIcon( "/mActionFilter2.svg" );
   mActionShowAllFilter->setIcon( filterIcon );
   mActionAdvancedFilter->setIcon( filterIcon );
   mActionSelectedFilter->setIcon( filterIcon );
@@ -197,7 +197,7 @@ QgsAttributeTableDialog::QgsAttributeTableDialog( QgsVectorLayer *layer, QgsAttr
   mActionFeatureActions = new QToolButton();
   mActionFeatureActions->setAutoRaise( false );
   mActionFeatureActions->setPopupMode( QToolButton::InstantPopup );
-  mActionFeatureActions->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mAction.svg" ) ) );
+  mActionFeatureActions->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mAction.svg" ) ) );
   mActionFeatureActions->setText( tr( "Actions" ) );
   mActionFeatureActions->setToolTip( tr( "Actions" ) );
   mToolbar->addWidget( mActionFeatureActions );
@@ -248,25 +248,25 @@ QgsAttributeTableDialog::QgsAttributeTableDialog( QgsVectorLayer *layer, QgsAttr
   columnBoxInit();
   updateTitle();
 
-  mActionRemoveSelection->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionDeselectAll.svg" ) ) );
-  mActionSelectAll->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSelectAll.svg" ) ) );
-  mActionSelectedToTop->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSelectedToTop.svg" ) ) );
-  mActionCopySelectedRows->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionEditCopy.svg" ) ) );
-  mActionPasteFeatures->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionEditPaste.svg" ) ) );
-  mActionZoomMapToSelectedRows->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionZoomToSelected.svg" ) ) );
-  mActionPanMapToSelectedRows->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionPanToSelected.svg" ) ) );
-  mActionInvertSelection->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionInvertSelection.svg" ) ) );
-  mActionToggleEditing->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionToggleEditing.svg" ) ) );
-  mActionSaveEdits->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSaveEdits.svg" ) ) );
-  mActionDeleteSelected->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionDeleteSelected.svg" ) ) );
-  mActionOpenFieldCalculator->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionCalculateField.svg" ) ) );
-  mActionAddAttribute->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionNewAttribute.svg" ) ) );
-  mActionRemoveAttribute->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionDeleteAttribute.svg" ) ) );
-  mTableViewButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionOpenTable.svg" ) ) );
-  mAttributeViewButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionFormView.svg" ) ) );
-  mActionExpressionSelect->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconExpressionSelect.svg" ) ) );
-  mActionAddFeature->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionNewTableRow.svg" ) ) );
-  mActionFeatureActions->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mAction.svg" ) ) );
+  mActionRemoveSelection->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionDeselectAll.svg" ) ) );
+  mActionSelectAll->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSelectAll.svg" ) ) );
+  mActionSelectedToTop->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSelectedToTop.svg" ) ) );
+  mActionCopySelectedRows->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionEditCopy.svg" ) ) );
+  mActionPasteFeatures->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionEditPaste.svg" ) ) );
+  mActionZoomMapToSelectedRows->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionZoomToSelected.svg" ) ) );
+  mActionPanMapToSelectedRows->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionPanToSelected.svg" ) ) );
+  mActionInvertSelection->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionInvertSelection.svg" ) ) );
+  mActionToggleEditing->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionToggleEditing.svg" ) ) );
+  mActionSaveEdits->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSaveEdits.svg" ) ) );
+  mActionDeleteSelected->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionDeleteSelected.svg" ) ) );
+  mActionOpenFieldCalculator->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionCalculateField.svg" ) ) );
+  mActionAddAttribute->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionNewAttribute.svg" ) ) );
+  mActionRemoveAttribute->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionDeleteAttribute.svg" ) ) );
+  mTableViewButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionOpenTable.svg" ) ) );
+  mAttributeViewButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionFormView.svg" ) ) );
+  mActionExpressionSelect->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconExpressionSelect.svg" ) ) );
+  mActionAddFeature->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionNewTableRow.svg" ) ) );
+  mActionFeatureActions->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mAction.svg" ) ) );
 
   // toggle editing
   bool canChangeAttributes = mLayer->dataProvider()->capabilities() & QgsVectorDataProvider::ChangeAttributeValues;
@@ -1169,7 +1169,7 @@ void QgsAttributeTableDialog::showContextMenu( QgsActionMenu *menu, const QgsFea
 {
   if ( mLayer->isEditable() )
   {
-    QAction *qAction = menu->addAction( QgsApplication::getThemeIcon( QStringLiteral( "/mActionDeleteSelected.svg" ) ),  tr( "Delete feature" ) );
+    QAction *qAction = menu->addAction( QgsResources::getThemeIcon( QStringLiteral( "/mActionDeleteSelected.svg" ) ),  tr( "Delete feature" ) );
     connect( qAction, &QAction::triggered, this, [this, fid]() { deleteFeature( fid ); } );
   }
 }

@@ -22,6 +22,7 @@
 #include "qgslayoutitemundocommand.h"
 #include "qgslayoutpagecollection.h"
 #include "qgslayoutundostack.h"
+#include "qgsapplication.h"
 #include <QPainter>
 #include <QStyleOptionGraphicsItem>
 

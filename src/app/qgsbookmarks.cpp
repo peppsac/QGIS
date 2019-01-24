@@ -16,6 +16,7 @@
  ***************************************************************************/
 #include "qgisapp.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsbookmarks.h"
 #include "qgsmapcanvas.h"
 #include "qgsproject.h"
@@ -54,14 +55,14 @@ QgsBookmarks::QgsBookmarks( QWidget *parent )
   QToolButton *btnImpExp = new QToolButton;
   btnImpExp->setAutoRaise( true );
   btnImpExp->setToolTip( tr( "Import/Export Bookmarks" ) );
-  btnImpExp->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSharing.svg" ) ) );
+  btnImpExp->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSharing.svg" ) ) );
   btnImpExp->setPopupMode( QToolButton::InstantPopup );
 
   QMenu *share = new QMenu( this );
   QAction *btnExport = share->addAction( tr( "&Export" ) );
   QAction *btnImport = share->addAction( tr( "&Import" ) );
-  btnExport->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSharingExport.svg" ) ) );
-  btnImport->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mActionSharingImport.svg" ) ) );
+  btnExport->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSharingExport.svg" ) ) );
+  btnImport->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mActionSharingImport.svg" ) ) );
   connect( btnExport, &QAction::triggered, this, &QgsBookmarks::exportToXml );
   connect( btnImport, &QAction::triggered, this, &QgsBookmarks::importFromXml );
   btnImpExp->setMenu( share );

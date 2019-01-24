@@ -35,7 +35,7 @@ QString QgsReportSectionFieldGroup::description() const
 
 QIcon QgsReportSectionFieldGroup::icon() const
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mIconFieldText.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mIconFieldText.svg" ) );
 }
 
 QgsReportSectionFieldGroup *QgsReportSectionFieldGroup::clone() const

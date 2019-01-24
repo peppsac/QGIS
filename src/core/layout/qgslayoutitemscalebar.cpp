@@ -54,7 +54,7 @@ int QgsLayoutItemScaleBar::type() const
 
 QIcon QgsLayoutItemScaleBar::icon() const
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mLayoutItemScaleBar.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mLayoutItemScaleBar.svg" ) );
 }
 
 QgsLayoutItemScaleBar *QgsLayoutItemScaleBar::create( QgsLayout *layout )

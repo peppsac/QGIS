@@ -69,7 +69,7 @@ int QgsLayoutItemLegend::type() const
 
 QIcon QgsLayoutItemLegend::icon() const
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mLayoutItemLegend.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mLayoutItemLegend.svg" ) );
 }
 
 QgsLayoutItem::Flags QgsLayoutItemLegend::itemFlags() const

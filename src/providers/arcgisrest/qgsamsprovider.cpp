@@ -23,7 +23,7 @@
 #include "qgsrasteridentifyresult.h"
 #include "qgsfeaturestore.h"
 #include "qgsgeometry.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 #ifdef HAVE_GUI
 #include "qgsamssourceselect.h"
@@ -479,7 +479,7 @@ class QgsAmsSourceSelectProvider : public QgsSourceSelectProvider
     QString providerKey() const override { return QStringLiteral( "arcgismapserver" ); }
     QString text() const override { return QObject::tr( "ArcGIS Map Server" ); }
     int ordering() const override { return QgsSourceSelectProvider::OrderRemoteProvider + 140; }
-    QIcon icon() const override { return QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddAmsLayer.svg" ) ); }
+    QIcon icon() const override { return QgsResources::getThemeIcon( QStringLiteral( "/mActionAddAmsLayer.svg" ) ); }
     QgsAbstractDataSourceWidget *createDataSourceWidget( QWidget *parent = nullptr, Qt::WindowFlags fl = Qt::Widget, QgsProviderRegistry::WidgetMode widgetMode = QgsProviderRegistry::WidgetMode::Embedded ) const override
     {
       return new QgsAmsSourceSelect( parent, fl, widgetMode );

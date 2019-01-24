@@ -16,6 +16,7 @@
 #include "qgsexpressionnodeimpl.h"
 #include "qgsexpressionutils.h"
 #include "qgsexpression.h"
+#include "qgsexpressionfunction.h"
 
 #include "qgsgeometry.h"
 #include "qgsfeaturerequest.h"

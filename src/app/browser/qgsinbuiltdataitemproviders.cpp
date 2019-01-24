@@ -32,7 +32,7 @@
 #include "qgsnewvectorlayerdialog.h"
 #include "qgsnewgeopackagelayerdialog.h"
 #include "qgsfileutils.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include <QMenu>
 #include <QInputDialog>
 #include <QMessageBox>
@@ -55,7 +55,7 @@ void QgsAppDirectoryItemGuiProvider::populateContextMenu( QgsDataItem *item, QMe
 
   QMenu *newMenu = new QMenu( tr( "New" ), menu );
 
-  QAction *createFolder = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "mActionNewFolder.svg" ) ), tr( "Directory…" ), menu );
+  QAction *createFolder = new QAction( QgsResources::getThemeIcon( QStringLiteral( "mActionNewFolder.svg" ) ), tr( "Directory…" ), menu );
   connect( createFolder, &QAction::triggered, this, [ = ]
   {
     bool ok = false;
@@ -81,7 +81,7 @@ void QgsAppDirectoryItemGuiProvider::populateContextMenu( QgsDataItem *item, QMe
   newMenu->addAction( createFolder );
 
   QAction *createGpkg = new QAction( tr( "GeoPackage…" ), newMenu );
-  createGpkg->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mActionNewGeoPackageLayer.svg" ) ) );
+  createGpkg->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mActionNewGeoPackageLayer.svg" ) ) );
   connect( createGpkg, &QAction::triggered, this, [ = ]
   {
     QgsNewGeoPackageLayerDialog dialog( QgisApp::instance() );
@@ -101,7 +101,7 @@ void QgsAppDirectoryItemGuiProvider::populateContextMenu( QgsDataItem *item, QMe
   newMenu->addAction( createGpkg );
 
   QAction *createShp = new QAction( tr( "ShapeFile…" ), newMenu );
-  createShp->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mActionNewVectorLayer.svg" ) ) );
+  createShp->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mActionNewVectorLayer.svg" ) ) );
   connect( createShp, &QAction::triggered, this, [ = ]
   {
     QString enc;
@@ -125,7 +125,7 @@ void QgsAppDirectoryItemGuiProvider::populateContextMenu( QgsDataItem *item, QMe
   {
     // only non-root directories can be added as favorites
     QAction *addAsFavorite = new QAction( tr( "Add as a Favorite" ), menu );
-    addAsFavorite->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconFavourites.svg" ) ) );
+    addAsFavorite->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconFavourites.svg" ) ) );
     menu->addAction( addAsFavorite );
     connect( addAsFavorite, &QAction::triggered, this, [ = ]
     {
@@ -170,7 +170,7 @@ void QgsAppDirectoryItemGuiProvider::populateContextMenu( QgsDataItem *item, QMe
 
   menu->addSeparator();
 
-  QAction *openFolder = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "mIconFolder.svg" ) ), tr( "Open Directory…" ), menu );
+  QAction *openFolder = new QAction( QgsResources::getThemeIcon( QStringLiteral( "mIconFolder.svg" ) ), tr( "Open Directory…" ), menu );
   connect( openFolder, &QAction::triggered, this, [ = ]
   {
     QDesktopServices::openUrl( QUrl::fromLocalFile( directoryItem->dirPath() ) );
@@ -179,7 +179,7 @@ void QgsAppDirectoryItemGuiProvider::populateContextMenu( QgsDataItem *item, QMe
 
   if ( QgsGui::instance()->nativePlatformInterface()->capabilities() & QgsNative::NativeOpenTerminalAtPath )
   {
-    QAction *openTerminal = new QAction( QgsApplication::getThemeIcon( QStringLiteral( "mActionTerminal.svg" ) ), tr( "Open in Terminal…" ), menu );
+    QAction *openTerminal = new QAction( QgsResources::getThemeIcon( QStringLiteral( "mActionTerminal.svg" ) ), tr( "Open in Terminal…" ), menu );
     connect( openTerminal, &QAction::triggered, this, [ = ]
     {
       QgsGui::instance()->nativePlatformInterface()->openTerminalAtPath( directoryItem->dirPath() );

@@ -24,7 +24,7 @@
 #include "geometry/qgsgeometry.h"
 #include "qgsnetworkaccessmanager.h"
 #include "qgsdataitemprovider.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 #ifdef HAVE_GUI
 #include "qgsafssourceselect.h"
@@ -333,7 +333,7 @@ class QgsAfsSourceSelectProvider : public QgsSourceSelectProvider
     QString providerKey() const override { return TEXT_PROVIDER_KEY; }
     QString text() const override { return QObject::tr( "ArcGIS Feature Server" ); }
     int ordering() const override { return QgsSourceSelectProvider::OrderRemoteProvider + 150; }
-    QIcon icon() const override { return QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddAfsLayer.svg" ) ); }
+    QIcon icon() const override { return QgsResources::getThemeIcon( QStringLiteral( "/mActionAddAfsLayer.svg" ) ); }
     QgsAbstractDataSourceWidget *createDataSourceWidget( QWidget *parent = nullptr, Qt::WindowFlags fl = Qt::Widget, QgsProviderRegistry::WidgetMode widgetMode = QgsProviderRegistry::WidgetMode::Embedded ) const override
     {
       return new QgsAfsSourceSelect( parent, fl, widgetMode );

@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 #include "qgsprocessingprovider.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsvectorfilewriter.h"
 #include "qgsrasterfilewriter.h"
 #include "qgssettings.h"
@@ -33,12 +33,12 @@ QgsProcessingProvider::~QgsProcessingProvider()
 
 QIcon QgsProcessingProvider::icon() const
 {
-  return QgsApplication::getThemeIcon( "/processingAlgorithm.svg" );
+  return QgsResources::getThemeIcon( "/processingAlgorithm.svg" );
 }
 
 QString QgsProcessingProvider::svgIconPath() const
 {
-  return QgsApplication::iconPath( QStringLiteral( "processingAlgorithm.svg" ) );
+  return QgsResources::iconPath( QStringLiteral( "processingAlgorithm.svg" ) );
 }
 
 QString QgsProcessingProvider::helpId() const

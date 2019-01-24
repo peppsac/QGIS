@@ -20,6 +20,7 @@
 #include "qgspainteffectpropertieswidget.h"
 #include "qgspainteffectwidget.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgssymbollayerutils.h"
 #include "qgspanelwidget.h"
 
@@ -108,10 +109,10 @@ QgsEffectStackPropertiesWidget::QgsEffectStackPropertiesWidget( QgsEffectStack *
 
   setupUi( this );
 
-  mAddButton->setIcon( QIcon( QgsApplication::iconPath( "symbologyAdd.svg" ) ) );
-  mRemoveButton->setIcon( QIcon( QgsApplication::iconPath( "symbologyRemove.svg" ) ) );
-  mUpButton->setIcon( QIcon( QgsApplication::iconPath( "mActionArrowUp.svg" ) ) );
-  mDownButton->setIcon( QIcon( QgsApplication::iconPath( "mActionArrowDown.svg" ) ) );
+  mAddButton->setIcon( QIcon( QgsResources::iconPath( "symbologyAdd.svg" ) ) );
+  mRemoveButton->setIcon( QIcon( QgsResources::iconPath( "symbologyRemove.svg" ) ) );
+  mUpButton->setIcon( QIcon( QgsResources::iconPath( "mActionArrowUp.svg" ) ) );
+  mDownButton->setIcon( QIcon( QgsResources::iconPath( "mActionArrowDown.svg" ) ) );
 
   mModel = new QStandardItemModel();
   // Set the effect
@@ -394,7 +395,7 @@ QgsEffectStackCompactWidget::QgsEffectStackCompactWidget( QWidget *parent, QgsPa
   layout->addWidget( mEnabledCheckBox );
 
   mButton = new QToolButton( this );
-  mButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "mIconPaintEffects.svg" ) ) );
+  mButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "mIconPaintEffects.svg" ) ) );
   mButton->setToolTip( tr( "Customize effects" ) );
   layout->addWidget( mButton );
 

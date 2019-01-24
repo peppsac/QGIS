@@ -29,7 +29,7 @@ email                : matthias@opengis.ch
 #include "qgsgeometryoptions.h"
 #include "qgsgeometrycheckfactory.h"
 #include "qgisapp.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 
 QgsGeometryValidationDock::QgsGeometryValidationDock( const QString &title, QgsMapCanvas *mapCanvas, QgisApp *parent, Qt::WindowFlags flags )
@@ -224,7 +224,7 @@ void QgsGeometryValidationDock::onCurrentErrorChanged( const QModelIndex &curren
       for ( const QString &resolutionMethod : resolutionMethods )
       {
         QToolButton *resolveBtn = new QToolButton( mResolutionWidget );
-        resolveBtn->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/algorithms/mAlgorithmCheckGeometry.svg" ) ) );
+        resolveBtn->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/algorithms/mAlgorithmCheckGeometry.svg" ) ) );
         layout->addWidget( resolveBtn, resolutionIndex, 0 );
         QLabel *resolveLabel = new QLabel( resolutionMethod, mResolutionWidget );
         resolveLabel->setWordWrap( true );

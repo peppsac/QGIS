@@ -75,7 +75,7 @@ class QgsLayerTreeViewIndicatorProvider : public QObject
     // Subclasses MUST override:
     //! Layer filter: layers that pass the test will get the indicator
     virtual bool acceptLayer( QgsMapLayer *layer ) = 0;
-    //! Returns the icon name for the given \a layer, icon name is passed to QgsApplication::getThemeIcon()
+    //! Returns the icon name for the given \a layer, icon name is passed to QgsResources::getThemeIcon()
     virtual QString iconName( QgsMapLayer *layer ) = 0;
     //! Returns the tooltip text for the given \a layer
     virtual QString tooltipText( QgsMapLayer *layer ) = 0;

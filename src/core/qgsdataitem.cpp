@@ -32,6 +32,7 @@
 #include "qgis.h"
 #include "qgsdataitem.h"
 #include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsdataitemprovider.h"
 #include "qgsdataitemproviderregistry.h"
 #include "qgsdataprovider.h"
@@ -51,62 +52,62 @@
 // shared icons
 QIcon QgsLayerItem::iconPoint()
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mIconPointLayer.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mIconPointLayer.svg" ) );
 }
 
 QIcon QgsLayerItem::iconLine()
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) );
 }
 
 QIcon QgsLayerItem::iconPolygon()
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mIconPolygonLayer.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mIconPolygonLayer.svg" ) );
 }
 
 QIcon QgsLayerItem::iconTable()
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mIconTableLayer.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mIconTableLayer.svg" ) );
 }
 
 QIcon QgsLayerItem::iconRaster()
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mIconRaster.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mIconRaster.svg" ) );
 }
 
 QIcon QgsLayerItem::iconMesh()
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mIconMeshLayer.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mIconMeshLayer.svg" ) );
 }
 
 QIcon QgsLayerItem::iconDefault()
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mIconLayer.png" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mIconLayer.png" ) );
 }
 
 QIcon QgsDataCollectionItem::iconDataCollection()
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mIconDbSchema.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mIconDbSchema.svg" ) );
 }
 
 QIcon QgsDataCollectionItem::openDirIcon()
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mIconFolderOpen.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mIconFolderOpen.svg" ) );
 }
 
 QIcon QgsDataCollectionItem::homeDirIcon()
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "mIconFolderHome.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "mIconFolderHome.svg" ) );
 }
 
 QIcon QgsDataCollectionItem::iconDir()
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mIconFolder.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mIconFolder.svg" ) );
 }
 
 QIcon QgsFavoritesItem::iconFavorites()
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mIconFavourites.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mIconFavourites.svg" ) );
 }
 
 QVariant QgsFavoritesItem::sortKey() const
@@ -116,7 +117,7 @@ QVariant QgsFavoritesItem::sortKey() const
 
 QIcon QgsZipItem::iconZip()
 {
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mIconZip.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mIconZip.svg" ) );
 }
 
 QgsAnimatedIcon *QgsDataItem::sPopulatingIcon = nullptr;
@@ -229,7 +230,7 @@ QIcon QgsDataItem::icon()
 
   if ( !mIconMap.contains( mIconName ) )
   {
-    mIconMap.insert( mIconName, mIconName.startsWith( ':' ) ? QIcon( mIconName ) : QgsApplication::getThemeIcon( mIconName ) );
+    mIconMap.insert( mIconName, mIconName.startsWith( ':' ) ? QIcon( mIconName ) : QgsResources::getThemeIcon( mIconName ) );
   }
 
   return mIconMap.value( mIconName );
@@ -571,7 +572,7 @@ void QgsDataItem::setState( State state )
     if ( !sPopulatingIcon )
     {
       // TODO: ensure that QgsAnimatedIcon is created on UI thread only
-      sPopulatingIcon = new QgsAnimatedIcon( QgsApplication::iconPath( QStringLiteral( "/mIconLoading.gif" ) ), QgsApplication::instance() );
+      sPopulatingIcon = new QgsAnimatedIcon( QgsResources::iconPath( QStringLiteral( "/mIconLoading.gif" ) ), QgsApplication::instance() );
     }
 
     sPopulatingIcon->connectFrameChanged( this, &QgsDataItem::updateIcon );
@@ -809,7 +810,7 @@ QIcon QgsDirectoryItem::icon()
   QFileInfo fi( mDirPath );
   if ( fi.isDir() && fi.isSymLink() )
   {
-    return QgsApplication::getThemeIcon( QStringLiteral( "mIconFolderLink.svg" ) );
+    return QgsResources::getThemeIcon( QStringLiteral( "mIconFolderLink.svg" ) );
   }
 
   // loaded? show the open dir icon
@@ -1032,10 +1033,10 @@ QgsDirectoryParamWidget::QgsDirectoryParamWidget( const QString &path, QWidget *
   labels << tr( "Name" ) << tr( "Size" ) << tr( "Date" ) << tr( "Permissions" ) << tr( "Owner" ) << tr( "Group" ) << tr( "Type" );
   setHeaderLabels( labels );
 
-  QIcon iconDirectory = QgsApplication::getThemeIcon( QStringLiteral( "mIconFolder.svg" ) );
-  QIcon iconFile = QgsApplication::getThemeIcon( QStringLiteral( "mIconFile.svg" ) );
-  QIcon iconDirLink = QgsApplication::getThemeIcon( QStringLiteral( "mIconFolderLink.svg" ) );
-  QIcon iconFileLink = QgsApplication::getThemeIcon( QStringLiteral( "mIconFileLink.svg" ) );
+  QIcon iconDirectory = QgsResources::getThemeIcon( QStringLiteral( "mIconFolder.svg" ) );
+  QIcon iconFile = QgsResources::getThemeIcon( QStringLiteral( "mIconFile.svg" ) );
+  QIcon iconDirLink = QgsResources::getThemeIcon( QStringLiteral( "mIconFolderLink.svg" ) );
+  QIcon iconFileLink = QgsResources::getThemeIcon( QStringLiteral( "mIconFileLink.svg" ) );
 
   QList<QTreeWidgetItem *> items;
 
@@ -1541,7 +1542,7 @@ QIcon QgsProjectHomeItem::icon()
 {
   if ( state() == Populating )
     return QgsDirectoryItem::icon();
-  return QgsApplication::getThemeIcon( QStringLiteral( "mIconFolderProject.svg" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "mIconFolderProject.svg" ) );
 }
 
 QVariant QgsProjectHomeItem::sortKey() const

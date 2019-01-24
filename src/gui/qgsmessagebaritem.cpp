@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsmessagebaritem.h"
 #include "qgsmessagebar.h"
 #include "qgsgui.h"
@@ -107,7 +107,7 @@ void QgsMessageBarItem::writeContent()
       default:
         break;
     }
-    icon = QgsApplication::getThemeIcon( msgIcon );
+    icon = QgsResources::getThemeIcon( msgIcon );
   }
   const int iconSize = std::max( 24.0, fontMetrics().height() * 1.2 );
   mLblIcon->setPixmap( icon.pixmap( iconSize ) );

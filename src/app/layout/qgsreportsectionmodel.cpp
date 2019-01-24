@@ -15,6 +15,7 @@
 
 #include "qgsreportsectionmodel.h"
 #include "functional"
+#include "qgsapplication.h"
 
 #ifdef ENABLE_MODELTEST
 #include "modeltest.h"

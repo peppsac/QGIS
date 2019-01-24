@@ -15,7 +15,7 @@
 
 #include "qgsexpressionselectiondialog.h"
 
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "qgsexpression.h"
 #include "qgsgeometry.h"
 #include "qgsmapcanvas.h"
@@ -43,10 +43,10 @@ QgsExpressionSelectionDialog::QgsExpressionSelectionDialog( QgsVectorLayer *laye
 
   setWindowTitle( QStringLiteral( "Select by Expression - %1" ).arg( layer->name() ) );
 
-  mActionSelect->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconExpressionSelect.svg" ) ) );
-  mActionAddToSelection->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconSelectAdd.svg" ) ) );
-  mActionRemoveFromSelection->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconSelectRemove.svg" ) ) );
-  mActionSelectIntersect->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconSelectIntersect.svg" ) ) );
+  mActionSelect->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconExpressionSelect.svg" ) ) );
+  mActionAddToSelection->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconSelectAdd.svg" ) ) );
+  mActionRemoveFromSelection->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconSelectRemove.svg" ) ) );
+  mActionSelectIntersect->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconSelectIntersect.svg" ) ) );
 
   mButtonSelect->addAction( mActionSelect );
   mButtonSelect->addAction( mActionAddToSelection );

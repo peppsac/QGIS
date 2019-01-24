@@ -60,11 +60,11 @@ QIcon QgsLayoutItemShape::icon() const
   switch ( mShape )
   {
     case Ellipse:
-      return QgsApplication::getThemeIcon( QStringLiteral( "/mLayoutItemShapeEllipse.svg" ) );
+      return QgsResources::getThemeIcon( QStringLiteral( "/mLayoutItemShapeEllipse.svg" ) );
     case Rectangle:
-      return QgsApplication::getThemeIcon( QStringLiteral( "/mLayoutItemShapeRectangle.svg" ) );
+      return QgsResources::getThemeIcon( QStringLiteral( "/mLayoutItemShapeRectangle.svg" ) );
     case Triangle:
-      return QgsApplication::getThemeIcon( QStringLiteral( "/mLayoutItemShapeTriangle.svg" ) );
+      return QgsResources::getThemeIcon( QStringLiteral( "/mLayoutItemShapeTriangle.svg" ) );
   }
 
   return QIcon();

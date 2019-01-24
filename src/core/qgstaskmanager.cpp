@@ -18,6 +18,7 @@
 #include "qgstaskmanager.h"
 #include "qgsproject.h"
 #include "qgsmaplayerlistutils.h"
+#include "qgsresources.h"
 #include <QtConcurrentRun>
 
 

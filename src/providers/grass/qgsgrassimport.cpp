@@ -44,7 +44,7 @@ QgsGrassImportIcon *QgsGrassImportIcon::instance()
 }
 
 QgsGrassImportIcon::QgsGrassImportIcon()
-  : QgsAnimatedIcon( QgsApplication::iconPath( QStringLiteral( "/mIconImport.gif" ) ) )
+  : QgsAnimatedIcon( QgsResources::iconPath( QStringLiteral( "/mIconImport.gif" ) ) )
 {
 }
 

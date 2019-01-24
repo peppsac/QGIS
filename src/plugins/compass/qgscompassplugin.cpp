@@ -166,9 +166,9 @@ QIcon QgsCompassPlugin::getThemeIcon( const QString &name )
   {
     return QIcon( QgsApplication::activeThemePath() + "/plugins" + name );
   }
-  else if ( QFile::exists( QgsApplication::defaultThemePath() + "/plugins" + name ) )
+  else if ( QFile::exists( QgsResources::defaultThemePath() + "/plugins" + name ) )
   {
-    return QIcon( QgsApplication::defaultThemePath() + "/plugins" + name );
+    return QIcon( QgsResources::defaultThemePath() + "/plugins" + name );
   }
   else
   {

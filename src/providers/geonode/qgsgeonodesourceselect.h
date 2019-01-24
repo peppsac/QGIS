@@ -23,7 +23,7 @@
 #include <QSortFilterProxyModel>
 #include "qgsabstractdatasourcewidget.h"
 #include "qgssourceselectprovider.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 #include "ui_qgsgeonodesourceselectbase.h"
 #include "qgis_gui.h"
 #include "qgsgeonodeconnection.h"
@@ -93,7 +93,7 @@ class QgsGeoNodeSourceSelectProvider : public QgsSourceSelectProvider
     QString providerKey() const override { return QStringLiteral( "geonode" ); }
     QString text() const override { return QObject::tr( "GeoNode" ); }
     int ordering() const override { return QgsSourceSelectProvider::OrderGeoCmsProvider + 10; }
-    QIcon icon() const override { return QgsApplication::getThemeIcon( QStringLiteral( "/mActionAddGeonodeLayer.svg" ) ); }
+    QIcon icon() const override { return QgsResources::getThemeIcon( QStringLiteral( "/mActionAddGeonodeLayer.svg" ) ); }
     QgsAbstractDataSourceWidget *createDataSourceWidget( QWidget *parent = nullptr, Qt::WindowFlags fl = Qt::Widget, QgsProviderRegistry::WidgetMode widgetMode = QgsProviderRegistry::WidgetMode::Embedded ) const override
     {
       return new QgsGeoNodeSourceSelect( parent, fl, widgetMode );

@@ -16,12 +16,12 @@
 #include "qgsexpressionlineedit.h"
 #include "qgsfilterlineedit.h"
 #include "qgsexpressioncontext.h"
-#include "qgsapplication.h"
 #include "qgsexpressionbuilderdialog.h"
 #include "qgsexpressioncontextgenerator.h"
 #include "qgscodeeditorsql.h"
 #include "qgsproject.h"
 #include "qgsvectorlayer.h"
+#include "qgsresources.h"
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QToolButton>
@@ -33,7 +33,7 @@ QgsExpressionLineEdit::QgsExpressionLineEdit( QWidget *parent )
 {
   mButton = new QToolButton();
   mButton->setSizePolicy( QSizePolicy::Minimum, QSizePolicy::Minimum );
-  mButton->setIcon( QgsApplication::getThemeIcon( QStringLiteral( "/mIconExpression.svg" ) ) );
+  mButton->setIcon( QgsResources::getThemeIcon( QStringLiteral( "/mIconExpression.svg" ) ) );
   connect( mButton, &QAbstractButton::clicked, this, &QgsExpressionLineEdit::editExpression );
 
   //sets up layout

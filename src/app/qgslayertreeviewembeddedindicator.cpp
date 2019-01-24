@@ -17,13 +17,13 @@
 #include "qgslayertree.h"
 #include "qgslayertreemodel.h"
 #include "qgslayertreeview.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 QgsLayerTreeViewEmbeddedIndicatorProvider::QgsLayerTreeViewEmbeddedIndicatorProvider( QgsLayerTreeView *view )
   : QObject( view )
   , mLayerTreeView( view )
 {
-  mIcon = QgsApplication::getThemeIcon( QStringLiteral( "/mIndicatorEmbedded.svg" ) );
+  mIcon = QgsResources::getThemeIcon( QStringLiteral( "/mIndicatorEmbedded.svg" ) );
 
   QgsLayerTree *tree = mLayerTreeView->layerTreeModel()->rootGroup();
   onAddedChildren( tree, 0, tree->children().count() - 1 );

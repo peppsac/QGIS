@@ -20,7 +20,7 @@
 #include "qgsdataitem.h"
 #include "qgslogger.h"
 #include "qgsdatasourceuri.h"
-#include "qgsapplication.h"
+#include "qgsresources.h"
 
 QgsDb2TableModel::QgsDb2TableModel()
 {
@@ -298,17 +298,17 @@ QIcon QgsDb2TableModel::iconForWkbType( QgsWkbTypes::Type type )
 
   {
     case QgsWkbTypes::PointGeometry:
-      return QgsApplication::getThemeIcon( QStringLiteral( "/mIconPointLayer.svg" ) );
+      return QgsResources::getThemeIcon( QStringLiteral( "/mIconPointLayer.svg" ) );
     case QgsWkbTypes::LineGeometry:
-      return QgsApplication::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) );
+      return QgsResources::getThemeIcon( QStringLiteral( "/mIconLineLayer.svg" ) );
     case QgsWkbTypes::PolygonGeometry:
-      return QgsApplication::getThemeIcon( QStringLiteral( "/mIconPolygonLayer.svg" ) );
+      return QgsResources::getThemeIcon( QStringLiteral( "/mIconPolygonLayer.svg" ) );
     case QgsWkbTypes::NullGeometry:
-      return QgsApplication::getThemeIcon( QStringLiteral( "/mIconTableLayer.svg" ) );
+      return QgsResources::getThemeIcon( QStringLiteral( "/mIconTableLayer.svg" ) );
     case QgsWkbTypes::UnknownGeometry:
       break;
   }
-  return QgsApplication::getThemeIcon( QStringLiteral( "/mIconLayer.png" ) );
+  return QgsResources::getThemeIcon( QStringLiteral( "/mIconLayer.png" ) );
 }
 
 bool QgsDb2TableModel::setData( const QModelIndex &idx, const QVariant &value, int role )
